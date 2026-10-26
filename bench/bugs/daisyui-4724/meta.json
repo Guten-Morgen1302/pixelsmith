@@ -1,0 +1,18 @@
+{
+  "id": "daisyui-4724",
+  "source": "real",
+  "upstream": { "repo": "saadeghi/daisyui", "pr": 4724, "license": "MIT" },
+  "base_sha": "090f572393034d93b8045ba8fdbaabbd258dba6d",
+  "fix_sha": "cc339e74d6de53c7bab8e225ffbb6390fee24e87",
+  "class": "overflow/focus-ring-clipping",
+  "build": "bun install --frozen-lockfile && cd packages/daisyui && bun run build  (output: packages/daisyui/daisyui.css)",
+  "page": "page.html",
+  "oracle": "oracle.mjs: Tab to focus first breadcrumb link; ring rect (outline width + offset) must lie inside the .breadcrumbs box. Fail if clipped > 0.5px.",
+  "verified": {
+    "buggy": { "pass": false, "clippedLeftPx": 4 },
+    "upstream_fix": { "pass": true, "clippedLeftPx": 0 },
+    "date": "2026-10-26",
+    "browser": "Google Chrome (Playwright channel chrome)"
+  },
+  "anti_cheat_todo": "reject patches that remove the outline or set overflow visible on a non-scrolling replacement"
+}

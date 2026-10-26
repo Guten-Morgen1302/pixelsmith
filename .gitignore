@@ -4,3 +4,4 @@
 node_modules/
 results/raw/
 .gstack/
+bench/_work/
