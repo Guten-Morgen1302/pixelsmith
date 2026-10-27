@@ -9,7 +9,8 @@ Environment: Google Chrome via Playwright (channel chrome), Windows, bun 1.4, no
 | daisyui-4179 | #4179 select multiple overflow | NOT REPRODUCED | overflow:hidden vs auto differ in computed style, but Chrome wheel-scrolls the listbox either way and no scrollbar gutter appeared; no visual difference found |
 | daisyui-4335 | #4335 wide range fill | NOT REPRODUCED | at width 2600px the fill looked uniform on the buggy build too |
 | daisyui-4166 | #4166 countdown alignment | NOT REPRODUCED | single-digit baseline offset identical (5px) on buggy and fix |
-| daisyui-4718 megamenu, docusaurus-11500, mantine-9268, chakra-10979/11015, react-spectrum-8527 | various | NOT ATTEMPTED YET | need heavier builds or specific markup |
+| docusaurus-11500 | facebook/docusaurus#11500 | ABANDONED | Windows checkout fails on long fixture paths ('Filename too long'); the fix lives in a website CSS module that needs the whole yarn monorepo built. Not worth the time budget here |
+| daisyui-4718 megamenu, mantine-9268, chakra-10979/11015, react-spectrum-8527 | various | NOT ATTEMPTED | need heavier builds or specific markup per bug |
 
 Build shim: older daisyUI commits call `fs.rmdir(p,{recursive:true})`, removed in Node 24 / Bun 1.4. `bench/tools/build-daisy.sh` swaps it for `fs.rm(...)` in `removeFiles.js` only; CSS sources are untouched.
 
