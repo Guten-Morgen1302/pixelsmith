@@ -19,3 +19,6 @@ Advisories: 16 CPUs per GPU job, <= 8 running jobs. Do not request more than one
 ## Result of the pre-registered run (2026-10-27, PARAM A100, facebook/sam3, score threshold 0.5)
 **4 of 28 = 14.3%** (rule: >= 60% to put SAM in the agent loop). SAM returned NO box for 23 of 28 screenshots; when it did, the boxes were accurate (IoU 0.87-0.99 on the 4 hits). Hits: large heading, blue button x2, product image. Zero hits for modal dialog, tables, nav bar, footer, dropdown, tooltip, text, inputs. Per class: overflow 0/6, responsive 1/4, stacking 0/4, spacing 1/4, contrast 0/4, media 2/3, state 0/3. Raw: `results/sam/spike1-preregistered-thr0.5.json`.
 Official outcome per the pre-registered rule: SAM is NOT in the agent loop. Any follow-up run below is exploratory and post hoc and does not replace this number.
+
+## Exploratory follow-up (post hoc, same day, same model and images)
+Same forward pass, lower score thresholds. Hits (IoU >= 0.5) of 28: 0.3 -> 6, 0.2 -> 10, 0.1 -> 12, 0.05 -> 12 (screenshots with any box: 7, 11, 15, 16). Best case 43%, still under the 60% rule. Generous metric (any box may hit), so it overstates SAM. Does not replace the pre-registered 14%. Raw output: `results/sam/spike2-exploratory.json` once copied from the cluster (not yet committed if absent).
