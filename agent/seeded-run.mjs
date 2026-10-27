@@ -9,6 +9,7 @@ import { PNG } from 'pngjs';
 import { bugs } from '../bench/seeded/bugs.mjs';
 import { loadPage, copyApp, applyMutation } from '../bench/seeded/lib.mjs';
 import { chat, imageMessage } from './llm.mjs';
+import { probeTargets, neutralised } from '../bench/lib/visibility.mjs';
 
 const args = process.argv.slice(2);
 const config = args[0];
@@ -62,7 +63,7 @@ async function runBug(bug, run) {
   // clean reference (grader only)
   const cleanPage = await loadPage(browser, APP, bug);
   const cleanShot = await cleanPage.screenshot(); const mask = await maskFor(cleanPage, bug);
-  const cleanText = await cleanPage.evaluate(() => document.body.innerText); await cleanPage.close();
+  const cleanText = await cleanPage.evaluate(() => document.body.innerText); const cleanProbe = await probeTargets(cleanPage, bug.target); await cleanPage.close();
 
   const ctxNote = `Viewport ${(bug.viewport || { width: 1200, height: 800 }).width}x${(bug.viewport || { width: 1200, height: 800 }).height}.${bug.query ? ' URL query: ?' + bug.query + '.' : ''}${bug.hash ? ' URL hash: ' + bug.hash + '.' : ''}${bug.preFocus ? ' Keyboard focus is on ' + bug.preFocus + '.' : ''}${bug.id.includes('hover') ? ' The mouse is hovering over the Specs tab (#tab2).' : ''}`;
   let feedback = '';
@@ -100,9 +101,9 @@ async function runBug(bug, run) {
   if (bug.id.includes('hover')) await gp.hover('#tab2');
   const o = await bug.oracle(gp);
   const finalText = await gp.evaluate(() => document.body.innerText);
-  const finalShot = await gp.screenshot(); await gp.close();
+  const finalShot = await gp.screenshot(); const finalProbe = await probeTargets(gp, bug.target); await gp.close();
   const reg = diffOutside(cleanShot, finalShot, mask);
-  rec.grade = { oracle: !!o.pass, cheat: !wordsSubset(cleanText, finalText), regressionFrac: reg.changedFrac, regression: !bug.noRegression && reg.changedFrac > 0.05, attempts: rec.attempts.length };
+  rec.grade = { oracle: !!o.pass, cheat: !wordsSubset(cleanText, finalText) || neutralised(finalProbe, cleanProbe), regressionFrac: reg.changedFrac, regression: !bug.noRegression && reg.changedFrac > 0.05, attempts: rec.attempts.length };
   rec.grade.fixed = rec.grade.oracle && !rec.grade.cheat && !rec.grade.regression;
   rec.finished = new Date().toISOString();
   fs.mkdirSync(outDir(run), { recursive: true });

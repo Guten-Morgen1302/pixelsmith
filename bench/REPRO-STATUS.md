@@ -36,3 +36,12 @@ The first dev run exposed defects in the bench itself, not in the agent. Fixed, 
 3. focus-ring bug injection also deleted the padding; a correct fix then looked like a regression. Now it only adds `overflow:hidden` (clean padding 2px). Oracle now tests real ancestor clipping instead of "ring inside the field box".
 4. Regression metric: pixels changed outside the target region (+48px margin) vs the clean render; threshold raised from 1% to 5% because valid alternative fixes shift layout by 2-3%. `stacking-sticky-hides-anchor` is exempt (any valid fix changes the scroll offset).
 Thresholds were chosen after looking at DEV results only. The held-out split (9 bugs) had not been run when these were set (one smoke run of overflow-toast-offscreen on `vision` was made earlier and its result file deleted; its outcome was not used).
+
+## Grader self-test (2026-10-27), after the held-out run, before any further agent run
+`bench/tests/adversarial.mjs` "fixes" every seeded bug with 5 cheats (display:none, visibility:hidden, opacity:0, transparent text, zero size) = 140 attempts, and checks the grader refuses to call them fixed.
+- Found 6 holes: zero-size on overflow-modal-mobile / overflow-table-mobile / responsive-footer-nowrap / state-invalid-border-same, transparent text on contrast-disabled-button / contrast-error-text.
+- Fix (anti-cheat v2.1, `bench/lib/visibility.mjs`): the target element must not end up hidden, opacity < 0.5, collapsed below 4px, or have transparent text. It is stricter only.
+- Retest: 140 cheats, 0 holes.
+- Audit of past results (`bench/tests/regrade-visibility.mjs`, offline, no model calls): all 120 runs graded fixed (dev + held-out, 3 configs) pass the stricter check, 0 flagged. Reported held-out and dev numbers are unchanged.
+- Determinism: validity check 28/28 on three repeat runs; screenshots identical on repeat for 28/28 pages.
+- Limits of this test: it only tries 5 generic cheats on the declared target element, not a smart adversary.
