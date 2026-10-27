@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-sticky-hides-anchor",
+ "cls": "stacking",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:54.181Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Sticky header (60px) covered the #pricing anchor target; adding scroll-margin-top prevents the heading being hidden under the sticky header on hash navigation.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#pricing at y=60 sits directly below 60px sticky header (header 0-60), fully visible on #pricing hash — scroll-margin-top effective and no overflow/clipping detected."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0661,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:05.705Z"
+}

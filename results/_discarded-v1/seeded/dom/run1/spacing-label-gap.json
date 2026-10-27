@@ -1,0 +1,36 @@
+{
+ "bug": "spacing-label-gap",
+ "cls": "spacing",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:16:05.812Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "disabled button must not show hover state, indicates it is interactive",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Disabled styling looks applied (grey bg #cfd6e4) but viewport 1200x800 shows regression: .menu-toggle (#menu 44x28 at 986,16) is visible on desktop while .nav-links are also visible (106,18), duplicate nav / hamburger should be hidden at this breakpoint, indicating responsive header broken."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Restore desktop header by ensuring hamburger stays hidden at 1200px despite .btn display rule overriding the low-specificity hide.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Hamburger #menu display:none at 1200px restores desktop header; viewport=1200 docScrollWidth=1200 no overflow; nav-links and CTA visible with correct header box 1200x60, other .btn elements still displayed."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 2,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:16:42.890Z"
+}

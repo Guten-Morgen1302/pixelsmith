@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-nav-overflow",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:25.371Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Header .nav flex row with fixed nav-links+buttons exceeds 375px viewport so docScrollWidth=572; allowing wrap prevents horizontal overflow without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth=375 equals viewport 375 - header .nav 375x139 now wraps (logo 24,12, nav-links 48,52 288x24, buttons at y~92-96) with no horizontal overflow; table uses internal scroll (table-wrap 327x123 ovf auto, scroll 658) so no document overflow, no clipping/hiding."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3315,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:20:46.179Z"
+}

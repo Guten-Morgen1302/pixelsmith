@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-badge-text",
+ "cls": "contrast",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:21:40.226Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Badge text #e8909c on #b00020 fails WCAG contrast (~2.3:1); changing text to #fff restores readable contrast without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Badge now #fff on #b00020 (~7:1 contrast) vs previous #e8909c (~2.3:1) – readable. Viewport 1200x800 with docScrollWidth=1200 indicates no horizontal overflow. Grid cards, header, pricing table and form layout all within viewport with no clipping/hiding; hidden elements (tip, dropdown, modal, toast) correctly display:none."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:06.536Z"
+}

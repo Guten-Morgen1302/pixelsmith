@@ -1,0 +1,27 @@
+{
+ "bug": "media-button-text-clipped",
+ "cls": "media",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:17:07.864Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Buttons were clipped to 20px with overflow:hidden, cutting off label text at desktop viewport; removing fixed height/overflow restores normal padding-based sizing without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 buttons show full padded height with labels visible and no overflow clipping; the filter/hover buttons and 'Get started' render normally and product cards/layout are intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:17:26.484Z"
+}

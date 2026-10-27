@@ -1,0 +1,32 @@
+{
+ "bug": "state-invalid-border-same",
+ "cls": "state",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:17:30.503Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Invalid email field has no visual error indication because its border color is same as normal state; use error color.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Cannot verify border-color fix: email field (#email inside #f-email.invalid) is not visible in the 1200x800 screenshot (cropped above footer) and DOM snapshot provides no computed border-color/border to confirm error color is applied; no other obvious regressions detected in visible viewport but primary fix is unverifiable with given artifacts."
+   }
+  },
+  {
+   "n": 2,
+   "why": null,
+   "error": "Unexpected non-whitespace character after JSON at position 357 (line 1 column 358)"
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:18:06.379Z"
+}

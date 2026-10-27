@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-tooltip-behind-card",
+ "cls": "stacking",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:16:03.419Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Tooltip has z-index:0 so later grid/cards paint over it; raising z-index makes tip visible above cards while staying below sticky header z=10.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Tooltip is visible on top of cards in screenshot and DOM shows z=5 (>cards auto) and <header z=10. No overflow/clipping: docScrollWidth == viewport (1200), tip at y=421 paints over grid at y=422 while header sticky remains topmost."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:20.597Z"
+}

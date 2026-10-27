@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-badge-text",
+ "cls": "contrast",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:21:32.049Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Badge text #e8909c on #b00020 fails WCAG contrast, change to #fff to meet 4.5:1.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 the 'New' badge text on #b00020 now appears as #fff (high contrast, meets 4.5:1) and no layout regressions are visible: three cards fit in row without horizontal overflow and long unbroken title wraps inside card."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:06.325Z"
+}

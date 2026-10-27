@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-badge-clipped",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:15:19.546Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Badge is positioned with negative offsets outside .card which has overflow:hidden, so the badge is clipped; moving it inside fixes the visual bug without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Badge at [348,431,40x22] is fully inside .card [24,422,373x383] client 371x381 (right edge ~396) with ovf:hidden, so not clipped; viewport 1200 docScrollWidth 1200 = no horizontal overflow; other content fits."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:15:44.506Z"
+}

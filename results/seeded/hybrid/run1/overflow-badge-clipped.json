@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-badge-clipped",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:05.151Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Badge is absolutely positioned outside card (-8px top/right) and card overflow:hidden clips it; overflow:visible reveals badge without removing content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Badge #badge at [364,415] (-7px top, +7px right of card [24,422,373x383]) is now visible; card overflow changed to visible/visible so -8px offset is not clipped, docScrollWidth 1200 equals viewport 1200 with no horizontal overflow and no other clipping/overlap detected."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:25.349Z"
+}

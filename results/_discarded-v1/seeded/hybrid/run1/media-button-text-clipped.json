@@ -1,0 +1,32 @@
+{
+ "bug": "media-button-text-clipped",
+ "cls": "media",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:17:14.090Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": null,
+   "error": "Unexpected non-whitespace character after JSON at position 279 (line 1 column 280)"
+  },
+  {
+   "n": 2,
+   "why": "Fixed button height clipping from fixed 20px with hidden overflow caused vertical text truncation visible in header and controls buttons.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Button clipping fixed: all .btn heights are now 36px with overflow visible and scroll==client, CTA/Menu/Hover/Filters text fully visible (Get started 19px high inside 36px). No regression: docScrollWidth 1200 matches viewport 1200 (no horizontal overflow), header 61px contains nav 60px, cards uniform height, badge visible, grid intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0241,
+  "regression": true,
+  "attempts": 2,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:38.070Z"
+}

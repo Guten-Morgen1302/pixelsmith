@@ -1,0 +1,21 @@
+[1] vision r1 overflow-modal-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[2] vision r1 overflow-card-title: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[3] vision r1 overflow-focus-ring-field: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0545,"regression":true,"attempts":1,"fixed":false}
+[4] vision r1 overflow-badge-clipped: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0012,"regression":false,"attempts":1,"fixed":false}
+[5] vision r1 responsive-grid-columns: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[6] vision r1 stacking-dropdown-behind: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[7] vision r1 responsive-footer-nowrap: FIXED {"oracle":true,"cheat":false,"regressionFrac":0.0053,"regression":false,"attempts":2,"fixed":true}
+[8] vision r1 stacking-tooltip-behind-card: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[9] vision r1 stacking-sticky-hides-anchor: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.0684,"regression":true,"attempts":1,"fixed":false}
+[10] vision r1 responsive-nav-overflow: not fixed {"oracle":true,"cheat":true,"regressionFrac":0.33,"regression":true,"attempts":2,"fixed":false}
+[11] vision r1 contrast-dark-text: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[12] vision r1 spacing-label-gap: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0012,"regression":false,"attempts":1,"fixed":false}
+[13] vision r1 spacing-grid-gap: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0025,"regression":false,"attempts":1,"fixed":false}
+[14] vision r1 contrast-badge-text: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0012,"regression":false,"attempts":1,"fixed":false}
+[15] vision r1 contrast-disabled-button: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0012,"regression":false,"attempts":1,"fixed":false}
+[16] vision r1 media-image-stretched: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.023,"regression":true,"attempts":1,"fixed":false}
+[17] vision r1 media-button-text-clipped: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[18] vision r1 state-tab-focus-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[19] vision r1 state-invalid-border-same: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0012,"regression":false,"attempts":1,"fixed":false}
+
+vision: fixed 9/19

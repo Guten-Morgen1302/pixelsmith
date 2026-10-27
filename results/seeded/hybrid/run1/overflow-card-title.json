@@ -1,0 +1,36 @@
+{
+ "bug": "overflow-card-title",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:05.125Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Long unbroken product title overflows its card (scrollWidth 461 > clientWidth 347) causing horizontal overflow/overlap; adding overflow-wrap breaks the word instead of clipping.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Long title #longtitle now has clientWidth 347 = scrollWidth 347 so horizontal overflow is gone, but it is wrapping to 2 lines (box height 56 vs single-line 28 for other cards) — overflow-wrap:break-word broke the unbroken word instead of clipping/truncating it in a single line with overflow:hidden + text-overflow:ellipsis + white-space:nowrap."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Restores single-line truncation via hidden overflow + ellipsis + nowrap instead of wrapping the unbroken word to fix card height mismatch.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Long title card now single-line truncated: #longtitle client 347 vs scroll 461 with ovf hidden/hidden shows ellipsis+nowrap containment. All .card boxes are 373x355 equal height, grid alignment restored. No horizontal overflow (docScrollWidth 1200 = viewport 1200) and no other breakage visible at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0016,
+  "regression": false,
+  "attempts": 2,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:20:37.945Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-card-title",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:20:04.337Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Unbroken long title overflows the card and overlaps adjacent grid cells at 1200px; breaking the word keeps content contained without hiding it.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Card 2 long unbroken title 'Supercalifragilisticexpialidociousweatherproofjacket' is now wrapped/broken inside its card on two lines and does not overflow or overlap adjacent grid cells, matching expected contained behavior without clipping."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:23.817Z"
+}

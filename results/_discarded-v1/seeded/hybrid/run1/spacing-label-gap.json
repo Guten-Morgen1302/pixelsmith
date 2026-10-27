@@ -1,0 +1,32 @@
+{
+ "bug": "spacing-label-gap",
+ "cls": "spacing",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:16:16.501Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Later .btn{display:inline-flex} overrides earlier .menu-toggle{display:none} due to equal specificity and source order, making the mobile-only menu button visible at 1200px; moving the hide rule after .btn restores correct cascade and lets the media query show it on small screens.",
+   "error": "edit target matched 0 times in styles.css"
+  },
+  {
+   "n": 2,
+   "why": "Disabled button hover state incorrectly applies hover background, making disabled control appear interactive.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Disabled control #dis retains disabled styling (color rgb(75,85,101) bg rgb(207,214,228) not hover blue rgb(37,99,235)) in static snapshot and no layout regression at 1200x800: docScrollWidth 1200 equals viewport, header/grid/table-wrap no overflow/clipping, long title wraps within card without breaking grid."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:14.078Z"
+}

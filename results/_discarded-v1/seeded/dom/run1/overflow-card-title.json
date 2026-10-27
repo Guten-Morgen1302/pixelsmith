@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-card-title",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:15:19.238Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Long unbroken word in #longtitle overflows its card (scrollWidth 461 > clientWidth 347) and spills into adjacent grid cell; allowing word breaking keeps content visible within the card.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#longtitle no longer overflows: scrollWidth 347 == clientWidth 347 and height increased to 56px indicating wrap; docScrollWidth 1200 == viewport 1200, no horizontal spill retained."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:15:39.457Z"
+}

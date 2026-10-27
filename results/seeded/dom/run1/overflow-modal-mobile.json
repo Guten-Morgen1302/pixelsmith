@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-modal-mobile",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:04.523Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Modal width 520px overflows 375px viewport causing horizontal clipping; max-width constrains it to viewport while preserving design on larger screens.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal now fits viewport (343px width at x=16 → right edge 359px < 375px viewport, docScrollWidth=375px=no horizontal overflow) so 520px overflow clipping is gone. No other breakage: all other boxes within 375px (header 375px, cards 351px right edge, badge 358px), table horizontal scroll contained in .table-wrap (overflow:auto, doc not widened)."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:19.535Z"
+}

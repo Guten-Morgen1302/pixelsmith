@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-footer-nowrap",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:37.981Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "footer flex-wrap:nowrap with 3x 160px flex-basis + gaps overflows 375px viewport (docScrollWidth 552), wrapping fixes horizontal scroll without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth=375 matches viewport 375x700 so horizontal scroll eliminated. Footer at [0,3109,375x313] with 3x 327w children wraps instead of previous 3x160 nowrap overflow (552w). No other overflow: table 658w is contained in .table-wrap ovf:auto with scroll 658x123/client 327x123, badges/content stay within viewport, long title wraps to 56px height without expanding doc width."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:54.159Z"
+}

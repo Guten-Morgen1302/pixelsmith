@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-footer-nowrap",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:15:44.522Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Footer uses flex-wrap:nowrap with 3x160px children which overflows 375px viewport (docScrollWidth 552), changing to wrap prevents horizontal overflow.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 equals viewport 375 so footer flex-wrap fix removed horizontal overflow; footer children now 327w within 375 viewport, header/grid/pricing/table all contained (table overflow correctly contained in .table-wrap with overflow:auto), badge and long word wrap do not cause document overflow; no other horizontal overflow or clipping detected."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:15:56.299Z"
+}

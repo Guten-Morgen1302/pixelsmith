@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-grid-columns",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:15:40.954Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Grid media query duplicated desktop 3-column layout so at 375px viewport cards stay cramped in 3 columns instead of collapsing to a responsive single column.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Viewport 375: docScrollWidth=375 matches viewport (no horizontal overflow). Grid #grid is 375px wide with cards stacked vertically at x=24 w=327 (y=559,894,1258,1594,1930,2266) = single responsive column, not cramped 3-column. No other overflow: table is contained in .table-wrap with overflow:auto (327 client vs 658 scroll internally scrollable), long unbreakable title wraps to 56px height (2 lines) without expanding card/doc, images/inputs/footer all within 375."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:15:54.668Z"
+}

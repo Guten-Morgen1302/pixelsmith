@@ -1,0 +1,27 @@
+{
+ "bug": "media-button-text-clipped",
+ "cls": "media",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:22:01.585Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed 20px height with overflow:hidden on .btn was vertically clipping button content (icons/text) to ~20px tall.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Button content (text/icons) is no longer vertically clipped to ~20px — buttons display full height with centered text, no overflow:hidden cropping visible, and no other layout regression at 1200x800 (header single-line, button row wrapped correctly, 3-card grid fully visible with long title wrapping)."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:21.049Z"
+}

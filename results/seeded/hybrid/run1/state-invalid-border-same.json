@@ -1,0 +1,36 @@
+{
+ "bug": "state-invalid-border-same",
+ "cls": "state",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:22:14.283Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Invalid state border was same as normal border (#888) so validation error has no visible indicator; restore error color.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Snapshot does not expose computed border-color for #email/#f-email.invalid to verify error indicator restored (only color/bg/font listed) and visual truncation/wrap of #longtitle not verifiable as non-regressive from DOM alone; no evidence fix applied."
+   }
+  },
+  {
+   "n": 2,
+   "why": "prevent nowrap tooltip from causing horizontal overflow/clipping while keeping content visible",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth (1200) equals viewport width (1200) so no horizontal overflow; tooltip is hidden (display:none) with no overflow/clipping ancestors and all key elements (header, grid, badge, icons, long title wrapped to 347x56 within card) remain fully visible and within viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:23:02.469Z"
+}

@@ -1,0 +1,36 @@
+{
+ "bug": "responsive-footer-nowrap",
+ "cls": "responsive",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:15:45.645Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Footer nowrap with 160px flex-basis overflows 375px viewport causing horizontal scroll/clipped card.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Horizontal clipping still visible on 375px viewport - 'New' badge and bottom card are truncated at right edge indicating overflow persists; footer not fully in view to confirm no horizontal scroll."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Negative offset placed badge outside card/grid container causing viewport-width overflow and horizontal clipping on 375px; inset position keeps badge visible without extending beyond page.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Badge is inset within card bounds at 375x700 with no viewport overflow, horizontal clipping removed, layout otherwise intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0053,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:20.092Z"
+}

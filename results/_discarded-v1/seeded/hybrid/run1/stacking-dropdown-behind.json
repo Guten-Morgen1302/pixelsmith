@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-dropdown-behind",
+ "cls": "stacking",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:15:59.874Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Dropdown menu had z-index:-1 causing it to paint behind the cards; raising z-index restores it above page content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Dropdown menu #ddmenu at [428,397] z=5 is now painting above cards (visible in screenshot) with no clipping or horizontal overflow (docScrollWidth 1200 = viewport 1200). Long title wraps to 56px height within card, table-wrap not overflowing, and other layers (header sticky z10, badge, etc.) remain correctly stacked."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:16.482Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-tooltip-behind-card",
+ "cls": "stacking",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:15:56.308Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Tooltip had z-index:0 which is below sticky header (z-index:10) and later content, so with ?open=tip it was painted underneath and appeared hidden; raising it to match dropdown z-index restores visibility without removing content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Tooltip #tip is visible at [303,421,149x32] z=30 above sticky header z=10 within viewport 1200x800, no longer hidden/painted underneath; docScrollWidth=1200 matches viewport (no horizontal overflow) and no other overlap/clipping regressions detected with ?open=tip."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:14.808Z"
+}

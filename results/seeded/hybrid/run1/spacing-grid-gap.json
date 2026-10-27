@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-grid-gap",
+ "cls": "spacing",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:21:05.715Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Grid cards collapse with zero gap causing double borders and cramped layout, fix by restoring grid gap.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Grid gap restored: first row cards at x=24,416,808 (368px wide) = 24px gap (392→416, 784→808), second row same, no horizontal overflow (docScrollWidth 1200 = viewport 1200), double-border/cramped collapse eliminated and no other obvious regression at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:37.015Z"
+}

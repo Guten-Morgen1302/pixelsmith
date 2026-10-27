@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-footer-nowrap",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:32.563Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "footer with flex-wrap:nowrap and flex-basis 160px forces 552px doc width causing horizontal overflow on 375px viewport; wrapping fixes it without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 matches viewport 375 - horizontal overflow gone. Footer at 375px wide with three stacked 327px children shows wrapping applied (was 552px). All main sections, cards (351px), header, form within viewport, no clip/hidden overflow; table overflow is contained in .table-wrap with overflow:auto (scrollWidth 658 vs client 327) - expected responsive pattern, does not cause document overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:48.735Z"
+}

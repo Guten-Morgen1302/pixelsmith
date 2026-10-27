@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-focus-ring-field",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:24:43.831Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "overflow:hidden on .field clips the keyboard focus ring (outline with offset) on #name, violating accessibility; making overflow visible restores the focus indicator.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "overflow on .field is now visible/visible (f-name and f-email) restoring focus outline on #name, and no regressions: docScrollWidth 1200 matches viewport 1200 (no horizontal overflow), all layout elements within bounds."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:24:53.880Z"
+}

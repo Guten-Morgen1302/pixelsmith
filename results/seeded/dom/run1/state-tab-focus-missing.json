@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-focus-missing",
+ "cls": "state",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:21:40.802Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Keyboard focus on #tab1 had no visible indicator because outline was removed, so restore an accessible focus ring.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#tab1 at [24,356,91x42] inside viewport 1200x800 with visible overflow ancestors, docScrollWidth=1200 matches viewport so no horizontal overflow; layout intact (grid, table-wrap 1152x123 no overflow, probe/probe-ref identical 317x21), focus ring can render without clipping."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:55.762Z"
+}

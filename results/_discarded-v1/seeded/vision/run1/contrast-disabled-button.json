@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-disabled-button",
+ "cls": "contrast",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:16:50.244Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The menu toggle was visible on large viewports because the later .btn rule with equal specificity overrode display:none; increasing specificity hides it above 640px as intended.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 ( >640px) no menu/hamburger toggle is visible in header - only nav links and Get started button show, so the display:none override fix worked and 3-column card layout is intact with no clipping/overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:09.421Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-dark-text",
+ "cls": "contrast",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:16:36.075Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Dark theme --fg:#222 on --bg:#111 fails contrast and makes text invisible, change to light foreground for readable contrast.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Dark theme contrast restored — heading/body/buttons readable (light fg on dark bg) and 1200x800 layout intact: 3-column cards, no overflow/horizontal scroll, controls and prices visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:50.233Z"
+}

@@ -1,0 +1,32 @@
+{
+ "bug": "media-button-text-clipped",
+ "cls": "media",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:22:04.446Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": null,
+   "error": "Unexpected non-whitespace character after JSON at position 253 (line 1 column 254)"
+  },
+  {
+   "n": 2,
+   "why": "Fixed 20px height + overflow:hidden on .btn clipped button text/icons (scroll 28px vs client 20px); use min-height to restore natural size.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Button clipping resolved at 1200x800: .btn elements now have natural height 36px with scroll dimensions equal to client dimensions (e.g., #cta #cta-icon visible 12x12, #cta 130x36 scroll==client, #tipbtn 101x36, #dis 134x36) and overflow visible, vs prior buggy 20px/overflow:hidden condition (28px scroll vs 20px client). No horizontal overflow (docScrollWidth 1200 == viewport 1200) and other components (tabs, cards, pricing table, form) show no clipping or layout breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0239,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:40.156Z"
+}

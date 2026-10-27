@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-modal-mobile",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:20:04.305Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed modal 520px exceeds 375px viewport causing horizontal overflow/clipping; constrained width to viewport.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal now fits inside 375px viewport with side margins and no horizontal overflow/clipping; Close button and content fully visible and no other obvious breakage at ?open=modal."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:19.186Z"
+}

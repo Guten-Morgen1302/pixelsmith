@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-badge-text",
+ "cls": "contrast",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:16:42.902Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Menu toggle stayed visible at 1200px because its display:none was overridden by later .btn{display:inline-flex} (same specificity, later wins); raising specificity to .btn.menu-toggle restores hidden-on-desktop and visible-on-mobile behavior.",
+   "edits": 2,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Menu toggle correctly hidden at desktop (1200px): #menu display:none as intended, restoring hidden-on-desktop behavior; no horizontal overflow (docScrollWidth=1200==viewport), header/nav/grid/table within viewport, other components (cta, tabs, dropdown, error) render with expected boxes/colors and no clipping/overlap regression."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:05.455Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-dark-text",
+ "cls": "contrast",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:16:20.621Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Dark theme set --fg to #222 (rgb 34,34,34) nearly identical to --bg #111, causing invisible low-contrast text; fix to light foreground restores readability.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Foreground color is light (~rgb 238) on dark background (~rgb 17) providing high contrast - text is readable in screenshot and DOM. No layout breakage: docScrollWidth equals viewport (1200), no horizontal overflow, long title wraps (56px vs 28px), cards, header and pricing table render correctly at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:34.818Z"
+}

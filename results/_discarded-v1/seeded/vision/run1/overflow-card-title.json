@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-card-title",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:15:18.849Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Long unbroken title overflows its card and causes horizontal overflow; allowing word breaking keeps layout inside viewport without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Long title 'Supercalifragilisticexpialidociousweatherproofjacket' wraps/breaks onto two lines inside middle card, all 3 cards fit at 1200px width with no horizontal scrollbar and no truncated/hidden text."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:15:43.010Z"
+}

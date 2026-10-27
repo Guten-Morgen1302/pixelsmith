@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-sticky-hides-anchor",
+ "cls": "stacking",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:16:20.121Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Sticky header covers anchor target on #pricing navigation, scroll-margin-top offsets the snap position so heading remains visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Heading 'Pricing' is fully visible below sticky header at #pricing hash, with scroll-margin offset preventing overlap and no layout breakage in viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0684,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:16:31.133Z"
+}

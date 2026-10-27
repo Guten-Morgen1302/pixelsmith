@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-footer-nowrap",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:15:49.345Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Footer with flex-wrap:nowrap and 3x160px children overflows 375px viewport (docScrollWidth 552); changing to wrap allows footer columns to wrap and removes horizontal scroll.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth is now 375 equals viewport 375 (was 552) so horizontal scroll gone; footer changed from 3×160 nowrap overflow to wrap with three 327px rows stacked at y 3134/3230/3326; all boxes have x+width ≤375, no clipped overflow or scrollbar, original nowrap overflow fixed and no new viewport overflow introduced."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:06.167Z"
+}

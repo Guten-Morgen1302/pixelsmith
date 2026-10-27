@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-tooltip-behind-card",
+ "cls": "stacking",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:16:11.712Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Tooltip used z-index:0 causing it to be painted behind the grid cards, fix by raising its z-index above the grid.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Tooltip with text 'Helpful tooltip text' is now visible above the product grid cards at 1200x800 with ?open=tip and no other visual regressions are apparent in the viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:25.809Z"
+}

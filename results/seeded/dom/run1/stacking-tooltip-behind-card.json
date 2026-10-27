@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-tooltip-behind-card",
+ "cls": "stacking",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:41.827Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "open=tip shows tooltip at y=421 overlapping the grid starting at y=398; with z-index:0 it paints behind the following grid/cards, so raising z-index lets the tooltip stay visible without being clipped.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Tooltip #tip at [303,421,149x32] now z=5 paints above .grid at y=398 (cards at y=422 z=auto) - overlap visible and not clipped (tipwrap ovf visible, grid ovf visible). No clipping/hidden overflow, no horizontal scroll (docScrollWidth=1200 viewport 1200), header z=10 remains on top as intended, other sections (badge, longtitle 56px wrap, table-wrap 1152px no overflow) intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:55.435Z"
+}

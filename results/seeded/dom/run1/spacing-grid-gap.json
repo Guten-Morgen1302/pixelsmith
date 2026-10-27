@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-grid-gap",
+ "cls": "spacing",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:55.452Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "zero grid gap collapses cards into a single block with doubled borders, fix restores intended gutter without removing content",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 gutter restored: row1 cards at x=24,416,808 (w=368) give 24px gaps (24+368=392→416) not collapsed/doubled borders; docScrollWidth=1200 equals viewport so no horizontal overflow. Second row y=825 consistent, content intact, no overlapping."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:14.943Z"
+}

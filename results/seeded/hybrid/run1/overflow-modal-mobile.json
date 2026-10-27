@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-modal-mobile",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:05.190Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Modal had fixed 520px width overflowing 375px viewport causing horizontal clipping; constraining to viewport width makes it responsive.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal correctly constrained: box width 327px at x=24 fits 375px viewport with margins, docScrollWidth=375 (no horizontal overflow), overlay 375x700 covers viewport, no other overflow or clipping introduced."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:19.184Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-label-gap",
+ "cls": "spacing",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:48.771Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Negative top/right on .badge pushes it outside the card/grid and it is clipped by the viewport edge at 1200px, fix by inset badge inside card.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Badge is now inset inside card: card [24,422,373x383] badge [348,431,40x22] => right edge 388 < 397 and top 431 > 422, no viewport clipping. docScrollWidth=1200 == viewport 1200, no horizontal overflow, grid/cards intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0015,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:21:12.301Z"
+}

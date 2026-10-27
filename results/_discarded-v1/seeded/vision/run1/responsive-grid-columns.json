@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-grid-columns",
+ "cls": "responsive",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:15:44.959Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Grid stayed 3 columns on mobile (375px), causing horizontal overflow and crushed cards; switching to single column fixes responsiveness without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 375px width content stacks vertically in a single column with no horizontal overflow; cards are full-width not crushed and all text/controls remain visible within viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:15:58.004Z"
+}

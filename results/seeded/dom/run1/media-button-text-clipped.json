@@ -1,0 +1,27 @@
+{
+ "bug": "media-button-text-clipped",
+ "cls": "media",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:21:39.752Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed 20px height with overflow:hidden clipped button text/icons at 1200x800 (scroll 28px > client 20px); min-height lets content fit without hiding.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "No clipping at 1200x800: docScrollWidth=viewport (1200), all .btn heights fit content (e.g., #cta 36x36 scroll=client, #tipbtn 36x36), no 20px overflow:hidden case (scroll 28 > client 20) present; long title wraps (347x56), badge and grid intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0239,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:52.718Z"
+}

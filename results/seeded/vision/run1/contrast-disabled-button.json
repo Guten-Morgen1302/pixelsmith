@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-disabled-button",
+ "cls": "contrast",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:21:29.466Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Disabled button text #cfd0e8 on #cfd6e4 has ~1:1 contrast and is unreadable at 1200x800; use dark muted text to restore WCAG AA contrast without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Disabled 'Unavailable' button text now has dark muted color on #cfd6e4 with readable WCAG AA contrast at 1200x800; no overflow, clipping or layout break detected."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:01.576Z"
+}

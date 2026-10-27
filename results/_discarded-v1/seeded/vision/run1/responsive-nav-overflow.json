@@ -1,0 +1,36 @@
+{
+ "bug": "responsive-nav-overflow",
+ "cls": "responsive",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:15:43.024Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Header .nav has no wrapping so nav-links overflow the 375px viewport causing horizontal scroll/cropping of \"Support\" and badge; allowing wrap keeps layout inside viewport without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Header nav wraps to second line and Support is visible, but bottom card/New badge is clipped at the right viewport edge at 375px, indicating content still exceeds viewport width / horizontal overflow remains."
+   }
+  },
+  {
+   "n": 2,
+   "why": "640px min-width forces viewport horizontal overflow at 375px even with overflow-x:auto container, wrapping nav alone does not fix viewport overflow and clips card/badge; removing min-width lets table shrink/wrap to fit.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Nav wraps but viewport is still effectively overflowing/clipped at 375px - card container has no right margin and right edge/New badge is flush/clipped at viewport edge, consistent with 640px min-width still forcing horizontal overflow (overflow-x:auto container clipping) rather than table shrinking/wrapping to fit. Wrapping nav alone did not fix."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": true,
+  "regressionFrac": 0.33,
+  "regression": true,
+  "attempts": 2,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:16:36.063Z"
+}

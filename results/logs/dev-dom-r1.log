@@ -1,0 +1,21 @@
+[1] dom r1 overflow-modal-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[2] dom r1 overflow-card-title: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[3] dom r1 overflow-badge-clipped: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":2,"fixed":true}
+[4] dom r1 overflow-focus-ring-field: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.0532,"regression":true,"attempts":1,"fixed":false}
+[5] dom r1 responsive-nav-overflow: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.3315,"regression":true,"attempts":1,"fixed":false}
+[6] dom r1 responsive-grid-columns: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[7] dom r1 stacking-dropdown-behind: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[8] dom r1 responsive-footer-nowrap: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[9] dom r1 stacking-tooltip-behind-card: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[10] dom r1 stacking-sticky-hides-anchor: FIXED {"oracle":true,"cheat":false,"regressionFrac":0.0661,"regression":false,"attempts":1,"fixed":true}
+[11] dom r1 contrast-dark-text: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[12] dom r1 spacing-label-gap: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0015,"regression":false,"attempts":1,"fixed":false}
+[13] dom r1 spacing-grid-gap: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[14] dom r1 contrast-badge-text: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[15] dom r1 contrast-disabled-button: not fixed {"oracle":false,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":false}
+[16] dom r1 media-image-stretched: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.0074,"regression":false,"attempts":1,"fixed":false}
+[17] dom r1 media-button-text-clipped: FIXED {"oracle":true,"cheat":false,"regressionFrac":0.0239,"regression":false,"attempts":1,"fixed":true}
+[18] dom r1 state-tab-focus-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[19] dom r1 state-invalid-border-same: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":2,"fixed":true}
+
+dom: fixed 14/19

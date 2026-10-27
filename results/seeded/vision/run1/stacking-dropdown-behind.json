@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-dropdown-behind",
+ "cls": "stacking",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:20:42.135Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Dropdown menu had z-index:-1 causing it to render behind the grid cards when open.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Dropdown with ?open=dropdown at 1200x800 now renders above grid cards and is fully visible/interactive, confirming z-index fix; no clipping, overflow, or layout regression visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:58.633Z"
+}

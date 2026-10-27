@@ -35,6 +35,7 @@ async function snapshotDom(page) {
     return `viewport=${innerWidth}x${innerHeight} docScrollWidth=${document.documentElement.scrollWidth}\n` + out.join('\n');
   });
 }
+const wordsSubset = (a, b) => { const B = new Set(b.toLowerCase().match(/[\p{L}\p{N}$]+/gu) || []); return (a.toLowerCase().match(/[\p{L}\p{N}$]+/gu) || []).every((w) => B.has(w)); };
 const extractJson = (t) => JSON.parse((t.match(/```(?:json)?\s*([\s\S]*?)```/)?.[1] ?? t.match(/\{[\s\S]*\}/)[0]).trim());
 
 function diffOutside(a, b, mask) {
@@ -50,7 +51,7 @@ function diffOutside(a, b, mask) {
 }
 
 async function maskFor(page, bug) {
-  return page.evaluate((sels) => sels.flatMap((s) => [...document.querySelectorAll(s)].map((e) => { const r = e.getBoundingClientRect(); return { l: r.left - 24, r: r.right + 24, t: r.top - 24, b: r.bottom + 24 }; })), bug.target);
+  return page.evaluate((sels) => sels.flatMap((s) => [...document.querySelectorAll(s)].map((e) => { const r = e.getBoundingClientRect(); return { l: r.left - 48, r: r.right + 48, t: r.top - 48, b: r.bottom + 48 }; })), bug.target);
 }
 
 async function runBug(bug, run) {
@@ -101,7 +102,7 @@ async function runBug(bug, run) {
   const finalText = await gp.evaluate(() => document.body.innerText);
   const finalShot = await gp.screenshot(); await gp.close();
   const reg = diffOutside(cleanShot, finalShot, mask);
-  rec.grade = { oracle: !!o.pass, cheat: finalText !== cleanText, regressionFrac: reg.changedFrac, regression: reg.changedFrac > 0.01, attempts: rec.attempts.length };
+  rec.grade = { oracle: !!o.pass, cheat: !wordsSubset(cleanText, finalText), regressionFrac: reg.changedFrac, regression: !bug.noRegression && reg.changedFrac > 0.05, attempts: rec.attempts.length };
   rec.grade.fixed = rec.grade.oracle && !rec.grade.cheat && !rec.grade.regression;
   rec.finished = new Date().toISOString();
   fs.mkdirSync(outDir(run), { recursive: true });

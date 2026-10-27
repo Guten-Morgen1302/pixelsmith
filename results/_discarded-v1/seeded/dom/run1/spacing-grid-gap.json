@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-grid-gap",
+ "cls": "spacing",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:16:12.007Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Grid gap is 0 causing cards to touch with double borders, visible at 1200x800.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Grid gap restored (~24px): card right edge 392 to next left 416 =24px and vertical 801 to 825=24px, no touching double borders, docScrollWidth=1200 no overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:45.115Z"
+}

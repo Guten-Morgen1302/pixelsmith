@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-disabled-button",
+ "cls": "contrast",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:16:34.837Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Base .menu-toggle{display:none} has same specificity as later .btn{display:inline-flex} so it is overridden and the hamburger is visible on desktop; scoping to .nav increases specificity so the button is correctly hidden at 1200px and only shown via the media query.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Menu toggle is display:none at 1200x800 so hamburger not visible on desktop; docScrollWidth matches viewport (1200) with no horizontal overflow, header/nav layout intact, screenshot confirms correct desktop chrome."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:00.441Z"
+}

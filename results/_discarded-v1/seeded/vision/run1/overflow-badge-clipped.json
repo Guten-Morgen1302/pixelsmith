@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-badge-clipped",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:15:19.582Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Later .btn display:inline-flex overrides earlier .menu-toggle display:none due to equal specificity and source order, leaving hamburger visible at 1200px.",
+   "edits": 2,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Hamburger/menu-toggle not visible at 1200px desktop viewport (correctly hidden), 3-column product grid and button row render without override side-effects - .btn inline-flex remains for other buttons while menu-toggle stays display:none."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:15:45.617Z"
+}

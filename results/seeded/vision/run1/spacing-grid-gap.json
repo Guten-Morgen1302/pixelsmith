@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-grid-gap",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:21:10.250Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Grid had gap:0 causing cards to touch with no gutters and badge overlap at 1200px.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 the 3-column grid shows clear gutters between cards (no touching) and the 'New' badge sits at the card corner without overlap; long title wraps within card with no overflow or clipping and no other layout breakage visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:32.037Z"
+}

@@ -1,0 +1,32 @@
+{
+ "bug": "overflow-badge-clipped",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:04.748Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": null,
+   "error": "Unexpected non-whitespace character after JSON at position 277 (line 1 column 278)"
+  },
+  {
+   "n": 2,
+   "why": "Badge is absolutely positioned outside the card (-8px offsets) and is clipped by overflow:hidden, fix by making card overflow visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Badge at [364,415,40x22] is outside card [24,422,373x383] by ~7-8px top/right and is not clipped; card overflow is visible/visible and docScrollWidth (1200) equals viewport, no horizontal scroll or clipping introduced."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:29.159Z"
+}

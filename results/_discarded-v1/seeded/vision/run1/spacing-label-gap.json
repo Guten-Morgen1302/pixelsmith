@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-label-gap",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:16:25.815Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The .btn rule (display:inline-flex) appears after .menu-toggle and overrides its display:none, so the mobile menu toggle is incorrectly visible at 1200px; increasing specificity restores the intended hidden state on desktop.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200px viewport the hamburger/menu-toggle is not visible in header (only desktop nav and Get started shown), so display:none is now correctly applied with no obvious regression."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:16:51.903Z"
+}

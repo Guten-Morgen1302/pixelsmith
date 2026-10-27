@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-focus-missing",
+ "cls": "state",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:17:25.797Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Keyboard focus on #tab1 was invisible because outline was removed, so restore a visible focus ring for accessibility.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Keyboard focus on #tab1 is now visible - screenshot shows blue focus ring around Overview tab at ~[24,356,91x42]. Viewport 1200x800 has no horizontal overflow (docScrollWidth=1200), header/nav layout intact, grid cards and controls render without clipping or overlap."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:17:40.808Z"
+}

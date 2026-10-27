@@ -1,0 +1,36 @@
+{
+ "bug": "state-invalid-border-same",
+ "cls": "state",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:22:15.537Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Invalid field border was same as normal state, so error state had no visual indication.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "No invalid field/input is visible in the 1200x800 viewport screenshot, so the error-border fix cannot be verified; other visual issues remain (uneven letter-spacing/weight on headline 'Unmistakably responsive layouts' and awkward break on long product name 'Supercalifragilisticexpialidociousweatherproofjacket')."
+   }
+  },
+  {
+   "n": 2,
+   "why": "anywhere forces breaks even without overflow causing awkward mid-word break on the long product name, break-word only breaks when needed",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Visual overflow is contained but long product name 'Supercalifragilisticexpialidociousweatherproofjacket' shows awkward mid-word break (weath/erproofjacket) on second line. This is characteristic of overflow-wrap:anywhere which breaks even without overflow; correct fix is overflow-wrap:break-word which only breaks when needed to prevent overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:56.549Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-badge-clipped",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:20:04.314Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "overflow:hidden on .card clips the absolutely positioned .badge with negative offsets (visible as half-hidden New badge), removing it reveals the badge without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "The 'New' badge on the first .card is fully visible outside the card's top-right corner with negative offset, not clipped, and no content overflow or layout breakage is visible at 1200x800 - three cards, header, and controls all render correctly."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:32.231Z"
+}

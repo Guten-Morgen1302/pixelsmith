@@ -1,0 +1,27 @@
+{
+ "bug": "state-invalid-border-same",
+ "cls": "state",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:17:17.469Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Menu button shows on desktop because .btn later overrides .menu-toggle display:none; increasing specificity keeps it hidden until mobile breakpoint.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 desktop viewport Menu toggle is correctly hidden - header shows only Acme nav links and Get started button, no Menu button visible; three-card layout intact with no overflow or regression."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:39.395Z"
+}

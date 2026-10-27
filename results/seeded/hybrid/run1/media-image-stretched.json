@@ -1,0 +1,27 @@
+{
+ "bug": "media-image-stretched",
+ "cls": "media",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:21:46.137Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed image distortion makes circles render as horizontal ellipses at viewport width.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Circles in cards render as circles not horizontal ellipses at 1200px width (verified in screenshot), no horizontal overflow (docScrollWidth==viewport 1200), header/grid/table/footer all within viewport, no clipping or layout breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0074,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:14.262Z"
+}

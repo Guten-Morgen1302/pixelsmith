@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-focus-ring-field",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:15:30.240Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Keyboard focus outline on #name is clipped because its .field ancestor has overflow:hidden, hiding the focus-visible outline.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#f-name overflow is now visible/visible (was hidden) so :focus-visible outline on #name is not clipped, docScrollWidth 1200 equals viewport 1200 so no horizontal scroll/regression, other layouts intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0545,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:15:40.910Z"
+}

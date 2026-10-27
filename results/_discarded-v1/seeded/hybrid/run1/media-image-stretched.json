@@ -1,0 +1,27 @@
+{
+ "bug": "media-image-stretched",
+ "cls": "media",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:17:00.449Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "card image forced to 100%×220px stretches 400×300 SVG with preserveAspectRatio='none', turning circles into ellipses; object-fit:cover preserves aspect ratio without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Card images render at 347x220 (100% width, 220px height) with ovf clip and circles appear round in screenshot, indicating object-fit:cover is applied and stretch with preserveAspectRatio='none' is gone; viewport 1200 docScrollWidth 1200 shows no horizontal overflow and no other clipping/overlap regressions visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.023,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:25.783Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-disabled-button",
+ "cls": "contrast",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:21:07.164Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Disabled button shows hover background change, making it appear interactive; restrict hover to enabled buttons only.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "No horizontal overflow (docScrollWidth 1200=viewport), 3-col grid intact (373px cards at 24/413/803 with ~16px gaps), badge at 364,415 inside first card, longtitle wraps to 56px height vs 28px preventing overflow, table-wrap 1152px fits viewport with ovf auto, disabled btn #dis retains disabled colors (207,214,228) distinct from enabled (37,99,235), header/nav/cta/forms/footer all correctly positioned; hover fix cannot be verified statically but no regressions visible at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:21:40.774Z"
+}

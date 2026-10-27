@@ -1,0 +1,27 @@
+{
+ "bug": "media-button-text-clipped",
+ "cls": "media",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:16:51.789Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Buttons had fixed 20px height with overflow:hidden and 8px padding causing text/icon to be vertically clipped; using min-height and visible overflow restores full label without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Buttons now render at 36px height (min-height, not fixed 20px) with overflow visible: cta/menu/tip/dd/dis/submit all show 36px height and icon/text fully inside bounds (e.g., #cta 130x36 contains icon 12x12 at y24 and text 78x19 at y20), no clipping. docScrollWidth 1200 == viewport 1200 so no horizontal overflow introduced, card/badge overflow remains visible as intended."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0241,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:06.482Z"
+}

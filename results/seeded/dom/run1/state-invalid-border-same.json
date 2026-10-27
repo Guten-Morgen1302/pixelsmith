@@ -1,0 +1,36 @@
+{
+ "bug": "state-invalid-border-same",
+ "cls": "state",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:21:42.066Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Invalid email field shows same gray border as valid input, so the error state is not visually distinct.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Cannot verify error border fix - DOM snapshot does not expose border-color/style (only color/bg shown) and #email input inside .field.invalid shows identical bg/color to valid #name input (rgb(255,255,255)/rgb(26,26,26)) with no distinct visual evidence in snapshot, so bug must be assumed not fixed."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Make invalid state verifiable via bg/color (snapshot does not expose border-color) while preserving border fix.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Viewport 1200x800 docScrollWidth=1200 no horizontal overflow. Invalid state verifiable: #email bg=rgb(255,233,233) and #err color=rgb(176,0,32) on white input bg. Grid 1200px contains 3x373 cards at x24/413/803 (right edge 1176<1200), #tablewrap scroll==client 1152x123 no table overflow, probe==probe-ref 317x21 no text overflow, header sticky z10 visible. No secondary breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:18.056Z"
+}

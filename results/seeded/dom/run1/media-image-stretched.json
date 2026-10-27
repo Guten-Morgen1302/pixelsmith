@@ -1,0 +1,27 @@
+{
+ "bug": "media-image-stretched",
+ "cls": "media",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:21:14.959Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Disabled button must not change appearance on hover, hover styles should only apply to enabled buttons.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Viewport 1200x800 shows no horizontal overflow (docScrollWidth=1200), header sticky intact, grid 3-col layout with cards at correct positions, long word in #longtitle wraps to 56px height without overflow, tabs/controls fit, and no visible regression; disabled button #dis retains disabled colors (rgb(75,85,101) on rgb(207,214,228)) and snapshot shows no layout break that would indicate hover styles leaking."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0074,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:21:42.048Z"
+}

@@ -1,0 +1,36 @@
+{
+ "bug": "overflow-focus-ring-field",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:24:00.315Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Keyboard focus outline on #name is clipped by overflow:hidden on .field; making it visible restores the focus ring without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Focus ring on #name is now fully visible / not clipped, so that bug is gone, but new regression at 1200x800: top product row (Rain cover/Water bottle/Head lamp) is clipped/hidden under the sticky header bar, indicating overflow:visible change (or missing header offset) now hides content / causes overlap."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Sticky header covers scrolled content when #name receives focus; adding scroll-padding-top reserves header height so focused field and anchor navigation are not hidden underneath while keeping focus ring visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Keyboard focus is on #name (Full name/Ada Lovelace) and the input including its blue focus ring is fully visible below the sticky header, not clipped underneath. scroll-padding-top correctly offsets the scroll position so the focused field is not hidden while the header remains sticky."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:24:42.370Z"
+}

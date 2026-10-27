@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-card-title",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:04.520Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Long unbroken title overflows its card (scroll 461px > client 347px) and overlaps adjacent grid items; adding overflow-wrap forces it to wrap within the card.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Long title now wraps: #longtitle scrollWidth 347 == clientWidth 347 (was 461>347), card contains text with no overlap. docScrollWidth 1200 == viewport 1200 so no horizontal overflow introduced."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:20.239Z"
+}

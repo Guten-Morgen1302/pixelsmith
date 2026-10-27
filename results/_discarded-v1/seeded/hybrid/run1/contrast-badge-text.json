@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-badge-text",
+ "cls": "contrast",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:16:56.889Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The .btn rule (display:inline-flex) defined after .menu-toggle overrides it due to equal specificity and source order, so the menu toggle stays visible on desktop; increasing specificity makes the hide rule win.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Menu toggle is hidden on desktop ( #menu display:none ) as intended after specificity fix, viewport 1200x800 shows desktop nav, 3-column grid and no horizontal overflow (docScrollWidth 1200 == viewport) with no clipping or protruding elements beyond expected badge overlap."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0012,
+  "regression": false,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:30.488Z"
+}

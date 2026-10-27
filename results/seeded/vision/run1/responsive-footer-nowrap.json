@@ -1,0 +1,36 @@
+{
+ "bug": "responsive-footer-nowrap",
+ "cls": "responsive",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:20:36.993Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "footer uses flex-wrap:nowrap with 3x 160px flex-basis causing horizontal overflow on 375px viewport; changing to wrap allows responsive wrapping without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Footer not visible in provided viewport screenshot (content cropped at mid-page, footer below fold), so horizontal overflow fix for flex-wrap cannot be verified at 375x700 and no confirmation that nothing else broken."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Badge positioned with negative offsets extends outside the card and causes horizontal overflow on 375px viewport; insetting it keeps it visible without clipping or scrolling.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Badge is now inset inside top-right corner of card, fully visible with no clipping and no horizontal overflow at 375px width. No other layout breakage observed."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0053,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:18.126Z"
+}

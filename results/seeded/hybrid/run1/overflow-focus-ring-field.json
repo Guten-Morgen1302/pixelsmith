@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-focus-ring-field",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:24:55.497Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "overflow:hidden on .field clips the 2px focus-visible outline (outline-offset) on #name, so change to overflow:visible to show the full accessibility focus ring.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Viewport 1200px docScrollWidth 1200 = no overflow. #f-name overflow is visible/visible so 2px outline-offset focus ring on #name can paint outside .field and .field's 420x74 bounds; screenshot shows full blue focus ring unclipped and no other layout corruption."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:25:10.150Z"
+}

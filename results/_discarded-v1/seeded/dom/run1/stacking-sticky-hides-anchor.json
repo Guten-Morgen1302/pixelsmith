@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-sticky-hides-anchor",
+ "cls": "stacking",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:16:01.451Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Hash target #pricing was hidden under sticky 60px header; scroll-margin restores visibility without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Hash #pricing at y=64 is now fully below sticky header [0,0,1000x60] (64 > 60) and visible in 1000x500 viewport; docScrollWidth 1000 equals viewport width indicates no horizontal overflow or other breakage introduced."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0642,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:16:11.996Z"
+}

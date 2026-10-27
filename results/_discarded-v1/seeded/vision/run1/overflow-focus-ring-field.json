@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-focus-ring-field",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:15:31.144Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "overflow:hidden on .field clips the focus-visible outline (with offset) on #name, so removing it restores the visible focus ring without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Keyboard focus on #name shows complete focus-visible ring with offset, not clipped by .field; overflow removal did not hide content or break layout at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0545,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:15:44.938Z"
+}

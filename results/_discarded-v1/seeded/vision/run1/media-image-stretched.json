@@ -1,0 +1,27 @@
+{
+ "bug": "media-image-stretched",
+ "cls": "media",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:16:56.632Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Product images have fixed height with 100% width but no object-fit, so they stretch and distort circles into ovals; adding object-fit:cover preserves aspect ratio.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 the three product images show perfect circles (no oval stretching) while maintaining fixed height / 100% width card layout; no text overflow, clipping, or grid breakage is visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.023,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:17.442Z"
+}

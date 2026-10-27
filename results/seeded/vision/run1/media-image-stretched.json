@@ -1,0 +1,27 @@
+{
+ "bug": "media-image-stretched",
+ "cls": "media",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:22:00.425Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Images were stretched vertically/horizontally because fixed height without object-fit distorted aspect ratio, turning circles into ovals.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Circles inside cards render as perfect circles (correct aspect ratio, no vertical/horizontal stretch) at 1200x800 and page layout shows 3-column grid with no overflow, clipping, or distortion elsewhere."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0074,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:15.527Z"
+}

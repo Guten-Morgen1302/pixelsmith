@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-grid-columns",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:29.170Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Mobile media query kept 3 columns causing cramped unreadable cards at 375px, fix to 1 column restores responsive layout without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 375px viewport docScrollWidth=375 matches viewport (no horizontal overflow). Grid #grid is 375px wide and contains 6 .card elements each 327px wide at x=24 stacked vertically (y 559,894,1258,1594,1930,2266) = single column layout. No cards hidden/clipped and responsive container behavior intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:41.806Z"
+}

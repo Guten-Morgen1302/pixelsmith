@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-grid-columns",
+ "cls": "responsive",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:20:32.248Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Grid stays 3-column on mobile (375px), causing cramped overflow; change to 1 column for responsive layout.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Viewport 375px shows single-column stacked layout with no horizontal overflow/cramping; grid items use full width and text wraps correctly, no other breakage visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:48.538Z"
+}

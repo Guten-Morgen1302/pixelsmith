@@ -1,0 +1,32 @@
+{
+ "bug": "spacing-label-gap",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:21:05.067Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": null,
+   "error": "Unexpected non-whitespace character after JSON at position 210 (line 1 column 211)"
+  },
+  {
+   "n": 2,
+   "why": "Disabled button hover was overriding disabled styling, fix hover to apply only to enabled buttons.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Static screenshot at 1200x800 shows 3-column layout but cannot verify hover interaction on the disabled 'Unavailable' button (cursor is on 'Hover me'). Title 'Unmistakably' renders with garbled/overlapping glyphs in the middle, indicating a remaining visual/layout bug."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:22:00.413Z"
+}

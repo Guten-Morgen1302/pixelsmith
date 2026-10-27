@@ -1,0 +1,36 @@
+{
+ "bug": "stacking-tooltip-behind-card",
+ "cls": "stacking",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:52.108Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Tooltip had z-index:0 so it rendered behind the grid cards; raising its stacking order to 20 (above content but below header/dropdown) makes it visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Tooltip is now visible (box y=421 above grid y=422, z=20) but stacking order violates spec: header z=10 < tooltip z=20, so tooltip would render above sticky header/dropdown instead of below it. Intended fix requires tooltip z between content (0) and header (e.g., header/dropdown z=50, tooltip z=20) — current header z=10 is too low."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Raise sticky header z-index above tooltip (20) so tooltip renders below header/dropdown per spec while remaining visible above grid.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "header z=50 > tip z=20 satisfies spec (tip below header/dropdown if overlapped) while tip [303,421,149x32] remains fully visible with ovf visible and above grid cards (z auto); viewport 1200 no horizontal scroll (docScrollWidth 1200) and no clipping/overflow breakage"
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:21:24.405Z"
+}

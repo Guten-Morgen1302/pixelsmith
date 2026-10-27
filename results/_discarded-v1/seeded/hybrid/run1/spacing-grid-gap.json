@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-grid-gap",
+ "cls": "spacing",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:16:18.950Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Grid had zero gutter causing cards to visibly stick together; restoring gap separates them.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Grid gutter restored: cards at x=24/416/808 with w=368 => 24px gap between columns (was 0) and row gap ~24px (y 422->825), cards no longer stick together. No horizontal breakage: docScrollWidth=1200 == viewport 1200, no overflow. Long title wraps inside 342px without expanding grid, other components within viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:56.871Z"
+}

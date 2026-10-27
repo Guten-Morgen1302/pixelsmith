@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-modal-mobile",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:15:19.313Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed-width 520px modal overflows 375px viewport on mobile; make it responsive with fluid width and max-width to stay inside viewport.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal now 343px wide (16px margins) inside 375px viewport, was 520px overflow. docScrollWidth=375 equals viewport, no horizontal overflow, overlay covers viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:15:30.228Z"
+}

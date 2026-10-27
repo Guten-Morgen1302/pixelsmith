@@ -1,0 +1,36 @@
+{
+ "bug": "state-tab-focus-missing",
+ "cls": "state",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:17:05.472Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Keyboard focus on #tab1 is invisible because outline is removed with no replacement; restore a visible focus indicator.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Cannot verify focus ring restoration from snapshot alone: #tab1 box [24,356,91x42] is visible within 1200x800 viewport with no overflow (docScrollWidth 1200), but snapshot provides no computed outline/box-shadow/pseudo-element data required to confirm a visible :focus-visible indicator replaced the removed outline. Keyboard focus state on #tab1 is asserted but not observable in DOM dump."
+   }
+  },
+  {
+   "n": 2,
+   "why": "prevent unequal card heights from long wrapping title causing visual masonry gap",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "All 6 cards have equal height 383px (first row y=422 bottom=805, second row y=821 gap=16px consistent); long title wraps to 56px vs 28px but card height stays equal, no masonry offset. docScrollWidth 1200 matches viewport 1200 so no horizontal overflow introduced; wrapping/break-word contained the long unbroken word."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:17:37.909Z"
+}

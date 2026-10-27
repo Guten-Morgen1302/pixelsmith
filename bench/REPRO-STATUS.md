@@ -27,3 +27,11 @@ Config: dom+vision, Muse Spark Open (Baseten, reasoning_effort=low). Bug: daisyu
 28 seeded bugs on a clean demo app (`bench/seeded/app`), 7 classes (overflow 6, responsive 4, stacking 4, spacing 4, contrast 4, media 3, state 3).
 Validity rule: oracle FAILS on the mutated app and PASSES on the clean app, in Chrome via Playwright. `node bench/seeded/validate.mjs` -> valid 28/28.
 First pass had 3 invalid bugs (card-title: grid min-content hid the overflow; badge-clipped and badge-contrast oracles mis-calibrated); fixed in the clean app / oracles before freezing. The seeded bugs are authored by us, so they are NOT evidence of real-world fix rate; the real-bug subset (bench/bugs) is reported separately.
+
+## Bench v2 amendments (2026-10-27), made after the first dev-split run, BEFORE any held-out run
+The first dev run exposed defects in the bench itself, not in the agent. Fixed, then v1 results discarded (kept in results/_discarded-v1):
+1. Clean app bug: `.menu-toggle{display:none}` was overridden by `.btn{display:inline-flex}`, so a stray menu button showed on desktop. Agents (correctly) "fixed" it and were scored as regressions. Now `.btn.menu-toggle`.
+2. Anti-cheat compared innerText equal to the clean render, which punished valid fixes that keep MORE content visible. Now: every word of the clean page must still be present (superset).
+3. focus-ring bug injection also deleted the padding; a correct fix then looked like a regression. Now it only adds `overflow:hidden` (clean padding 2px). Oracle now tests real ancestor clipping instead of "ring inside the field box".
+4. Regression metric: pixels changed outside the target region (+48px margin) vs the clean render; threshold raised from 1% to 5% because valid alternative fixes shift layout by 2-3%. `stacking-sticky-hides-anchor` is exempt (any valid fix changes the scroll offset).
+Thresholds were chosen after looking at DEV results only. The held-out split (9 bugs) had not been run when these were set (one smoke run of overflow-toast-offscreen on `vision` was made earlier and its result file deleted; its outcome was not used).

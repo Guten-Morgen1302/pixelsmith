@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-grid-columns",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:20:35.213Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Media query keeps 3 columns on mobile (375px) making cards unreadably narrow instead of collapsing to 1 column.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Grid now collapses to 1 column on 375px: #grid is 375px wide and each .card is 327px (375 minus 24px gutters) stacked vertically (y 559,894,1258...), not 3 narrow columns. No horizontal overflow: docScrollWidth (375) equals viewport width (375) and no element exceeds viewport; table overflow is contained via overflow:auto on #tablewrap."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:20:52.093Z"
+}

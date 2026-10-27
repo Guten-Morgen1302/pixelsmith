@@ -1,0 +1,36 @@
+{
+ "bug": "state-invalid-border-same",
+ "cls": "state",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:17:06.494Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Invalid state had same border color as normal input, so error was not visually indicated.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Snapshot does not expose computed border-color/border styles for #email vs #name, so cannot verify that .invalid now shows a distinct error border; layout at 1200x800 shows no overflow (docScrollWidth=1200) but the specific visual bug is unverifiable from this data."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Prevent long unbroken word from expanding grid card beyond 1200px viewport and ensure wrapping inside card without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth=1200 equals viewport 1200 (no horizontal overflow), grid width 1200 contains 3x373px cards, middle card did not expand (373px wide) and long word wrapped to 2 lines (347x56 vs 28px single-line) with visible overflow and no clipping."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0004,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:17:38.148Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-focus-missing",
+ "cls": "state",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:22:06.343Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Keyboard focus on #tab1 is invisible because outline is removed, leaving a heavy/drop-shadow-like lack of focus indicator; restoring a visible focus outline fixes the visual bug without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Keyboard focus on #tab1 (Overview) is now visible as a blue outline at 1200x800 viewport, fixing the invisible-focus bug, with no content hidden or layout broken."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:22:18.541Z"
+}

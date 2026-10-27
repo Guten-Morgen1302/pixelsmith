@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-nav-overflow",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:20:20.268Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Header .nav is a non-wrapping flex row with nav-links + buttons wider than 375px, causing document horizontal overflow (docScrollWidth 572); allowing flex-wrap prevents viewport overflow without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 equals viewport 375 so horizontal overflow gone; Header/nav wrapping (nav-links at y=52, buttons at y=92-96 inside 140px header) shows flex-wrap applied without overflow:hidden/clipping, and no other element exceeds viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3315,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:20:35.537Z"
+}

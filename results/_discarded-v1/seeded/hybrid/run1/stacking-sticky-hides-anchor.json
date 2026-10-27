@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-sticky-hides-anchor",
+ "cls": "stacking",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:16:06.176Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Sticky 60px header covered #pricing anchor on hash navigation; scroll-padding-top offsets scroll so heading is visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#pricing y=60 sits exactly below 60px sticky header (header box 0,0-0,60), so heading is fully visible and not covered after scroll-padding-top offset."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0684,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:16:18.935Z"
+}

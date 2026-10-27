@@ -1,0 +1,27 @@
+{
+ "bug": "media-image-stretched",
+ "cls": "media",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:16:45.129Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The .btn rule (display:inline-flex) is defined after .menu-toggle and has equal specificity so it overrides display:none, leaving the hamburger menu visible at 1200px where it should be hidden; increasing specificity to .btn.menu-toggle makes the hide rule win.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#menu display:none at 1200px (hidden on desktop) and docScrollWidth=1200 matches viewport=1200 with no horizontal overflow; header, nav-links, CTA, grid cards, probe/ref and table-wrap all lay out within viewport with no clipping/overflow regressions."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0249,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:17:20.629Z"
+}

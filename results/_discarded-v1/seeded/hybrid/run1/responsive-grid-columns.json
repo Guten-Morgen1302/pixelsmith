@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-grid-columns",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:15:47.427Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "At 375px the grid stays 3 columns making cards unreadably narrow; it should collapse to a single column on mobile.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Grid collapses to single column at 375px: all 6 .card boxes are 327w at x=24 stacked vertically (y 559,894,1258...), #grid is 375w, docScrollWidth (375) equals viewport, no horizontal overflow, cards readable."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:16:03.410Z"
+}
