@@ -1,0 +1,22 @@
+{
+ "id": "pico-474",
+ "source": "real",
+ "upstream": {
+  "repo": "picocss/pico",
+  "pr": 474,
+  "license": "MIT"
+ },
+ "base_sha": "fc41088893e782c1598fcc9f885cfe5a611db4f0",
+ "fix_sha": "4aa2c14542dfd05baa58f936dc2fd0e2bf21defb",
+ "bug": "spinner image does not scale with font size (1rem vs 1em)",
+ "oracle_kind": "visual+computed-style",
+ "oracle": "spinner ::before background-size must equal its box width",
+ "build": "bench/tools/build-pico.sh <sha> out.css (sass compile of scss/pico.scss)",
+ "page": "page.html",
+ "verified": {
+  "buggy": "FAIL",
+  "upstream_fix": "PASS",
+  "date": "2026-10-27",
+  "browser": "Google Chrome via Playwright"
+ }
+}

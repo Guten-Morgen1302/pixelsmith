@@ -45,3 +45,13 @@ Thresholds were chosen after looking at DEV results only. The held-out split (9 
 - Audit of past results (`bench/tests/regrade-visibility.mjs`, offline, no model calls): all 120 runs graded fixed (dev + held-out, 3 configs) pass the stricter check, 0 flagged. Reported held-out and dev numbers are unchanged.
 - Determinism: validity check 28/28 on three repeat runs; screenshots identical on repeat for 28/28 pages.
 - Limits of this test: it only tries 5 generic cheats on the declared target element, not a smart adversary.
+
+## Real bugs, Pico CSS (2026-10-27): 4 more reproduced
+Pico (picocss/pico, MIT) compiles with plain Sass, so base/fix commits build in seconds (`bench/tools/build-pico.sh`). Each: buggy commit FAILS the oracle, upstream fix PASSES, same browser.
+| Bug | Upstream | Oracle kind |
+|---|---|---|
+| pico-474 | #474 loading spinner sizing (image 18px in a 40px box -> 40px) | computed style; visibly a tiny arc vs full ring (screenshots in out/) |
+| pico-585 | #585 striped table breaks with [hidden] rows | computed backgrounds (visible stripes) |
+| pico-528 | #528 card in modal gets modal styling | computed style (max-height/margin) |
+| pico-615 | #615 accordion inside dropdown renders as dropdown | computed style (summary border) |
+Real bugs reproduced so far: 5 (daisyui-4724 + these 4). Not reproduced / abandoned: see table above (daisyUI 4179/4335/4166, Docusaurus). Oracles for 528 and 615 are computed-style checks, weaker than pixel evidence; documented, not hidden.

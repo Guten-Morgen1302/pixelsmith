@@ -1,0 +1,22 @@
+{
+ "id": "pico-528",
+ "source": "real",
+ "upstream": {
+  "repo": "picocss/pico",
+  "pr": 528,
+  "license": "MIT"
+ },
+ "base_sha": "6dc6489e69cc1f22daa938ebd38c02400032428c",
+ "fix_sha": "4c3743e67d1b1219b5f68d61f0557f4863a2f85c",
+ "bug": "card (article) nested in a modal inherits modal styling",
+ "oracle_kind": "computed-style",
+ "oracle": "nested article must not get modal max-height",
+ "build": "bench/tools/build-pico.sh <sha> out.css (sass compile of scss/pico.scss)",
+ "page": "page.html",
+ "verified": {
+  "buggy": "FAIL",
+  "upstream_fix": "PASS",
+  "date": "2026-10-27",
+  "browser": "Google Chrome via Playwright"
+ }
+}

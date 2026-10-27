@@ -1,0 +1,22 @@
+{
+ "id": "pico-585",
+ "source": "real",
+ "upstream": {
+  "repo": "picocss/pico",
+  "pr": 585,
+  "license": "MIT"
+ },
+ "base_sha": "6ea953093f91b3febafb19c9468a44aaf8320961",
+ "fix_sha": "4b57da2f8988430d269d921baee0bdc745ddaa22",
+ "bug": "striped table: [hidden] rows break odd/even striping",
+ "oracle_kind": "visual (computed backgrounds)",
+ "oracle": "visible rows must alternate background",
+ "build": "bench/tools/build-pico.sh <sha> out.css (sass compile of scss/pico.scss)",
+ "page": "page.html",
+ "verified": {
+  "buggy": "FAIL",
+  "upstream_fix": "PASS",
+  "date": "2026-10-27",
+  "browser": "Google Chrome via Playwright"
+ }
+}

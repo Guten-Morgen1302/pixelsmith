@@ -1,0 +1,22 @@
+{
+ "id": "pico-615",
+ "source": "real",
+ "upstream": {
+  "repo": "picocss/pico",
+  "pr": 615,
+  "license": "MIT"
+ },
+ "base_sha": "d44f6d373ffc398387385d58797cfef9b572ef41",
+ "fix_sha": "96ad16eef1e98caa00e9549366af3c810a0f692e",
+ "bug": "accordion details nested in a dropdown renders as a dropdown",
+ "oracle_kind": "computed-style",
+ "oracle": "nested summary must not get dropdown select border",
+ "build": "bench/tools/build-pico.sh <sha> out.css (sass compile of scss/pico.scss)",
+ "page": "page.html",
+ "verified": {
+  "buggy": "FAIL",
+  "upstream_fix": "PASS",
+  "date": "2026-10-27",
+  "browser": "Google Chrome via Playwright"
+ }
+}
