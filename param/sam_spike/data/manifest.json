@@ -1,0 +1,452 @@
+[
+ {
+  "id": "overflow-modal-mobile",
+  "cls": "overflow",
+  "phrase": "modal dialog",
+  "gt_boxes": [
+   [
+    -72.5,
+    250.5,
+    447.5,
+    449.5
+   ]
+  ],
+  "width": 375,
+  "height": 700
+ },
+ {
+  "id": "overflow-card-title",
+  "cls": "overflow",
+  "phrase": "product title text",
+  "gt_boxes": [
+   [
+    426.3,
+    703.7,
+    773.7,
+    731.8
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "overflow-table-mobile",
+  "cls": "overflow",
+  "phrase": "pricing table",
+  "gt_boxes": [
+   [
+    24,
+    2685.4,
+    351,
+    2808.4
+   ]
+  ],
+  "width": 375,
+  "height": 700
+ },
+ {
+  "id": "overflow-badge-clipped",
+  "cls": "overflow",
+  "phrase": "red badge",
+  "gt_boxes": [
+   [
+    364.4,
+    415.2,
+    404.3,
+    437.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "overflow-focus-ring-field",
+  "cls": "overflow",
+  "phrase": "text input field",
+  "gt_boxes": [
+   [
+    24,
+    423.2,
+    444,
+    497.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "overflow-toast-offscreen",
+  "cls": "overflow",
+  "phrase": "toast notification",
+  "gt_boxes": [
+   [
+    1059.4,
+    740,
+    1220,
+    784
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "responsive-nav-overflow",
+  "cls": "responsive",
+  "phrase": "navigation bar",
+  "gt_boxes": [
+   [
+    0,
+    0,
+    375,
+    79.4
+   ]
+  ],
+  "width": 375,
+  "height": 700
+ },
+ {
+  "id": "responsive-grid-columns",
+  "cls": "responsive",
+  "phrase": "product card",
+  "gt_boxes": [
+   [
+    0,
+    534.6,
+    375,
+    1091.8
+   ]
+  ],
+  "width": 375,
+  "height": 700
+ },
+ {
+  "id": "responsive-hero-heading",
+  "cls": "responsive",
+  "phrase": "large heading",
+  "gt_boxes": [
+   [
+    24,
+    108.2,
+    351,
+    396.2
+   ]
+  ],
+  "width": 375,
+  "height": 700
+ },
+ {
+  "id": "responsive-footer-nowrap",
+  "cls": "responsive",
+  "phrase": "footer",
+  "gt_boxes": [
+   [
+    0,
+    3100.6,
+    375,
+    3221.6
+   ]
+  ],
+  "width": 375,
+  "height": 700
+ },
+ {
+  "id": "stacking-dropdown-behind",
+  "cls": "stacking",
+  "phrase": "dropdown menu",
+  "gt_boxes": [
+   [
+    428.2,
+    397.4,
+    608.2,
+    515.4
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "stacking-modal-behind-overlay",
+  "cls": "stacking",
+  "phrase": "modal dialog",
+  "gt_boxes": [
+   [
+    240,
+    250.5,
+    760,
+    449.5
+   ]
+  ],
+  "width": 1000,
+  "height": 700
+ },
+ {
+  "id": "stacking-tooltip-behind-card",
+  "cls": "stacking",
+  "phrase": "tooltip",
+  "gt_boxes": [
+   [
+    303.3,
+    421.4,
+    452.3,
+    453.4
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "stacking-sticky-hides-anchor",
+  "cls": "stacking",
+  "phrase": "pricing heading",
+  "gt_boxes": [
+   [
+    24,
+    0.3,
+    976,
+    36.3
+   ]
+  ],
+  "width": 1000,
+  "height": 500
+ },
+ {
+  "id": "spacing-button-icon-misaligned",
+  "cls": "spacing",
+  "phrase": "blue button",
+  "gt_boxes": [
+   [
+    1045.7,
+    12,
+    1176,
+    47.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "spacing-label-gap",
+  "cls": "spacing",
+  "phrase": "form field",
+  "gt_boxes": [
+   [
+    24,
+    1434.2,
+    444,
+    1504.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "spacing-grid-gap",
+  "cls": "spacing",
+  "phrase": "product card",
+  "gt_boxes": [
+   [
+    0,
+    398.2,
+    1200,
+    1199.4
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "spacing-nav-misaligned",
+  "cls": "spacing",
+  "phrase": "navigation bar",
+  "gt_boxes": [
+   [
+    0,
+    0,
+    1200,
+    60.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "contrast-dark-text",
+  "cls": "contrast",
+  "phrase": "paragraph of text",
+  "gt_boxes": [
+   [
+    24,
+    220.2,
+    1176,
+    244.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "contrast-disabled-button",
+  "cls": "contrast",
+  "phrase": "disabled button",
+  "gt_boxes": [
+   [
+    525.9,
+    356.2,
+    659.4,
+    391.4
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "contrast-error-text",
+  "cls": "contrast",
+  "phrase": "error message",
+  "gt_boxes": [
+   [
+    26,
+    1596.2,
+    442,
+    1617.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "contrast-badge-text",
+  "cls": "contrast",
+  "phrase": "red badge",
+  "gt_boxes": [
+   [
+    364.4,
+    415.2,
+    404.3,
+    437.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "media-image-stretched",
+  "cls": "media",
+  "phrase": "product image",
+  "gt_boxes": [
+   [
+    37,
+    435.2,
+    384.3,
+    655.2
+   ],
+   [
+    426.3,
+    435.2,
+    773.7,
+    655.2
+   ],
+   [
+    815.7,
+    435.2,
+    1163,
+    655.2
+   ],
+   [
+    37,
+    793.3,
+    384.3,
+    1013.3
+   ],
+   [
+    426.3,
+    793.3,
+    773.7,
+    1013.3
+   ],
+   [
+    815.7,
+    793.3,
+    1163,
+    1013.3
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "media-font-fallback",
+  "cls": "media",
+  "phrase": "sentence of text",
+  "gt_boxes": [
+   [
+    24,
+    263.2,
+    316.4,
+    280.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "media-button-text-clipped",
+  "cls": "media",
+  "phrase": "blue button",
+  "gt_boxes": [
+   [
+    1045.7,
+    14,
+    1176,
+    34
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "state-tab-focus-missing",
+  "cls": "state",
+  "phrase": "tab button",
+  "gt_boxes": [
+   [
+    24,
+    356.2,
+    115.1,
+    398.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "state-tab-hover-missing",
+  "cls": "state",
+  "phrase": "tab button",
+  "gt_boxes": [
+   [
+    123.1,
+    356.2,
+    189.6,
+    398.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ },
+ {
+  "id": "state-invalid-border-same",
+  "cls": "state",
+  "phrase": "email input field",
+  "gt_boxes": [
+   [
+    26,
+    1550.2,
+    442,
+    1592.2
+   ]
+  ],
+  "width": 1200,
+  "height": 800
+ }
+]
