@@ -221,6 +221,6 @@ SWE-bench Multimodal (arXiv 2410.03859), Seeing is Fixing (2506.16136), VisualRe
 <div align="center">
 
 **Team consolelog** · Indie track · Meta Global AI Developer Hackathon<br>
-[Demo video](https://youtu.be/IoWTSEcoGb0) · [MIT license](LICENSE)
+[Demo video](https://youtu.be/IoWTSEcoGb0) · [MIT license](LICENSE) · [Third-party notices](THIRD_PARTY.md)
 
 </div>
