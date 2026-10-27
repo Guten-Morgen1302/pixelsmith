@@ -21,4 +21,4 @@ Advisories: 16 CPUs per GPU job, <= 8 running jobs. Do not request more than one
 Official outcome per the pre-registered rule: SAM is NOT in the agent loop. Any follow-up run below is exploratory and post hoc and does not replace this number.
 
 ## Exploratory follow-up (post hoc, same day, same model and images)
-Same forward pass, lower score thresholds. Hits (IoU >= 0.5) of 28: 0.3 -> 6, 0.2 -> 10, 0.1 -> 12, 0.05 -> 12 (screenshots with any box: 7, 11, 15, 16). Best case 43%, still under the 60% rule. Generous metric (any box may hit), so it overstates SAM. Does not replace the pre-registered 14%. Raw output: `results/sam/spike2-exploratory.json` once copied from the cluster (not yet committed if absent).
+Same forward pass, lower score thresholds. Hits (IoU >= 0.5) of 28: 0.3 -> 6, 0.2 -> 10, 0.1 -> 12, 0.05 -> 12 (screenshots with any box: 7, 11, 15, 16). Best case 43%, still under the 60% rule. Generous metric (any box may hit), so it overstates SAM. Does not replace the pre-registered 14%. Raw output: `results/sam/spike2-exploratory.json`.
