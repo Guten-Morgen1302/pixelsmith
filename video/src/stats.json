@@ -1,0 +1,82 @@
+{
+ "seeded": {
+  "vision": {
+   "k": 24,
+   "n": 27,
+   "pct": 89,
+   "lo": 72,
+   "hi": 96,
+   "oracle": 27
+  },
+  "dom": {
+   "k": 23,
+   "n": 27,
+   "pct": 85,
+   "lo": 68,
+   "hi": 94,
+   "oracle": 26
+  },
+  "hybrid": {
+   "k": 24,
+   "n": 27,
+   "pct": 89,
+   "lo": 72,
+   "hi": 96,
+   "oracle": 26
+  }
+ },
+ "real": {
+  "vision": {
+   "k": 12,
+   "n": 12,
+   "pct": 100,
+   "lo": 76,
+   "hi": 100
+  },
+  "dom": {
+   "k": 5,
+   "n": 12,
+   "pct": 42,
+   "lo": 19,
+   "hi": 68
+  },
+  "hybrid": {
+   "k": 10,
+   "n": 12,
+   "pct": 83,
+   "lo": 55,
+   "hi": 95
+  }
+ },
+ "selfcheck": {
+  "seeded": {
+   "claims": 135,
+   "wrong": 6,
+   "wrongPct": 4,
+   "pessimistic": 1,
+   "runs": 138
+  },
+  "real": {
+   "claims": 29,
+   "wrong": 8,
+   "wrongPct": 28,
+   "pessimistic": 6,
+   "runs": 36
+  }
+ },
+ "adversarial": {
+  "tests": 140,
+  "holes": 0
+ },
+ "sam": {
+  "hits": 4,
+  "n": 28,
+  "pct": 14,
+  "noBox": 23,
+  "best": 12
+ },
+ "calls": 703,
+ "completionTokens": 752764,
+ "seededBugs": 28,
+ "realBugs": 5
+}

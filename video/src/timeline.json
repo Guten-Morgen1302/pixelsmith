@@ -1,0 +1,14 @@
+[
+  { "id": "cold", "d": 8 },
+  { "id": "logo", "d": 4.5 },
+  { "id": "problem", "d": 8.5 },
+  { "id": "pipeline", "d": 8.5 },
+  { "id": "realbug", "d": 11 },
+  { "id": "trace", "d": 14.5 },
+  { "id": "grader", "d": 14.5 },
+  { "id": "results", "d": 15.5 },
+  { "id": "selfcheck", "d": 10 },
+  { "id": "sam", "d": 13.5 },
+  { "id": "numbers", "d": 10 },
+  { "id": "end", "d": 8.5 }
+]

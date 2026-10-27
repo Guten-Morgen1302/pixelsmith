@@ -4,6 +4,11 @@ An agent that fixes visual bugs in web UIs by looking at the running page, plus 
 
 **Models:** Meta's open-weights **Muse Spark Open** (`meta-models/muse-spark-open-1026`), served by Baseten. The Meta Model API was not used (it needs a payment method). SAM 3 was tested and rejected by a pre-registered test (see below).
 
+## Demo video
+![demo](docs/media/demo.gif)
+
+Full 2:07 video source (Remotion, built from real runs; every on-screen number is computed from `results/`): `video/`. The video link will be added here after upload; voice-over is not recorded yet. How it was made and what is real vs animated: `video/README.md`.
+
 ## Results at a glance
 
 | What | Result | n |

@@ -1,32 +1,33 @@
-# Plan Bana demo video
+# Pixelsmith demo video
 
-Motion graphics in [Remotion](https://www.remotion.dev) around the real 30 Sep live recording. 1920×1080, 30 fps, ~2:18.
+Remotion (React) motion graphics around **real** assets: 1920x1080, 30 fps, 2:07. Style adapted from the Plan Bana demo template (dark background, one accent colour, Bricolage Grotesque + JetBrains Mono, spring animations).
 
 ```bash
 cd video
 npm install
-bash cut_clips.sh                      # needs docs/demo/telegram demo.mp4 (not in git)
-npx remotion studio src/index.ts       # preview + scrub in the browser
-npx remotion render src/index.ts PlanBana out/plan-bana-silent.mp4 --codec=h264 --crf=18
-bash make_music.sh 138.2               # synthesized beat → out/music.wav
-../.venv/Scripts/python make_vo.py     # Hinglish voice-over via Gemini TTS (voice Fenrir) → out/vo/
-../.venv/Scripts/python mix_audio.py   # voice + music ducked under it → out/plan-bana.mp4
+python tools/stats.py                  # every number on screen, computed from ../results -> src/stats.json
+node tools/make_assets.mjs             # run from ../ (repo root): Chrome recordings + stills + src/trace.json + src/sam.json
+npx remotion studio src/index.ts       # preview, scrub
+npm run render                         # -> out/pixelsmith-silent.mp4
+bash make_music.sh 127                 # synthesized beat -> out/music.wav (ffmpeg only, nothing to license)
+python make_vo.py --script             # writes VOICEOVER.md (what to read, and when)
+python mix_audio.py                    # -> out/pixelsmith.mp4  (music only, or with voice-over if present)
+npm run thumb                          # -> out/thumbnail.png
 ```
+(`tools/stats.py` and `make_assets.mjs` are run from the repo root: `python video/tools/stats.py`, `node video/tools/make_assets.mjs`.)
 
-Honesty rules:
-- Every phone screen is the unedited 30 Sep recording, only sped up. The home address is blurred.
-- The chaining scene uses a separately logged real run (8 Oct, Comedy Cartel at Glocal → FREE tables 0.4–0.8 km), and says so on screen.
+## Voice-over (not generated yet)
+No voice key is in `.env`, so the delivered video is music + on-screen text. Add the voice either way:
+- **Your own voice (recommended):** read `VOICEOVER.md` (12 lines, each with a start time and a maximum length). Save one take as `out/vo/full.wav`, or one wav per line as `out/vo/01.wav` ... plus `out/vo/timing.json`, then `python mix_audio.py`.
+- **Gemini TTS:** put `GEMINI_API_KEY=...` in `../.env` yourself, then `python make_vo.py`, `python make_vo.py --check`, `python mix_audio.py`.
 
-| Scene | Source | Clip |
-|---|---|---|
-| Cold open, logo, problem | animation | |
-| Chat | 0:02–1:26 @6× | c1_chat |
-| Samjha | 1:28–1:48 @2× | c2_plan |
-| Plans + 6 checks | 2:06–2:22 @2× | c3_plans |
-| Chaining | animation (real 8 Oct run) | |
-| Vote → Book | 2:24–3:08 @2.4× | c4_decide |
-| Final card + map | 3:04–3:22 @2× | c5_map |
-| Swiggy app | 3:26–3:42 @1.6× | c6_app (address blurred) |
-| WhatsApp | 3:52–4:06 @1.6× | c7_whatsapp |
-| "Doneee party" | 4:08–4:18 @1.4× | c8_party |
-| Stats, end card | animation | |
+## Honesty rules (what is real and what is drawn)
+- The two browser panels in "A real bug" are screen recordings of real Chrome pages: the Pico build at the commit before the fix, and the build with the agent's own final patch. Unedited; only upscaled 2x.
+- "The real run" uses `results/real/vision/run1/pico-474.json` (files picked, the agent's own words, the grader verdict) and the real per-call timings from `results/cost.jsonl`. The diff is the real SCSS diff. The "agent's own check: not fixed" text is the model's real self-check output, truncated.
+- The grader scene shows real screenshots and real verdicts computed by the project's own oracle and anti-cheat code.
+- Bars, percentages and intervals come from `python bench/summarize*.py` logic reproduced in `tools/stats.py`; SAM boxes are the real predicted and ground-truth boxes from `results/sam/`.
+- Animation only: the cold-open "fixed" bubbles, the logo, and the pipeline diagram. They are not recordings.
+- Footnotes on screen state the main caveats (public bugs, small n, SAM 3 not 3.1).
+
+## Not committed
+`node_modules/`, `out/`, `public/clips/` (regenerate with `make_assets.mjs`).

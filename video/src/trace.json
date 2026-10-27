@@ -1,0 +1,102 @@
+{
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/content/_typography.scss"
+  ],
+  "suspected": "aria-busy loading spinner pseudo-element is tiny and misaligned to the top-left of the text instead of rendering as a centered 1em spinner due to incorrect size/positioning/display rules in the loading component."
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "why": "1rem makes spinner 16px and misaligned at large font-size, 1em makes it scale to 1em and center with vertical-align.",
+   "selfFixed": false,
+   "selfReason": "Spinner pseudo-element still renders as tiny dot misaligned to top-left of text instead of centered 1em spinner; SCSS size/positioning fix not applied - shows 1rem/small dot bug."
+  },
+  {
+   "n": 2,
+   "why": "Override buggy absolute/top-left tiny-dot positioning and enforce 1em centered spinner with static position and centered background.",
+   "selfFixed": false,
+   "selfReason": "Screenshot still shows bug: both aria-busy indicators render as tiny dot misaligned to top-left of text (small white dot in blue button and small grey dot before 'Loading text') instead of 1em centered static spinner with centered background, SCSS override not applied."
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0003,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "diffLines": [
+  "-    &::before {",
+  "+        &::before {",
+  "+      min-width: 1em;",
+  "+      min-height: 1em;",
+  "-      background-size: 1rem auto;",
+  "+      background-size: 1em auto;",
+  "+      background-position: center center;",
+  "+      position: static;",
+  "+      transform: none;"
+ ],
+ "calls": [
+  {
+   "tag": "pick",
+   "ms": 4623,
+   "out": 400
+  },
+  {
+   "tag": "patch1",
+   "ms": 6289,
+   "out": 1005
+  },
+  {
+   "tag": "verify1",
+   "ms": 2343,
+   "out": 263
+  },
+  {
+   "tag": "patch2",
+   "ms": 7424,
+   "out": 1536
+  },
+  {
+   "tag": "verify2",
+   "ms": 3289,
+   "out": 268
+  }
+ ],
+ "oracle": {
+  "buggy": {
+   "box": 40,
+   "bg": 18,
+   "pass": false
+  },
+  "fixed": {
+   "box": 40,
+   "bg": 40,
+   "pass": true
+  }
+ },
+ "cheat": {
+  "bug": "overflow-toast-offscreen",
+  "buggy": {
+   "oraclePass": false,
+   "wordsKept": true,
+   "neutralised": false
+  },
+  "cheat": {
+   "oraclePass": true,
+   "wordsKept": false,
+   "neutralised": true
+  },
+  "honest": {
+   "oraclePass": true,
+   "wordsKept": true,
+   "neutralised": false
+  },
+  "cheatCss": "#toast { display: none !important }"
+ },
+ "agentCss": "C:/Hackathons/meta-ai-developer-hackathon/pixelsmith/bench/_work/real/vision/run1/pico-474/attempt2.css"
+}

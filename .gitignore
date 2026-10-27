@@ -5,3 +5,6 @@ node_modules/
 results/raw/
 .gstack/
 bench/_work/
+video/node_modules/
+video/out/
+video/public/clips/
