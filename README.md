@@ -11,9 +11,10 @@ An agent that fixes visual bugs in web UIs by looking at the running page, plus 
 | Seeded bugs, held-out split, strict grading | vision 24/27 (89%), hybrid 24/27 (89%), dom 23/27 (85%) | 9 bugs x 3 runs per config |
 | Real upstream bugs (Pico CSS), the agent must find the right SCSS file itself | vision 12/12, hybrid 10/12, dom 5/12 | 4 bugs x 3 runs per config |
 | Grader self-test: 5 cheats (hide, transparent, zero-size...) on all 28 bugs | 0 of 140 accepted as fixes (after fixing 6 holes it first had) | 140 |
+| How often the agent's own "fixed" claim was wrong (vs the hidden grader) | seeded: 6 of 135 claims (4%); **real Pico bugs: 8 of 29 claims (28%)** | `python bench/selfcheck.py` |
 | SAM 3 as a localiser (pre-registered, bar 60%) | **4/28 = 14%: SAM stays out of the agent** | 28 screenshots |
 
-Confidence intervals, per-bug tables and every caveat are below. The honest headline: a screenshot-driven Muse Spark Open loop fixes most of these bugs, DOM data did not help, and SAM did not clear our own bar.
+Confidence intervals, per-bug tables and every caveat are below. The self-check row is why the bench exists: on real bugs the agent's own "fixed" was wrong more than a quarter of the time (and on the subtle spinner bug it also said "not fixed" when the grader passed it), so nothing here trusts the agent's word. The honest headline: a screenshot-driven Muse Spark Open loop fixes most of these bugs, DOM data did not help, and SAM did not clear our own bar.
 
 ## What was built during the hackathon (Oct 26 - Nov 4, 2026)
 Everything in this repository's commit history, starting from the first commit made after the Oct 26 kickoff:
