@@ -40,7 +40,7 @@ Limitations:
 - Seeded bugs are authored by us; they say little about real-world fix rate. Real bugs: 5 reproduced (`bench/bugs/`), 4 more tried and not reproducible or abandoned (`bench/REPRO-STATUS.md`).
 - The regression metric (pixels changed outside the target region) flags valid alternative fixes that shift layout below the target (e.g. a different `clamp()` for a heading). That is why "oracle pass only" is reported next to the strict number. The metric was not changed after seeing held-out results.
 - Bench v2 amendments (clean-app bug, anti-cheat, thresholds) were made after the first dev run and before any held-out run; they are listed in `bench/REPRO-STATUS.md`. Tag `bench-v2-frozen`.
-- SAM 3.1 is not in the loop yet (not served on Baseten).
+- **SAM is not in the loop.** Pre-registered localisation spike (`param/sam_spike/`, SAM 3 `facebook/sam3` on an A100, 28 buggy screenshots, plain concept phrases, IoU >= 0.5 vs DOM boxes): 4/28 = 14%, below the 60% bar we set beforehand. SAM returned no box for 23/28 pages (modal dialogs, tables, nav bars, inputs are not what it detects at score 0.5); its 4 hits (button, image, heading) were precise. SAM 3.1 was not tested. The DOM path already localises these targets, so SAM adds nothing to the measured results.
 
 ## Real upstream bugs (Pico CSS), 4 bugs x 3 runs x 3 configs
 Four real bugs from picocss/pico (MIT): the agent sees the buggy page, is given only a LIST of the library's SCSS files, picks which to open, edits the SCSS, rebuilds, self-verifies. A separate oracle (never shown to the model) grades the final build; the maintainers' merged fix is used only to measure how close the result is.

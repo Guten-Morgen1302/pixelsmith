@@ -15,3 +15,7 @@ Model: `facebook/sam3` through transformers (`Sam3Model`). SAM 3.1 loading is no
 4. On the login node: `hf auth login` then `python prefetch_sam.py facebook/sam3` (compute nodes have no internet).
 5. `cd ~/pixelsmith_sam && sbatch job_sam.sh`, then `cat logs/sam_<jobid>.out`; copy `results.json` back and commit it to `results/sam/`.
 Advisories: 16 CPUs per GPU job, <= 8 running jobs. Do not request more than one GPU.
+
+## Result of the pre-registered run (2026-10-27, PARAM A100, facebook/sam3, score threshold 0.5)
+**4 of 28 = 14.3%** (rule: >= 60% to put SAM in the agent loop). SAM returned NO box for 23 of 28 screenshots; when it did, the boxes were accurate (IoU 0.87-0.99 on the 4 hits). Hits: large heading, blue button x2, product image. Zero hits for modal dialog, tables, nav bar, footer, dropdown, tooltip, text, inputs. Per class: overflow 0/6, responsive 1/4, stacking 0/4, spacing 1/4, contrast 0/4, media 2/3, state 0/3. Raw: `results/sam/spike1-preregistered-thr0.5.json`.
+Official outcome per the pre-registered rule: SAM is NOT in the agent loop. Any follow-up run below is exploratory and post hoc and does not replace this number.
