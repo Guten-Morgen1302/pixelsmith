@@ -29,14 +29,14 @@ SCRIPT: list[tuple[str, float, float, str]] = [
     ("cold", 0.4, 7.4, "Every coding agent says the same thing: fixed. We checked. On real bugs, twenty-eight percent of those claims were wrong."),
     ("logo", 0.9, 3.3, "This is Pixelsmith."),
     ("problem", 0.3, 8.0, "Visual bugs are slow to fix, and easy to fake. So we built the measurement."),
-    ("pipeline", 0.4, 8.0, "Muse Spark Open, Meta's open-weights model, sees the page, patches the source, and checks itself. A hidden grader decides."),
+    ("pipeline", 0.4, 8.0, "Meta's open-weights Muse Spark Open sees the page and patches it. A hidden grader decides."),
     ("realbug", 0.5, 10.0, "A real bug from Pico CSS. The spinner image is eighteen pixels in a forty pixel box. The agent's patch fixes it. Real recordings."),
     ("trace", 0.4, 14.0, "The real run: five calls, real timings. The agent's own check says: not fixed. The hidden grader says: pass, a fraction of a percent from the maintainers' fix."),
     ("grader", 0.4, 14.0, "A cheat: hide the toast. The position check passes, but the words are gone, so the grader refuses. A hundred and forty cheats tried, none accepted."),
     ("results", 0.4, 15.0, "On real bugs, screenshots win: twelve of twelve, against five of twelve for layout data. On seeded bugs they tie. Small samples, wide intervals, and the model may have seen these public fixes."),
     ("selfcheck", 0.4, 9.4, "Here is why the grader exists. On real bugs, twenty-eight percent of the agent's fixed claims were wrong. An agent's word is not a measurement."),
-    ("sam", 0.4, 13.0, "We also tested Meta's SAM three. We set the bar at sixty percent before running it. It scored fourteen. So SAM stays out. A negative result, reported."),
-    ("numbers", 0.4, 9.4, "Built this week: twenty-eight seeded bugs, five real ones, seven hundred calls to an open-weights model. All in the repo."),
+    ("sam", 0.4, 13.0, "We also tested Meta's SAM three. We set the bar at sixty percent before running it. It scored fourteen percent. So SAM stays out. A negative result, reported."),
+    ("numbers", 0.4, 9.4, "Built this week: twenty-eight seeded bugs, five real ones, over seven hundred calls to an open-weights model. All in the repo."),
     ("end", 0.5, 7.5, "Pixelsmith-Bench. Measure the fix. Don't trust the fixed. Team consolelog."),
 ]
 LINES = [(START[sid] + off, min(mx, DUR[sid] - off - 0.2), text) for sid, off, mx, text in SCRIPT]
@@ -91,6 +91,7 @@ def trim_and_fit(src: Path, dst: Path, max_s: float) -> float:
     if tempo > 1.25:
         print(f"   WARNING {dst.name}: {dur:.1f}s for a {max_s:.1f}s slot even at 1.25x; shorten the text")
         tempo = 1.25
+    print(f"   natural {dur:.1f}s, speed-up x{tempo:.2f} for a {max_s:.1f}s slot")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(tmp), "-af", f"atempo={tempo:.3f}", "-ar", "44100", str(dst)], check=True)
     tmp.unlink()
     return dur / tempo

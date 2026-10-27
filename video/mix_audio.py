@@ -35,10 +35,10 @@ if has_vo:
         "[vo]asplit=2[vo_a][vo_key]",
         "[1:a]aformat=sample_rates=44100:channel_layouts=stereo,volume=0.55[mus]",
         "[mus][vo_key]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=450:makeup=1[ducked]",
-        "[ducked][vo_a]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.9,loudnorm=I=-15:TP=-1.5:LRA=9,alimiter=limit=0.7:level=false,aresample=48000[out]",
+        "[ducked][vo_a]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.9,loudnorm=I=-15:TP=-1.5:LRA=9,alimiter=limit=0.7:level=false,aresample=48000,alimiter=limit=0.85:level=false[out]",
     ]
 else:
-    chains = ["[1:a]aformat=sample_rates=44100:channel_layouts=stereo,volume=0.8,loudnorm=I=-16:TP=-1.5:LRA=9,aresample=48000[out]"]
+    chains = ["[1:a]aformat=sample_rates=44100:channel_layouts=stereo,volume=0.8,loudnorm=I=-16:TP=-1.5:LRA=9,aresample=48000,alimiter=limit=0.85:level=false[out]"]
 args += ["-filter_complex", ";".join(chains), "-map", "0:v", "-map", "[out]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(final)]
 subprocess.run(args, check=True)
 print("wrote", final, "(with voice-over)" if has_vo else "(music only)")

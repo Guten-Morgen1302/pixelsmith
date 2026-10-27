@@ -17,6 +17,7 @@ Honest caveats (also in the README): public bugs may have been seen by the model
 
 Code and every number: https://github.com/Guten-Morgen1302/pixelsmith
 Team consolelog, Indie track, Meta Global AI Developer Hackathon.
+Voice-over: AI-generated (Gemini TTS). Music: synthesized with ffmpeg.
 
 **Chapters:**
 0:00 Every agent says "fixed"
@@ -33,4 +34,4 @@ Team consolelog, Indie track, Meta Global AI Developer Hackathon.
 
 **Tags:** Meta, Muse Spark Open, open weights, AI agents, benchmark, CSS, visual bugs, hackathon, Playwright, Baseten
 
-**Before posting:** the repo link only works once the repository is public. The video has no voice-over yet (see README).
+**Before posting:** the repo link only works once the repository is public. Voice is AI-generated; swap in your own recording if you prefer (see video/README.md).

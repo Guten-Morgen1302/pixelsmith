@@ -7,7 +7,7 @@ An agent that fixes visual bugs in web UIs by looking at the running page, plus 
 ## Demo video
 ![demo](docs/media/demo.gif)
 
-Full 2:07 video source (Remotion, built from real runs; every on-screen number is computed from `results/`): `video/`. The video link will be added here after upload; voice-over is not recorded yet. How it was made and what is real vs animated: `video/README.md`.
+Full 2:07 video source (Remotion, built from real runs; every on-screen number is computed from `results/`): `video/`. The voice-over is an AI voice (Gemini TTS), replaceable with a human recording. The video link will be added here after upload. How it was made and what is real vs animated: `video/README.md`.
 
 ## Results at a glance
 

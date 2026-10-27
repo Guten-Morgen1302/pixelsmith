@@ -16,10 +16,11 @@ npm run thumb                          # -> out/thumbnail.png
 ```
 (`tools/stats.py` and `make_assets.mjs` are run from the repo root: `python video/tools/stats.py`, `node video/tools/make_assets.mjs`.)
 
-## Voice-over (not generated yet)
-No voice key is in `.env`, so the delivered video is music + on-screen text. Add the voice either way:
-- **Your own voice (recommended):** read `VOICEOVER.md` (12 lines, each with a start time and a maximum length). Save one take as `out/vo/full.wav`, or one wav per line as `out/vo/01.wav` ... plus `out/vo/timing.json`, then `python mix_audio.py`.
-- **Gemini TTS:** put `GEMINI_API_KEY=...` in `../.env` yourself, then `python make_vo.py`, `python make_vo.py --check`, `python mix_audio.py`.
+## Voice-over
+The delivered video uses a synthetic voice: Gemini TTS (voice "Fenrir"), 12 lines from `VOICEOVER.md`, each checked by transcribing it back (all numbers spoken correctly; two lines were re-timed or shortened because they overran their scene). Say so when you post it: "AI voice-over".
+- **Replace it with your own voice (optional, usually better):** read `VOICEOVER.md`, save one take as `out/vo/full.wav` (delete `out/vo/timing.json` first, because it takes priority), then `python mix_audio.py`.
+- **Regenerate:** put `GEMINI_API_KEY=...` in `../.env` yourself, `python make_vo.py` (or `python make_vo.py 4 7` for single lines), `python make_vo.py --check`, `python mix_audio.py`.
+- Final mix: music ducked under the voice, loudnorm -15 LUFS, final limiter at about -1.4 dBFS, no clipping (verified by decoding the audio).
 
 ## Honesty rules (what is real and what is drawn)
 - The two browser panels in "A real bug" are screen recordings of real Chrome pages: the Pico build at the commit before the fix, and the build with the agent's own final patch. Unedited; only upscaled 2x.
