@@ -1,0 +1,35 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:51:25.249Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fix aria-busy spinner to use em-scaled bordered circle with transparent border-right and infinite rotation instead of broken static background-image that scales incorrectly and sticks to top-left.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  },
+  {
+   "n": 2,
+   "why": "Fix spinner from broken 1rem background-image to scalable em-sized border spinner with centered alignment and spin animation so it scales with font-size 40px and is centered not top-left dot.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/content/_typography.scss"
+  ],
+  "suspected": "aria-busy loading spinner ::before has broken size/position/border-animation (em sizing/offset wrong) so it renders as a tiny static dot in the top-left corner instead of a centered animated spinner, especially broken at large font-size."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0004,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:51:42.525Z"
+}

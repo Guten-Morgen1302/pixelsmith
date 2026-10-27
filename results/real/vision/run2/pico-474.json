@@ -1,0 +1,43 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:56:21.523Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "background-size was fixed to 1rem so at large font-size (40px) the spinner stayed 16px and appeared as tiny clipped dot; 1em scales with element font-size for correctly sized centered spinner",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "aria-busy pseudo-element still appears as tiny clipped dot/bullet left of 'Loading' at large font-size instead of 1em scaled centered spinner - background-size/border/position fix not applied."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run2\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Fix aria-busy spinner to use 1em-relative border spinner with animation and centered scaling instead of fixed-px background icon that clips to tiny dot at large font-size.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Image shows border-based 'C' spinner (not background-icon) sized ~1em and centered to text height in both control sizes, not a tiny clipped px dot — indicates 1em-relative border spinner with correct scaling/positioning is active."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run2\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/helpers/_functions.scss"
+  ],
+  "suspected": "aria-busy loading spinner pseudo-element has incorrect/fixed sizing/positioning (px instead of 1em) and border/animation so it renders as tiny clipped dot instead of scaled centered spinner at large font-size"
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.004,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:56:49.259Z"
+}

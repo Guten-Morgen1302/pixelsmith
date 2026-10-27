@@ -1,0 +1,10 @@
+[1] vision r1 pico-474: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0001,"attempts":2,"edited":true,"fixed":true}
+[2] vision r1 pico-585: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":2,"edited":false,"fixed":false}
+[3] vision r1 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[4] vision r1 pico-615: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0002,"attempts":2,"edited":true,"fixed":true}
+[5] vision r2 pico-474: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0004,"attempts":2,"edited":false,"fixed":false}
+[6] vision r2 pico-585: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":2,"edited":false,"fixed":false}
+[7] vision r2 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[8] vision r2 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":2,"edited":false,"fixed":false}
+
+vision: fixed 2/8

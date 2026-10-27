@@ -1,0 +1,35 @@
+{
+ "bug": "pico-528",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:50:22.073Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Changes modal content selector from descendant (dialog article) to direct-child (dialog > article) so nested card articles inside the modal do not inherit modal sizing/margins and retain visual separation.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Change descendant selector dialog article to child selector dialog > article so nested inner card does not inherit modal layout/background.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/themes/default/_styles.scss"
+  ],
+  "suspected": "Nested `article#inner` inherits modal styles – `dialog article` descendant selector in _modal.scss styles any nested article/card instead of only `dialog > article`, so both outer modal and inner card get identical bg (rgb 255,255,255) / layout and no visual separation"
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:50:31.666Z"
+}

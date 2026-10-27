@@ -1,0 +1,37 @@
+{
+ "bug": "pico-474",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T13:59:24.609Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "background-size used 1rem (root-fixed) while pseudo-element is 1em; at large font-size the spinner image stays tiny and clipped instead of scaling with font, fix to 1em.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "aria-busy ::before spinner still tiny/clipped dot, not 1em-scaled to 40px font-size – button [229x89] and paragraph show only ~4-6px bullet misaligned left of text instead of ~40px centered spinner, so background-size 1rem bug not fixed to 1em."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run3\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Fix aria-busy spinner background-size to em-scaled 1em so 40px font shows 40px spinner not tiny clipped dot.",
+   "error": "edit target matched 0 times (whitespace-tolerant)"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss"
+  ],
+  "suspected": "aria-busy=\"true\" ::before loading spinner uses fixed/incorrect tiny size/position (not em-scaled) so at large font-size it appears as a tiny clipped dot misaligned in button and text instead of a proper centered spinner."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:59:49.801Z"
+}

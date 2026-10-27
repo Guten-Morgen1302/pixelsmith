@@ -1,0 +1,10 @@
+[1] dom r1 pico-474: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0005,"attempts":1,"edited":true,"fixed":false}
+[2] dom r1 pico-585: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+[3] dom r1 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0083,"attempts":1,"edited":true,"fixed":false}
+[4] dom r1 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":1,"edited":true,"fixed":false}
+[5] dom r2 pico-474: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0004,"attempts":2,"edited":true,"fixed":false}
+[6] dom r2 pico-585: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+[7] dom r2 pico-528: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+[8] dom r2 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":1,"edited":true,"fixed":false}
+
+dom: fixed 3/8

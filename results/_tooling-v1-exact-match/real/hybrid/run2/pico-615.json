@@ -1,0 +1,35 @@
+{
+ "bug": "pico-615",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:52:21.837Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore missing accordion hide rule so closed nested details inside dropdown hides its content instead of leaking layout.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  },
+  {
+   "n": 2,
+   "why": "Restore missing accordion hide rule so closed nested details inside dropdown hides its content instead of leaking as display:block.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss",
+   "scss/content/_misc.scss"
+  ],
+  "suspected": "Nested accordion content inside dropdown stays display:block when its details is closed, the accordion hide rule (details:not([open]) > *:not(summary){display:none}) is missing/overridden by dropdown styles so #accp is visible/layout leaking."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:52:42.409Z"
+}

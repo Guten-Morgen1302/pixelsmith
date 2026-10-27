@@ -1,0 +1,33 @@
+{
+ "bug": "pico-528",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T14:00:11.915Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scope modal article styling to direct child only so nested articles inside the modal render as normal cards.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Inner #inner (664x81) is inset inside #outer (700x232) with distinct bounds/shadow seen in image, not inheriting the modal article's full-size (700px wide, centered at [100,64]) styling — indicates dialog > article child-combinator scoping is working and modal layout not broken."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run3\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "Nested article selector in modal (dialog article) is too broad and not child-combinator scoped, so inner #inner card inherits modal article dimensions/shadow/background instead of only #outer."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T14:00:31.648Z"
+}

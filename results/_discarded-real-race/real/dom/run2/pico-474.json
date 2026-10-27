@@ -1,0 +1,39 @@
+{
+ "bug": "pico-474",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:47:54.506Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Enable loading component unconditionally so [aria-busy=true] spinner and pointer-events styles are emitted and match button and generic elements.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Both [aria-busy=true] elements show no loading styling: #b retains normal primary bg rgb(1,114,173)/color and inline-block with no ::before spinner size inflation, #p shows normal text color bg transparent with no progress cursor/spinner, indicating [aria-busy=true] selector still not matching button+generic (import disabled or :not(button) exclusion/specificity override)."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run2\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Force import of components/loading outside conditional index/modules so [aria-busy=true] spinner and pointer-events rules are compiled despite disabled module/import chain.",
+   "error": "edit target matched 0 times in scss/pico.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/pico.scss"
+  ],
+  "suspected": "aria-busy=true loading state not styled - [aria-busy=\"true\"] selector/mixin in components/_loading.scss does not match <button id=b> (and/or generic elements like <p>) - missing/broken import or :not(input,select,textarea,button) / specificity override from content/_button.scss prevents ::before spinner + pointer-events:none from applying, snapshot shows button with normal primary bg/color and no busy pseudo-element/size change despite aria-busy=true"
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0005,
+  "attempts": 2,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:48:29.304Z"
+}

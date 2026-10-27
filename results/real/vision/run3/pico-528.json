@@ -1,0 +1,33 @@
+{
+ "bug": "pico-528",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T14:00:13.052Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change dialog article descendant selector to child selector so nested card inside modal does not inherit modal container styles.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested #inner card inside modal no longer matches dialog article selector - inner article renders as normal card with its own shadow/border inside modal body, not inheriting modal container positioning/box-shadow/borders/spacing from dialog>article."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run3\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "Modal uses `dialog article` descendant selector instead of `dialog > article`, so nested #inner article card inside the modal incorrectly inherits modal container styles (extra box-shadow/borders/spacing/positioning)."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T14:00:30.121Z"
+}

@@ -1,0 +1,37 @@
+{
+ "bug": "pico-474",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:47:30.753Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "background-size used 1rem so spinner stayed root-sized and appeared as tiny dot at 40px font-size; changing to 1em makes it scale with the element's font-size to fill the 1em pseudo-element.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner still renders as tiny dot (~1rem) at 40px font-size, not 1em-sized; background-size:1em fix not applied - pseudo-element not filling 40px box."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run2\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Force pseudo to inherit host font-size so 1em width/height/background-size resolve to host em (40px) instead of root rem, making spinner scale and fill.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss"
+  ],
+  "suspected": "aria-busy loading spinner does not scale with font-size and renders as tiny dot instead of em-sized spinner centered/aligned."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:47:56.291Z"
+}

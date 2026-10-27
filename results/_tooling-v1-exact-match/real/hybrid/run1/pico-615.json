@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T13:50:46.508Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore UA details:not([open]) hiding that was overridden by Pico's display rules so nested accordion panel collapses when not open.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested #acc is not [open] and its content #accp is now display:none with 0x0 box (UA details:not([open])>*:not(summary) restored), so panel collapses; outer dropdown [open] still shows ul/summaries correctly, no other breakage visible in snapshot/screenshot."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run1\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss"
+  ],
+  "suspected": "Nested <details> accordion content is visible even when not [open] because the UA `details:not([open])>*:not(summary){display:none}` hiding is overridden/not re-applied by Pico's accordion/dropdown styles, so the inner accordion panel never collapses."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 1,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:51:08.955Z"
+}

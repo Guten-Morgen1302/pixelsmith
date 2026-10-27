@@ -1,0 +1,34 @@
+{
+ "bug": "pico-474",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:49:45.492Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed background-size to use 1em so spinner scales with font-size; 1rem stayed fixed at root size causing 40px container with small icon and incorrect box/height/overlap.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Boxes match 1em scaling at 40px: #b h=89px (font+40px spinner+padding) w=229px includes spinner, #p h=60px = 40px*1.5 line-height with inline spinner, b bottom 42+89=131 exactly = p top 131 no overlap, container 203px contains both correctly. 1rem bug would give small ~16px spinner, shorter/incorrect height and overlap/misalignment which is not present."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run1\\pico-474\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/_settings.scss"
+  ],
+  "suspected": "[aria-busy=true] loading indicator in _loading.scss broken at large font-size - ::before spinner sizing/positioning (1em/absolute/vertical-align/margin) not scaling with font-size:40px, visible as incorrect box/height/overlap between button #b and p #p"
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0001,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:50:02.426Z"
+}

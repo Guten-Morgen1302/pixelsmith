@@ -1,0 +1,13 @@
+[1] vision r1 pico-474: not fixed Command failed: git -C bench/_work/pico-src fetch -q --depth 1 origin fc41088893e782c1598fcc9f885cfe5a611db4f0 && git -C bench/_work/pico-src checkout -q -f FETCH_HEAD
+error: pathspec 'FETCH_HEAD' did
+[2] vision r1 pico-585: not fixed Command failed: git -C bench/_work/pico-src fetch -q --depth 1 origin 6ea953093f91b3febafb19c9468a44aaf8320961 && git -C bench/_work/pico-src checkout -q -f FETCH_HEAD
+fatal: shallow file has changed 
+[3] vision r1 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[4] vision r1 pico-615: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0002,"attempts":1,"edited":true,"fixed":true}
+[5] vision r2 pico-474: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0001,"attempts":2,"edited":true,"fixed":true}
+[6] vision r2 pico-585: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":2,"edited":false,"fixed":false}
+[7] vision r2 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[8] vision r2 pico-615: not fixed Command failed: git -C bench/_work/pico-src fetch -q --depth 1 origin d44f6d373ffc398387385d58797cfef9b572ef41 && git -C bench/_work/pico-src checkout -q -f FETCH_HEAD
+fatal: shallow file has changed 
+
+vision: fixed 2/8

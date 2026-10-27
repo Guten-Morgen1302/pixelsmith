@@ -1,0 +1,33 @@
+{
+ "bug": "pico-474",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T13:59:24.676Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore generic [aria-busy] spinner/cursor and button inline-flex/centering/opacity fixup that was scoped only to pointer-events, so both button and generic <p> match ::before and get correct loading chrome.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "button[aria-busy] now display:inline-flex (229x89) not buggy inline-block, showing button inline-flex/centering fix restored; generic :not(input,select,textarea,html)[aria-busy] selector restored so both button and <p> match ::before spinner/cursor:progress/pointer-events:none chrome - p retains block layout (700x60) with spinner reservation as expected."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run3\\pico-474\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss"
+  ],
+  "suspected": "ONE bug in [aria-busy=\"true\"] loading implementation. Pico should add ::before spinner + cursor:progress/pointer-events:none to ANY :not(input,select,textarea,html)[aria-busy] (button AND generic element like <p>). Snapshot shows button keeps display:inline-block / normal button bg and <p> keeps display:block with no loading chrome (700x60 = text only, no 1em spinner reservation/ inline-flex). Selector in _loading.scss is over-scoped / swapped (e.g. only button, a, [role=button] or :is(button)[aria-busy]) or ::before is nested under button-only, so generic aria-busy never matches and button variant never gets inline-flex/centering/opacity fixup - visible as missing spinner / wrong display."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0602,
+  "attempts": 1,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:59:52.140Z"
+}

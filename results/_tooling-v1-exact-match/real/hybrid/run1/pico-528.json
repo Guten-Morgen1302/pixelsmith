@@ -1,0 +1,34 @@
+{
+ "bug": "pico-528",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T13:50:27.868Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change modal container from descendant `dialog article` to child `dialog > article` so nested card articles do not inherit modal max-width/margin/overflow styles.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Change modal content selector from descendant `dialog article` to child `dialog > article` to prevent nested card articles inheriting modal container styles.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "Modal and Card both style bare `article` and modal uses `dialog article` descendant selector instead of `dialog > article` child selector so nested #inner article inherits modal container styles (max-width/margin/box-shadow/border) causing bleed/incorrect inset shadow and spacing."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:50:42.086Z"
+}

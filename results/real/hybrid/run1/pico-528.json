@@ -1,0 +1,34 @@
+{
+ "bug": "pico-528",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T13:55:35.640Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Changed modal descendant selector `article` to child selector `> article` so nested articles inside the modal no longer inherit modal container styling.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Inner article no longer has modal container styling. DOM shows #outer 700x232 vs #inner 664x81 inset (118,179) with distinct card layout, both rendered white but visually inner has card shadow/radius and smaller inset in screenshot, not full modal-like background/shadow/layout."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run1\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/layout/_landmarks.scss"
+  ],
+  "suspected": "Modal uses a descendant `dialog article`/`article` selector instead of child `> article` so the nested <article id=inner> card inside the modal incorrectly inherits modal container styling and renders with modal-like background/shadow/layout instead of card styling."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:55:54.708Z"
+}

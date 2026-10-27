@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T13:59:53.403Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use :nth-child(odd of :not([hidden])) so hidden display:none rows are not counted for striping, restoring alternating visible rows.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Visible stripe alternates correctly: r1 striped (rgba 0.04), r2 white, r3 striped, r4 white despite hidden display:none row in between, so :nth-child(odd of :not([hidden])) is working; header and row colors intact."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run3\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses :nth-child(odd/even) which counts the hidden display:none row, so r1+r2 both get striped background instead of alternating visually."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T14:00:07.961Z"
+}

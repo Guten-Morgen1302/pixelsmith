@@ -1,0 +1,11 @@
+[1] dom r1 pico-474: not fixed Command failed: git -C bench/_work/pico-src fetch -q --depth 1 origin fc41088893e782c1598fcc9f885cfe5a611db4f0 && git -C bench/_work/pico-src checkout -q -f FETCH_HEAD
+fatal: Unable to create 'C:/Hack
+[2] dom r1 pico-585: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":2,"edited":false,"fixed":false}
+[3] dom r1 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[4] dom r1 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":2,"edited":false,"fixed":false}
+[5] dom r2 pico-474: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0005,"attempts":2,"edited":true,"fixed":false}
+[6] dom r2 pico-585: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":2,"edited":false,"fixed":false}
+[7] dom r2 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[8] dom r2 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":2,"edited":false,"fixed":false}
+
+dom: fixed 0/8

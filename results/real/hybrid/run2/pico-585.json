@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:56:58.411Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use :nth-child(odd of :not([hidden])) so display:none rows are not counted in zebra striping, restoring proper alternation.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Zebra striping now alternates correctly ignoring the hidden row: r1 (Apples) striped rgba(111,120,135,0.04), r2 (Pears) white, r3 (Plums) striped, r4 (Figs) white — no two consecutive visible rows share the same background, confirming :nth-child(odd of :not([hidden])) is applied and visible striping pattern is restored."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run2\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses :nth-child() for zebra striping which counts the hidden (display:none) row, causing two consecutive rows to have the same background instead of alternating."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:57:13.401Z"
+}

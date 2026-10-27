@@ -1,0 +1,39 @@
+{
+ "bug": "pico-615",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T13:50:53.639Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scope dropdown summary styling to direct child to prevent it cascading into nested details accordion inside the menu which caused the nested boxed styling.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Image still shows wrong nested boxed styling inside menu: 'Solid (accordion)' row inside the dropdown list renders with accordion's bordered summary/chevron box treatment instead of plain menu-item styling. Scoping dropdown summary to > direct child does not fix the opposite direction leak - accordion still uses overly-broad details/summary selectors not scoped to .accordion/details[role=list], so its borders/padding/marker still cascade into details.dropdown and the nested content."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run1\\pico-615\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Scope overly-broad details/summary accordion rules to details.accordion so they no longer cascade into details.dropdown and its nested accordion content.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss",
+   "scss/content/_misc.scss"
+  ],
+  "suspected": "Accordion uses overly-broad details/summary selectors instead of being scoped to .accordion/details[role=list] etc so its borders/padding/marker-chevron rules incorrectly cascade into details.dropdown and its nested accordion content, producing wrong nested boxed styling inside the dropdown menu."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:51:21.467Z"
+}

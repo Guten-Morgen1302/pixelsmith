@@ -1,0 +1,42 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T13:49:45.389Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed px/rem sizing prevents spinner scaling with font-size; using 1em makes background scale and stay centered with the element.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner pseudo-element is still tiny and top-aligned with fixed px size, not scaling to 1em and centered with font-size; large button vs small text show same small dot misaligned."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run1\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Button was fixing font-size to 1rem so inline 40px and 1em spinner could not scale; inherit lets the element's font-size control the em-relative pseudo-element size and vertical alignment.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner pseudo-element remains tiny px-sized and top-aligned/misaligned in the large 40px Button and does not scale with font-size, still using fixed px not 1em/em-relative sizing/centering."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run1\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss"
+  ],
+  "suspected": "The [aria-busy=true] loading spinner pseudo-element uses fixed px sizing/positioning instead of em-relative sizing so it stays tiny and top-aligned instead of scaling and centering with the element's font-size."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0001,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:50:17.482Z"
+}

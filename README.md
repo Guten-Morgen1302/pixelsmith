@@ -37,7 +37,25 @@ Dev split (1 run): vision 18/19, dom 15/19, hybrid 16/19 (see `results/SUMMARY.t
 **Honest reading:** the three configs are statistically indistinguishable on these seeded web bugs; confidence intervals overlap almost entirely. Adding DOM data did not beat vision alone.
 
 Limitations:
-- Seeded bugs are authored by us; they say little about real-world fix rate. Real bugs: 1 reproduced so far (`bench/bugs/daisyui-4724`), 3 tried and not reproducible (`bench/REPRO-STATUS.md`).
+- Seeded bugs are authored by us; they say little about real-world fix rate. Real bugs: 5 reproduced (`bench/bugs/`), 4 more tried and not reproducible or abandoned (`bench/REPRO-STATUS.md`).
 - The regression metric (pixels changed outside the target region) flags valid alternative fixes that shift layout below the target (e.g. a different `clamp()` for a heading). That is why "oracle pass only" is reported next to the strict number. The metric was not changed after seeing held-out results.
 - Bench v2 amendments (clean-app bug, anti-cheat, thresholds) were made after the first dev run and before any held-out run; they are listed in `bench/REPRO-STATUS.md`. Tag `bench-v2-frozen`.
 - SAM 3.1 is not in the loop yet (not served on Baseten).
+
+## Real upstream bugs (Pico CSS), 4 bugs x 3 runs x 3 configs
+Four real bugs from picocss/pico (MIT): the agent sees the buggy page, is given only a LIST of the library's SCSS files, picks which to open, edits the SCSS, rebuilds, self-verifies. A separate oracle (never shown to the model) grades the final build; the maintainers' merged fix is used only to measure how close the result is.
+
+| Config | fixed (oracle pass + content kept + edit applied) |
+|---|---|
+| vision | 12/12 = 100% (95% CI 76-100%) |
+| hybrid (screenshot + DOM) | 10/12 = 83% (55-95%) |
+| dom (DOM/computed-style snapshot only) | 5/12 = 42% (19-68%) |
+
+By bug: pico-585 (striped table + [hidden] row) was fixed by every config; pico-474 (spinner is a ::before) and pico-615 (details nested in dropdown) were never fixed by dom-only; vision fixed all four. Fixed patches differ from the maintainers' real fix by 0.00-0.40% of pixels on the test page. Reproduce: `python bench/summarize-real.py`.
+
+Read this carefully:
+- **Possible memorisation.** These are public bugs merged in 2023-2025 in a public repo; the model may have seen the fix. The near-identical patches are consistent with that. The seeded suite (novel bugs) is the cleaner test; the real bugs show it works on real code, not that it generalises.
+- **Two of four oracles (pico-528, pico-615) are computed-style checks**, weaker than pixel evidence. pico-474 and pico-585 show visible differences (screenshots in `bench/bugs/*/out/`).
+- n = 4 bugs; the intervals are wide and the vision-vs-hybrid gap is not significant. The vision-vs-dom gap on these bugs is suggestive (intervals barely touch), not conclusive.
+- First attempt at this run failed for tooling reasons (exact-match edits: 39 of 40 errors were whitespace mismatches, and a shared git checkout raced between configs). Both were fixed in `agent/real-run.mjs` before any result above was kept; the discarded runs are in `results/_tooling-v1-exact-match` and `results/_discarded-real-race`.
+- Unlike the seeded bench, on real bugs the DOM snapshot did NOT help; screenshots mattered most. On seeded bugs all three configs were statistically equal.

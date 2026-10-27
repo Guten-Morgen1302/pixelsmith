@@ -1,0 +1,33 @@
+{
+ "bug": "pico-585",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:51:45.639Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use :nth-child(odd of :not([hidden])) so hidden rows are not counted, fixing striped alternation.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Use nth-child odd of :not([hidden]) so hidden rows are not counted for striping, fixing consecutive same-color rows.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "striped table uses :nth-child(even/odd) on tbody tr which counts the [hidden] row, causing two consecutive striped rows and broken alternation instead of ignoring hidden rows"
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:51:58.807Z"
+}

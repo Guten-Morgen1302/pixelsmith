@@ -1,0 +1,35 @@
+{
+ "bug": "pico-528",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:51:38.680Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change descendant selector to direct-child so modal container styles only apply to dialog > article and do not bleed into nested article#inner causing identical backgrounds.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Change descendant selector to direct-child so dialog modal styles do not bleed into nested article#inner, restoring contrast.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/themes/default/_light.scss"
+  ],
+  "suspected": "Nested `article#inner` inside `dialog > article#outer` has identical `background-color: rgb(255,255,255)` to the modal container, making the card invisible against the modal. `scss/components/_modal.scss` uses a descendant selector (`dialog article` / `dialog article header`) instead of direct-child (`dialog > article`) so modal card styles bleed into nested cards, and `scss/components/_card.scss` / theme card variables do not provide a contrasting nested-card background/border/shadow override."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:51:51.853Z"
+}

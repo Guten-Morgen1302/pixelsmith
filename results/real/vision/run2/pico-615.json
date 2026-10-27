@@ -1,0 +1,34 @@
+{
+ "bug": "pico-615",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:57:37.013Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change descendant selector to child selector so only direct dropdown summary gets select-like styling and nested accordion summary keeps plain accordion styles.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Outer 'Select a phase of matter' retains bordered select-like trigger; nested 'Solid (accordion)' inside open menu no longer has that input border and renders as plain accordion row inside dropdown panel, confirming > summary child selector is applied."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run2\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss",
+   "scss/content/_misc.scss"
+  ],
+  "suspected": "Nested details/summary (accordion) inside details.dropdown inherits dropdown trigger styling because dropdown uses descendant `details.dropdown summary` selectors instead of `> summary` child selectors, so the inner accordion summary renders as a bordered dropdown button/input instead of plain accordion style."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:57:59.243Z"
+}

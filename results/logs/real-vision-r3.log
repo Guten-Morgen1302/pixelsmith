@@ -1,0 +1,6 @@
+[1] vision r3 pico-474: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0004,"attempts":2,"edited":true,"fixed":true}
+[2] vision r3 pico-585: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+[3] vision r3 pico-528: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+[4] vision r3 pico-615: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+
+vision: fixed 4/4

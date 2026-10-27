@@ -1,0 +1,35 @@
+{
+ "bug": "pico-528",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:52:02.030Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scope modal content styling to direct child article (dialog > article) so nested inner articles/cards don't inherit modal container max-height/overflow/shadow.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Scope modal article styling to direct child to prevent nested card/article inside modal from inheriting max-height/overflow/shadow.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/layout/_document.scss"
+  ],
+  "suspected": "Nested article selector in modal is not scoped to direct child (e.g. dialog article instead of dialog > article) so inner card/article inside the modal incorrectly inherits modal container styling (max-height/overflow/shadow/padding) causing visual clipping/bleed."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:52:15.157Z"
+}

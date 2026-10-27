@@ -1,0 +1,37 @@
+{
+ "bug": "pico-585",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:50:05.622Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Exclude hidden rows from zebra count using :nth-child(odd of :not([hidden])) so hidden rows no longer offset striping.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Fix striped counting to exclude hidden rows so :nth-child odd/even is calculated only over visible rows, preventing r1+r2 both tinted after a hidden row.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Zebra fixed: visible rows alternate correctly ignoring hidden - r1 tinted (rgba 111,120,135,0.04), r2 white rgb(255,255,255), r3 tinted, r4 white. Bug pattern would be r1+r2 both tinted (r2 nth-child 3 odd) which is not observed."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run1\\pico-585\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "striped rule uses :nth-child(odd/even) which counts hidden ([hidden]/display:none) rows, causing zebra offset after hidden row (r1+r2 both tinted). Fix by excluding hidden rows from striping count (e.g. :nth-child odd of :not([hidden]) or :where(tr:not([hidden])))."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:50:18.844Z"
+}

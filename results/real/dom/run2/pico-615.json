@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:57:07.594Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Add explicit details:not([open])> *:not(summary){display:none} in accordion component to restore UA hiding that was overridden by dropdown open descendant display rules, so closed nested accordions stay hidden inside open dropdown.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#accp is now display:none with 0x0 box while #acc has no open attribute inside open #dd, so nested accordion closed-state hiding is restored; dropdown ul remains flex visible and no other layout broken."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run2\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "Nested accordion panel #accp visible while its <details id=acc> is closed (no open) inside open dropdown <details.dropdown open#dd>. Dropdown open rule (details[open]>ul display:flex/block plus descendant display override) overrides UA `details:not([open])>:not(summary){display:none}` and Pico accordion closed-state hiding in _accordion.scss, so closed details content is forced to display:block instead of display:none."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 1,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:57:23.325Z"
+}

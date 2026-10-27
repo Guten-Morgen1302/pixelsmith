@@ -1,0 +1,33 @@
+{
+ "bug": "pico-474",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T13:49:45.375Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Replace broken background-image dot with correct 1em bordered spinning circle (border + border-radius + border-right-color transparent + animation + opacity) to render proper loading spinner.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  },
+  {
+   "n": 2,
+   "why": "Replace background-image icon with 1em bordered circle spinner with transparent border-right and spinning animation to restore correct size and visibility.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss"
+  ],
+  "suspected": "The [aria-busy=true] ::before loading spinner is broken - renders as a tiny clipped dot instead of a 1em bordered spinning circle due to incorrect width/height/border/animation sizing/positioning in the loading component."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0004,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:50:04.021Z"
+}

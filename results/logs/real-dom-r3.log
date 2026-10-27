@@ -1,0 +1,6 @@
+[1] dom r3 pico-474: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0602,"attempts":1,"edited":true,"fixed":false}
+[2] dom r3 pico-585: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+[3] dom r3 pico-528: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":1,"edited":true,"fixed":true}
+[4] dom r3 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":1,"edited":true,"fixed":false}
+
+dom: fixed 2/4

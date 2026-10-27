@@ -1,0 +1,10 @@
+[1] hybrid r1 pico-474: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0004,"attempts":2,"edited":false,"fixed":false}
+[2] hybrid r1 pico-585: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":2,"edited":false,"fixed":false}
+[3] hybrid r1 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[4] hybrid r1 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":1,"edited":true,"fixed":false}
+[5] hybrid r2 pico-474: FIXED {"oracle":true,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0001,"attempts":2,"edited":true,"fixed":true}
+[6] hybrid r2 pico-585: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0,"attempts":2,"edited":false,"fixed":false}
+[7] hybrid r2 pico-528: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0085,"attempts":2,"edited":false,"fixed":false}
+[8] hybrid r2 pico-615: not fixed {"oracle":false,"contentKept":true,"pixelsDifferFromUpstreamFix":0.0124,"attempts":2,"edited":false,"fixed":false}
+
+hybrid: fixed 1/8

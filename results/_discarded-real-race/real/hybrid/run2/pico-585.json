@@ -1,0 +1,33 @@
+{
+ "bug": "pico-585",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:47:59.364Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use :nth-child(odd of :not([hidden])) so hidden/display:none rows are not counted and visible stripe alternation is preserved.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Use nth-child with of selector to count only visible rows so hidden display:none rows do not break striping alternation.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses :nth-child(even/odd) which counts the hidden/display:none row, so visible rows r1 and r2 both get the striped background and alternation is broken."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:48:20.198Z"
+}

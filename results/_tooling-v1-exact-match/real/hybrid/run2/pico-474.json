@@ -1,0 +1,37 @@
+{
+ "bug": "pico-474",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:51:12.077Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Pseudo-element is 1em square but background was sized to 1rem, so at large font-size the spinner renders as a tiny 16px dot in the corner instead of scaling with em.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "At 40px font-size the ::before spinner still renders as a tiny ~16px/1rem dot in top-left/corner of the 1em box instead of a 1em centered scaled spinner - visible as small misaligned dot left of 'Loading' in both button and p in screenshot, so reported sizing/positioning bug not fixed."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run2\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Make spinner fill its 1em box and center it; 1em background-size was computing to root size/~16px and default 0% 0% position left tiny dot in corner, 100% with center scales to full 1em box.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss"
+  ],
+  "suspected": "aria-busy loading spinner pseudo-element is sized/positioned incorrectly showing as tiny misaligned dot instead of centered scaled spinner"
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0001,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:51:33.801Z"
+}

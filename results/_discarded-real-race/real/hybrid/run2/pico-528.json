@@ -1,0 +1,34 @@
+{
+ "bug": "pico-528",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:48:24.024Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change descendant selector dialog article to child selector dialog > article so nested article#inner does not inherit modal sizing/positioning.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Change descendant selector dialog article to child selector dialog > article so nested article#inner does not inherit modal sizing/positioning.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "Modal uses a descendant selector `dialog article` instead of `dialog > article` so the nested `article#inner` card inside `article#outer` incorrectly matches/inherits the modal sizing/positioning/shadow styles."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:48:38.947Z"
+}

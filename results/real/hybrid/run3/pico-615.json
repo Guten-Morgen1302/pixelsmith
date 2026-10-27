@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T14:00:34.953Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Add missing details:not([open]) hiding for accordion (excluding .dropdown which uses opacity) so nested accordion panel is hidden by CSS instead of leaking visible.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested panel #accp is now display:none with 0x0 box while parent #acc is closed, so details:not([open]) hiding works. Dropdown #dd remains open and its ul is visible (flex, 700x144) and screenshot shows no leaked 'More detail' text—only Solid (accordion) summary and Liquid link inside opened dropdown."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run3\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss"
+  ],
+  "suspected": "Nested accordion panel <p id=accp> is display:block/visible while its parent <details id=acc> is not open, so accordion CSS fails to hide details:not([open]) > :not(summary) content inside dropdown."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 1,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T14:00:56.475Z"
+}

@@ -1,0 +1,39 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:47:45.605Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Spinner background was fixed to 1rem so at 40px font-size it stays tiny/clipped; using 1em makes it scale with the element's font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "At large font-size the aria-busy spinner dots are still tiny and offset to the corner, not 1em-scaled to the 40px text, so fixed-px/rem sizing/clipping bug remains."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run2\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Ensure aria-busy spinner uses 1em sizing and em-relative alignment so it scales with font-size 40px instead of fixed px/rem corner clipping",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/_settings.scss"
+  ],
+  "suspected": "aria-busy loading spinner uses fixed px size/position instead of em-relative units so at large font-size (40px) the spinner stays tiny and is clipped/misaligned in the corner."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0001,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:48:04.836Z"
+}

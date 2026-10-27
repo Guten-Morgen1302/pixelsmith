@@ -1,0 +1,42 @@
+{
+ "bug": "pico-474",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:55:57.989Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore busy cursor and ensure button/link busy selector overrides base button cursor:pointer so busy visual feedback renders.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Snapshot shows no busy visual feedback - computed styles provided are only display/color/bg, no cursor:wait/pointer-events:none and no ::before spinner geometry/opacity reported; cannot verify _loading.scss [aria-busy=true] selector now overrides button base cursor:pointer/specificity, so fix unproven from this DOM snapshot alone."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run2\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Remove quotes from aria-busy value and force override with !important so button base cursor:pointer does not win via specificity/order and ::before spinner rule matches regardless of attribute serialization.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "DOM snapshot only shows box/display/color/bg for #b and #p but does not include computed cursor, pointer-events, or ::before pseudo-element styles/content needed to verify [aria-busy=true] spinner/indicator and cursor:wait/pointer-events override; cannot confirm fix and cannot confirm no regressions from limited snapshot."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run2\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss"
+  ],
+  "suspected": "[aria-busy=true] loading state not styling correctly - ::before spinner/indicator and cursor/wait + pointer-events rules in _loading.scss missing/broken or selector typo/quoting/specificity issue and not overriding button base styles, so no busy visual feedback is rendered"
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0004,
+  "attempts": 2,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:56:28.977Z"
+}

@@ -1,0 +1,43 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T13:59:24.694Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed spinner size from fixed 1rem to scalable 1em and vertical alignment to middle so spinner scales and centers with large font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "[aria-busy] spinner is still tiny at large font-size and not scaled/centered: the dot in the large blue 'Loading' button is much smaller than the text height (fixed ~1rem) and not vertically middle-aligned, so the 1rem->1em and top->middle fix did not apply."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run3\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Ensure loading spinner scales with font-size (1em) and is vertically centered (middle) instead of fixed 1rem/top.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "[aria-busy=true] ::before spinner is still tiny (not 1em scaled) and top/misaligned vs middle-centered at large font-size - blue button and text line both show small dot not scaled to font height, bug persists."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run3\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/content/_typography.scss"
+  ],
+  "suspected": "[aria-busy=true] loading spinner pseudo-element has incorrect size/positioning (fixed size and top alignment) so it appears tiny and misaligned at large font-size instead of centered and scaled with em."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0004,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:59:51.585Z"
+}

@@ -1,0 +1,35 @@
+{
+ "bug": "pico-615",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:47:34.893Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore missing accordion collapse rule details:not([open])>:not(summary){display:none} with specificity/!important to beat leaked dropdown open-state display rules that kept nested #accp visible.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  },
+  {
+   "n": 2,
+   "why": "Add missing closed-state collapse rule so nested details:not([open]) hides non-summary content, restoring accordion behavior that dropdown open state was overriding.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss",
+   "scss/helpers/_functions.scss"
+  ],
+  "suspected": "Single visual bug is nested accordion #acc (no open) still renders its content #accp box=[143,171,662x27] display=block below summary instead of being hidden. Outer details.dropdown[open] is correctly open, but inner details:not([open]) > :not(summary) collapse rule from accordion is missing/overridden. Dropdown SCSS likely leaks a generic `details[open] ul`, `li`, `display:block/flex` or `summary~*` rule onto inner details, breaking accordion closed state - inspect _accordion.scss collapse/hidden selector specificity vs _dropdown.scss open-state selectors."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:47:51.061Z"
+}

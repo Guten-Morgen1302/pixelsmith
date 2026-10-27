@@ -1,0 +1,35 @@
+{
+ "bug": "pico-474",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:51:01.622Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Add missing cursor:progress/opacity/pointer-events for generic [aria-busy=true] (p) and button so spinner ::before is visible and busy state is not overridden; fixes narrow/overridden selector.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  },
+  {
+   "n": 2,
+   "why": "Fix narrow/overridden aria-busy selector: ensure [aria-busy=true]::before spinner is not overridden and busy state applies cursor:progress, opacity and pointer-events to both button and generic elements.",
+   "error": "edit target matched 0 times in scss/components/_loading.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/_settings.scss"
+  ],
+  "suspected": "aria-busy=true loading indicator missing/broken - [aria-busy=true]::before spinner and cursor:progress/opacity/pointer-events not applied to button and generic element (p). Selector in _loading.scss too narrow / overridden by button styles or $enable-loading / CSS var undefined so ::before has no content/size/border-color and busy state appears as normal static element in snapshot."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0004,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:51:24.799Z"
+}

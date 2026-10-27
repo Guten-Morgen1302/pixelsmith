@@ -1,0 +1,34 @@
+{
+ "bug": "pico-615",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T13:55:58.184Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Add explicit UA-equivalent hiding for closed details so nested accordion content inside open dropdown is not forced to display:block by dropdown selectors.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested accordion <p>#accp is display:none with 0x0 box while its <details>#acc is closed (no open), despite ancestor <details>.dropdown#dd being open; dropdown <ul> remains display:flex/visible, so open-dropdown styling not overriding closed-details hiding – suspected bug is gone and no regression."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run1\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss",
+   "scss/_settings.scss"
+  ],
+  "suspected": "Nested accordion <p> inside open dropdown stays display:block when its own <details> is closed because dropdown open/details selectors override the accordion closed-content hiding rule."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 1,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:56:18.448Z"
+}

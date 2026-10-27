@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T13:47:22.432Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scope dropdown button styling to direct child summary so nested accordion summary inside dropdown ul does not inherit dropdown select borders/marker/layout.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Inner accordion summary 'Solid (accordion)' inside dropdown ul no longer renders with outer dropdown select button border/background/marker - shows as plain list item with own disclosure caret only, dropdown panel open correctly without double-border/caret leak."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run1\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "Nested details selectors are not scoped with direct-child combinators, so the .dropdown summary/panel rules leak onto the inner accordion details/summary inside the dropdown ul, making the accordion summary render with dropdown button styling/layout (double border/caret) and broken panel behavior."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:47:42.645Z"
+}

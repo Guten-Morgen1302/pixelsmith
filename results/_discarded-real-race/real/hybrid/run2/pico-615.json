@@ -1,0 +1,34 @@
+{
+ "bug": "pico-615",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:48:42.752Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Dropdown selectors used descendant `summary` without `>` so `details.dropdown[open] summary + ul`/`summary ~ *` rules matched nested accordion summary descendants and overrode native `details:not([open])>:not(summary){display:none}` hiding, leaving inner <p> as display:block; scoping to direct child `> summary` restores collapse.",
+   "error": "edit target matched 0 times in scss/components/_dropdown.scss"
+  },
+  {
+   "n": 2,
+   "why": "Narrow dropdown open-state selector to direct child summary so nested accordion closed content is not forced visible by the dropdown open rule.",
+   "error": "edit target matched 0 times in scss/components/_dropdown.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "Nested accordion content (p) is visible/rendered as display:block inside open dropdown even though inner <details> is not open - dropdown open-state selector is too broad and overrides accordion collapsed hiding."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:49:12.324Z"
+}

@@ -1,0 +1,33 @@
+{
+ "bug": "pico-585",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:51:36.916Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use nth-child(odd of :not([hidden])) so hidden display:none rows are not counted for zebra striping, restoring proper alternation without removing features.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Use nth-child(odd of :not([hidden])) so hidden display:none rows are not counted in zebra striping index, restoring correct visible alternation.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses :nth-child(odd/even) for zebra background which counts the hidden display:none row in the child index, causing r1 and r2 both to receive the striped background instead of alternating."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:51:53.378Z"
+}

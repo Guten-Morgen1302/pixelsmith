@@ -1,0 +1,33 @@
+{
+ "bug": "pico-585",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:48:32.705Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Striped selector counted hidden rows via nth-child(odd); changed to nth-child(odd of :not([hidden])) with :not([hidden]) to stripe only visible rows.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Fix striped table zebra to skip hidden/display:none rows by using :nth-child(odd of :not([hidden])) so visible row parity is correct.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses `tbody tr:nth-child(odd/even)` which counts `hidden`/`display:none` rows in `nth-child` index. Snapshot shows `tbody` child 1=r1 tinted, 2=hidden display:none, 3=r2 tinted, 4=r3 white, 5=r4 tinted, i.e. pattern follows DOM index including hidden row instead of visible zebra (r1 tinted, r2 should be white, r3 tinted, r4 white). Needs `tr:not([hidden]):nth-child(even of :not([hidden]))` / `:nth-of-type` filtering or equivalent to skip hidden rows."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:48:42.941Z"
+}

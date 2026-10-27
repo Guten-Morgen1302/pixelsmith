@@ -1,0 +1,35 @@
+{
+ "bug": "pico-528",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T13:47:04.277Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Modal container selector was `dialog article` descendant, so nested inner article inherited modal sizing/margin/max-height; changing to direct-child `dialog > article` restricts styling to the outer modal container only.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Change descendant selector `dialog article` to direct-child `dialog > article` so nested cards inside the modal are not styled as the modal container.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/themes/default/_styles.scss"
+  ],
+  "suspected": "Nested article inside dialog>article modal inherits modal/article styling due to broad descendant selector (dialog article / article header/footer) instead of direct-child selector, causing double padding/border/shadow on the inner card."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:47:19.300Z"
+}

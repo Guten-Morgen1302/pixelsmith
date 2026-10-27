@@ -1,0 +1,33 @@
+{
+ "bug": "pico-585",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:51:27.814Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use :nth-child(odd of :not([hidden])) so hidden rows with display:none are not counted in striping index, fixing adjacent visible rows both getting striped background.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Use :nth-child(odd of :not([hidden])) so hidden rows not counted in striping index, making r1/r2 alternate correctly.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses :nth-child(odd/even) on tbody tr which counts tr[hidden] {display:none} in the index, causing two adjacent visible rows (r1 and r2) to both get the striped background. Should use :nth-child(odd/even of :not([hidden])) or equivalent :nth-of-type logic that skips hidden rows so striping alternates over visible rows only."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:51:35.527Z"
+}

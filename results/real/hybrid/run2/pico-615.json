@@ -1,0 +1,42 @@
+{
+ "bug": "pico-615",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:57:43.863Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Descendant selector leaked dropdown button styling to nested accordion summary and forced its collapsed content visible; using child combinator > scopes styles to the direct dropdown trigger only.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Child combinator fixed summary styling (s1 has default colors bg transparent, not dropdown button bg rgb(251,252,252)), but open-state leak remains: inner details#acc is closed (no open) yet its p#accp is display:block with layout box [143,133,640x27] and visible, so generic details[open] descendant rule still forces hidden accordion content visible."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run2\\pico-615\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Change descendant selectors details.dropdown[open] summary to child combinator > summary so nested closed details#acc elements are not matched as open dropdown content, allowing UA details:not([open]) hiding to keep p#accp hidden.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Partial fix only: s1 no longer has dropdown button styling (bg transparent vs s0 rgb(251,252,252)), but p#accp is still forced visible display=block box=[143,133,640x27] with layout space between s1 and Liquid despite details#acc closed (no open attr). UA details:not([open]) hiding is still overridden by descendant selector leak, so collapsed accordion content is visible in DOM/layout."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run2\\pico-615\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "Nested `details` styling leaks because dropdown uses a descendant / generic `details[open]` selector instead of `>`, so the closed inner accordion `details#acc` is treated as open dropdown content and its collapsed `<p>` is forced visible and its `<summary>` is styled like a dropdown button."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:58:35.302Z"
+}

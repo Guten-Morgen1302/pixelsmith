@@ -1,0 +1,35 @@
+{
+ "bug": "pico-528",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:48:26.908Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change dialog descendant selector to direct-child so only the modal container article gets modal layout and nested card articles retain normal card styling.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Change dialog article from descendant to direct-child selector so only the modal container gets modal styles, not nested card articles inside it.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/themes/default/_styles.scss"
+  ],
+  "suspected": "Nested `article` inside `dialog > article` incorrectly inherits modal styling (dialog descendant selector styles all nested articles/cards instead of only the direct-child modal container), causing the inner card to render with modal chrome/shadow/layout."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:48:39.464Z"
+}

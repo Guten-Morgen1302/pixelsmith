@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:55:40.497Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore missing collapse rule details:not([open])>:not(summary){display:none} so closed nested accordion content is hidden and not overridden by dropdown styles.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "p#accp is now display:none with 0x0 box inside closed details#acc (no open), confirming details:not([open])>:not(summary){display:none} is applied; dropdown[open] ul remains flex/visible (700x144) and no override occurs."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run1\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss"
+  ],
+  "suspected": "Nested accordion details#acc is closed (no open) but its content p#accp is visible (display:block box 143,171). The details:not([open])> :not(summary) {display:none} collapse rule from _accordion.scss is being overridden/clobbered by _dropdown.scss (dropdown[open] ul flex/visibility rules leaking to nested details), so the inner accordion never collapses inside the open dropdown."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 1,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:55:54.499Z"
+}

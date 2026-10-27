@@ -1,0 +1,33 @@
+{
+ "bug": "pico-528",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:56:46.325Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change modal content selector to direct-child to prevent modal sizing/margins/background leaking into nested article cards.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "inner article at x=118 (not 136) with width 664 (700-36) leaving 18px gutters on both sides (782 vs outer right 800) not flush, bg remains card white rgb(255,255,255) not leaked modal bg, p at 136 = 118+18 shows only single card padding not double modal padding/margin/width bleed; outer modal still centered at [100,64,700x232] in 900px flex dialog"
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run2\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "Overly broad descendant selector `dialog article` (instead of `dialog > article` / direct-child) in modal styles bleeds modal layout (auto margin/width/positioning/padding/bg) into nested `article#inner` card; nested card gets modal sizing/margins resulting in 18px offset (x=136 vs expected 118), flush right, and wrong background/shadow."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:57:04.050Z"
+}

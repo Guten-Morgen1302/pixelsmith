@@ -1,0 +1,43 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T13:54:42.715Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "1rem makes spinner 16px and misaligned at large font-size, 1em makes it scale to 1em and center with vertical-align.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner pseudo-element still renders as tiny dot misaligned to top-left of text instead of centered 1em spinner; SCSS size/positioning fix not applied - shows 1rem/small dot bug."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run1\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Override buggy absolute/top-left tiny-dot positioning and enforce 1em centered spinner with static position and centered background.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Screenshot still shows bug: both aria-busy indicators render as tiny dot misaligned to top-left of text (small white dot in blue button and small grey dot before 'Loading text') instead of 1em centered static spinner with centered background, SCSS override not applied."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run1\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/content/_typography.scss"
+  ],
+  "suspected": "aria-busy loading spinner pseudo-element is tiny and misaligned to the top-left of the text instead of rendering as a centered 1em spinner due to incorrect size/positioning/display rules in the loading component."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0003,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:55:11.979Z"
+}

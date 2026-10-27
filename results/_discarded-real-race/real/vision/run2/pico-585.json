@@ -1,0 +1,33 @@
+{
+ "bug": "pico-585",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:48:07.476Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use nth-child(odd of :not([hidden])) to filter hidden rows from stripe count so visible rows alternate correctly.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Invert striped colors for rows following a hidden row to compensate for :nth-child counting hidden elements, restoring visible alternation.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses :nth-child(odd/even) which counts the [hidden] row, breaking the visible stripe alternation (Apples and Pears both striped)."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:48:23.619Z"
+}

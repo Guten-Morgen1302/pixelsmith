@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:51:55.298Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore missing closed-state hiding rule so non-open details content is display:none and layout is not expanded.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  },
+  {
+   "n": 2,
+   "why": "Restore missing details:not([open])> :not(summary) {display:none} rule so closed accordions hide content and don't expand layout.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "Accordion <details id=acc> has no open attribute but its content <p id=accp> is rendered display=block and expands layout (li 88px instead of 56px). Expected details:not([open]) > :not(summary) to be display:none. Rule missing/broken or overridden in _accordion.scss (possibly by _dropdown.scss open-state selector)."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:52:05.390Z"
+}

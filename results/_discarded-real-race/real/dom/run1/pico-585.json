@@ -1,0 +1,33 @@
+{
+ "bug": "pico-585",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:47:02.355Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Exclude [hidden] rows from striped nth-child counting so visible rows alternate correctly.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  },
+  {
+   "n": 2,
+   "why": "Striped selector counted hidden rows, making two visible rows both match odd; using odd of :not([hidden]) excludes display:none hidden rows from alternation.",
+   "error": "edit target matched 0 times in scss/content/_table.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "striped table uses :nth-child(even/odd) which counts display:none [hidden] row, causing two consecutive visible rows (r1 and r2) to get same striped background rgba(111,120,135,0.04) and breaking alternation; should exclude hidden rows e.g. :nth-child(even of :not([hidden])) or :nth-of-type with hidden handling"
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:47:13.484Z"
+}

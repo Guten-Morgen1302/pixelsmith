@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:56:32.093Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fix striped counting to ignore hidden rows using :nth-child(odd of tr:not([hidden])) so display:none rows don't break alternation.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Alternation now correctly ignores hidden row: r1 striped (0.04), r2 white, r3 striped, r4 white. Bug pattern would be r1+r2 both striped / r3 white / r4 striped due to :nth-child counting display:none row at index2, but snapshot shows consecutive visible rows alternate properly, indicating :nth-child(odd/even of tr:not([hidden])) is applied."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run2\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "striped uses :nth-child(odd/even) on tbody tr which counts the hidden (display:none) row in nth-child index, causing r1 and r2 to both get the striped background (rgba(111,120,135,0.04)) and breaking alternation (r3 white, r4 striped). Should use selector that ignores [hidden] e.g. :nth-child(even of tr:not([hidden])) / :nth-of-type with :not([hidden]) isolation."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:56:42.767Z"
+}

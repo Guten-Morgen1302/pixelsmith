@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:56:52.760Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "nth-child/nth-of-type counts hidden tr elements so adjacent visible rows get same background; using nth-child(odd of :not([hidden])) stripes only visible rows.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Visible rows show correct alternating stripes (Apples shaded, Pears white, Plums shaded, Figs white) with no adjacent visible rows sharing same background, indicating hidden tr is no longer counted."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run2\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses :nth-child(even/odd) instead of :nth-of-type so the hidden row is counted, breaking the alternating stripe pattern and causing two adjacent visible rows to share the same background."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:57:12.125Z"
+}

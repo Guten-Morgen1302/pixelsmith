@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T13:59:55.223Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use Selectors Level 4 'of S' syntax to exclude [hidden] rows from striping count so visible rows alternate correctly.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Striping alternates correctly on visible rows: Apples shaded, Pears white, Plums shaded, Figs white. Even with a [hidden] row in the DOM, no two adjacent visible rows share the same background, so the :nth-child(of S) exclusion is working and no regression is visible."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run3\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "Striped table uses tbody tr:nth-child(even/odd) which counts the hidden (display:none) row, so two adjacent visible rows get the same background instead of alternating."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T14:00:09.192Z"
+}

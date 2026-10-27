@@ -1,0 +1,35 @@
+{
+ "bug": "pico-528",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:47:16.632Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Change descendant selector `dialog article` to direct-child `dialog > article` so modal layout/background/margin rules apply only to the top-level article and nested card articles keep normal card styling.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  },
+  {
+   "n": 2,
+   "why": "Change descendant `dialog article` to direct-child `dialog > article` so nested card #inner no longer inherits modal-article layout/background/margins.",
+   "error": "edit target matched 0 times in scss/components/_modal.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/layout/_document.scss"
+  ],
+  "suspected": "Modal/card descendant selector is too broad (dialog article / article header) instead of direct-child dialog>article. The nested #inner card therefore inherits the modal-article layout/background/negative-margin rules, so it renders with the same bg as #outer (rgb 255,255,255), wrong asymmetric inset (136,179 664x81 vs expected full card padding/border) and loses visual card separation inside the modal. Fix to :where(dialog > article) / dialog > article > header etc."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0085,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:47:31.440Z"
+}

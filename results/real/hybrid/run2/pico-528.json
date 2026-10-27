@@ -1,0 +1,34 @@
+{
+ "bug": "pico-528",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T13:57:17.050Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Changed descendant selector dialog article to child selector dialog>article to prevent nested cards inside the modal content from incorrectly inheriting modal width/max-height/margin/overflow layout.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested article no longer inherits modal layout: inner box 664w at x118 is inset 18px inside outer 700w at x100 (not equal width/margin auto), vertically contained (y179-260 inside 64-296) with distinct card shadow vs modal, no overflow/misalignment. Outer modal remains correctly centered/sized."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run2\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/layout/_landmarks.scss"
+  ],
+  "suspected": "Nested article inside dialog>article (card inside modal) incorrectly inherits modal styles/layout due to overly broad descendant selector (dialog article instead of dialog>article) causing mis-alignment/overflow and indistinct nesting."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:57:40.463Z"
+}

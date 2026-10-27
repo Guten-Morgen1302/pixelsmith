@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T13:59:55.876Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use :nth-child(odd of :not([hidden])) so hidden/display:none rows are not counted, preserving correct zebra alternation.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Zebra alternation is correct with hidden row excluded: r1 (striped rgba(111,120,135,0.04)), r2 (white), r3 (striped), r4 (white) with no consecutive duplicates, proving :nth-child(odd of :not([hidden])) is working and hidden display:none row at box 0,0,0x0 is not counted."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run3\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "`.striped` uses `tbody tr:nth-child(odd/even)` to set `rgba(111,120,135,0.04)` vs `white`. `:nth-child` counts the `hidden`/`display:none` row (nth-child 2), so r1 (nth-child 1) and r2 (nth-child 3) are both considered odd and get the same striped background `rgba(111, 120, 135, 0.04)` consecutively, breaking alternation (r3 white, r4 striped). Should use `:nth-child(odd of :not([hidden]))` / `:nth-child(even of :not([hidden]))` or exclude `[hidden]` rows to maintain correct zebra striping."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T14:00:05.633Z"
+}

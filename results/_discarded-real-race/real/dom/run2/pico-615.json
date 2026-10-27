@@ -1,0 +1,35 @@
+{
+ "bug": "pico-615",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T13:48:59.698Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Restore accordion collapse rule so details:not([open]) content is hidden, fixing visible nested accordion while dropdown open styling still applies via its own open selector.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  },
+  {
+   "n": 2,
+   "why": "Restore accordion collapse rule hiding details:not([open]) content so nested accordion stays hidden while dropdown open remains visible.",
+   "error": "edit target matched 0 times in scss/components/_accordion.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_accordion.scss",
+   "scss/components/_dropdown.scss",
+   "scss/_settings.scss"
+  ],
+  "suspected": "Nested <details id=acc> has no `open` but its <p id=accp> is rendered visible (display=block box 143,171 662x27) instead of hidden/collapsed. In Pico CSS accordion styling is responsible for hiding details:not([open]) content, dropdown (<details class=dropdown open>) should be the only open details; indicates accordion collapse rules in _accordion.scss are missing/overridden (likely overly generic details/summary selector in dropdown interfering)."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:49:12.242Z"
+}

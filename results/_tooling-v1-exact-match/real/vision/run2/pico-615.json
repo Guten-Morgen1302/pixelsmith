@@ -1,0 +1,35 @@
+{
+ "bug": "pico-615",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T13:52:20.886Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scoped dropdown selectors to direct-child > summary and > summary + ul so nested details/accordion inside the dropdown menu no longer inherits dropdown border/background/chevron/layout styling.",
+   "error": "edit target matched 0 times in scss/components/_dropdown.scss"
+  },
+  {
+   "n": 2,
+   "why": "Scope dropdown styles to direct child summary/ul/li with > to prevent nested accordion details from inheriting dropdown borders/chevron/layout.",
+   "error": "edit target matched 0 times in scss/components/_dropdown.scss"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss",
+   "scss/content/_misc.scss"
+  ],
+  "suspected": "Nested accordion details inside an open details.dropdown inherits dropdown summary/ul/li styling due to insufficiently scoped descendant selectors instead of direct-child selectors, causing the inner accordion to render with dropdown borders/arrows/layout inside the menu."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0124,
+  "attempts": 2,
+  "edited": false,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:52:44.431Z"
+}

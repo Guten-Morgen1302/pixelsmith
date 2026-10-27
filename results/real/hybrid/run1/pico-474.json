@@ -1,0 +1,43 @@
+{
+ "bug": "pico-474",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T13:54:42.715Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Fixed px-sized background caused tiny clipped spinner at large font-size; using 1em scales spinner with element font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Both aria-busy elements (button and p at 40px font-size) show a tiny dot clipped at the left edge instead of a ~1em centered spinner, confirming the fixed-px sizing/positioning bug remains - spinner does not scale with font-size."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run1\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "Fix fixed-px misaligned spinner by ensuring em-scaled centered background-position so 40px font-size renders ~1em spinner centered not clipped dot.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Visual shows aria-busy spinner still as tiny clipped dot offset in corner (button and p) not a ~1em centered em-scaled spinner; fixed px sizing/positioning bug remains at 40px font-size."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\hybrid\\run1\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/content/_typography.scss"
+  ],
+  "suspected": "aria-busy loading indicator ::before spinner is sized/positioned incorrectly (fixed px size and misaligned) so at large font-size it renders as a tiny clipped dot in the corner instead of a centered em-scaled spinner"
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:55:13.385Z"
+}

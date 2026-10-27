@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T13:55:15.805Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Use :nth-child(odd of :not([hidden])) so hidden rows are not counted in zebra striping, fixing consecutive same-color visible rows.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Zebra striping now alternates correctly: Apples (1st visible) shaded, Pears white, Plums shaded, Figs white. No consecutive white rows (Pears/Plums are different) and first visible row has correct shading, confirming :nth-child(odd of :not([hidden])) is counting only visible rows."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\vision\\run1\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "striped table uses :nth-child(even/odd) which counts the [hidden] tbody tr, breaking zebra - two consecutive white rows (Pears/Plums) and wrong shading on first visible row"
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T13:55:30.963Z"
+}

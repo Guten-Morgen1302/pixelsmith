@@ -1,0 +1,34 @@
+{
+ "bug": "pico-528",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T13:55:21.972Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Give nested article inside a card/modal a distinct sectioning background (card-sectioning-background-color) so inner card is visually separated from outer modal card instead of identical white-on-white blending.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested article#inner bg rgb(251,252,252) is now distinct from outer article#outer bg rgb(255,255,255), not white-on-white. Inner correctly uses sectioning background (card-sectioning-background-color) providing visual separation inside modal."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real\\dom\\run1\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss",
+   "scss/themes/default/_light.scss"
+  ],
+  "suspected": "Nested article#inner inside dialog>article#outer has identical background-color rgb(255,255,255) to parent modal - no surface distinction. Modal/card selector in _modal.scss/_card.scss is overly broad or does not apply nested-section/variant background (--pico-card-background-color / --pico-card-sectioning-background-color) for article article, causing visual blending of nested card into modal."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0083,
+  "attempts": 1,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T13:55:37.175Z"
+}

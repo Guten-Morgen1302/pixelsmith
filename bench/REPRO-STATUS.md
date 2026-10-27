@@ -55,3 +55,6 @@ Pico (picocss/pico, MIT) compiles with plain Sass, so base/fix commits build in 
 | pico-528 | #528 card in modal gets modal styling | computed style (max-height/margin) |
 | pico-615 | #615 accordion inside dropdown renders as dropdown | computed style (summary border) |
 Real bugs reproduced so far: 5 (daisyui-4724 + these 4). Not reproduced / abandoned: see table above (daisyUI 4179/4335/4166, Docusaurus). Oracles for 528 and 615 are computed-style checks, weaker than pixel evidence; documented, not hidden.
+
+## Agent on real bugs (2026-10-27)
+`agent/real-run.mjs`, 4 Pico bugs, 3 configs, 3 runs each (36 runs): vision 12/12, hybrid 10/12, dom 5/12. Raw results: `results/real/`. Tooling failures (exact-match edit application, shared checkout race) were fixed before the kept run; discarded results retained for transparency. See README for caveats (possible memorisation, two computed-style oracles).
