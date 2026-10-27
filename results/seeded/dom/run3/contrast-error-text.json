@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-error-text",
+ "cls": "contrast",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:27:50.827Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Error text #f0a0a0 on white bg (~1.9:1) is unreadable/low-contrast; use the design-system error color #b00020 for WCAG AA contrast without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Error text #err now uses rgb(176,0,32) (#b00020) on transparent/white achieving WCAG AA contrast instead of #f0a0a0, is visible with box 416x21 at [26,1596], and viewport 1200x800 checks pass: docScrollWidth=1200 (no overflow), header/grid/table/footer within bounds, no clipping or hidden content."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:08.903Z"
+}

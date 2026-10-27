@@ -1,0 +1,10 @@
+split=dev
+vision  strict-fixed 18/19 = 95% CI [75%,99%] | oracle-pass 18/19 = 95% CI [75%,99%] | flagged regressions 0 | cheats 0
+dom     strict-fixed 15/19 = 79% CI [57%,91%] | oracle-pass 16/19 = 84% CI [62%,94%] | flagged regressions 1 | cheats 0
+hybrid  strict-fixed 16/19 = 84% CI [62%,94%] | oracle-pass 17/19 = 89% CI [69%,97%] | flagged regressions 1 | cheats 0
+
+split=heldout
+vision  strict-fixed 24/27 = 89% CI [72%,96%] | oracle-pass 27/27 = 100% CI [88%,100%] | flagged regressions 3 | cheats 0
+dom     strict-fixed 23/27 = 85% CI [68%,94%] | oracle-pass 26/27 = 96% CI [82%,99%] | flagged regressions 4 | cheats 0
+hybrid  strict-fixed 24/27 = 89% CI [72%,96%] | oracle-pass 26/27 = 96% CI [82%,99%] | flagged regressions 3 | cheats 0
+

@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:25:52.648Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "btn uses align-items:flex-start so icon and label stick to the top of the button padding box (visible as 1px clipping and top-aligned icons), should be centered vertically.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "BTN now vertically centered: #cta (35px tall y12) icon y24/12h centered at ~30 vs button center 29.5 and text y20/19h centered at 29.5; #dis icon y368 vs button y356 similarly centered, no 1px clipping/top-alignment. No overflow (docScrollWidth 1200 = viewport 1200) and other layout intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:18.778Z"
+}

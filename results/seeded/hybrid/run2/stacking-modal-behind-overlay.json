@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-modal-behind-overlay",
+ "cls": "stacking",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T12:26:56.554Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Overlay had z-index 100 and modal 99 so modal rendered underneath dimming layer and appeared inaccessible; raising modal above overlay fixes stacking.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal z-index 101 now renders above overlay z-index 100 - screenshot shows Confirm order dialog fully visible/opaque above dimming layer and Close button accessible; viewport 1000 docScrollWidth 1000 shows no overflow and no other regressions."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:16.355Z"
+}

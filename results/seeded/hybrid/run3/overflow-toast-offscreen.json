@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:28:13.261Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Toast was positioned with right:-20px causing it to be clipped off the viewport edge when open; setting right to 16px keeps it fully visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast box 1023+161=1184 fits within 1200px viewport with 16px right offset (right:16px), fully visible, docScrollWidth=1200 equals viewport so no horizontal scroll; other layout elements intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:26.095Z"
+}

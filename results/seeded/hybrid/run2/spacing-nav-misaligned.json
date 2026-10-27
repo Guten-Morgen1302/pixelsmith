@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-nav-misaligned",
+ "cls": "spacing",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T12:27:16.393Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Nav was top-aligned with flex-start causing vertical misalignment of logo/links vs CTA button, fix by centering cross-axis.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nav cross-axis is now centered: logo (y 18 h24 center 30) and nav-links (y18 h24 center30) align with CTA button (y12 h35 center 29.5) inside 60px header; header/nav height consistent (60/59) and docScrollWidth 1200 equals viewport 1200 so no horizontal overflow or other regression visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:50.596Z"
+}

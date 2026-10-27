@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-hero-heading",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T12:26:34.532Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "hero h1 at 64px has scrollWidth 412 vs clientWidth 327 causing hero/main to overflow to 436px and produce horizontal scroll on 375px viewport, fixing with overflow-wrap prevents overflow without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth=375 matches viewport 375 so horizontal scroll gone; h1 now scrollWidth 327==clientWidth 327 vs previous 412>327, fits within 327px content area; hero/main 375 width no overflow; no other viewport overflow, table overflow isolated with ovf auto inside tablewrap"
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3493,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:26:54.083Z"
+}

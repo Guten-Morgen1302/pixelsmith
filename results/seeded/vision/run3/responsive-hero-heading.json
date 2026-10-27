@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-hero-heading",
+ "cls": "responsive",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:28:26.014Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "H1 with fixed 64px causes horizontal overflow/clipping on 375px viewport, adding overflow-wrap allows the long word to break and stay inside viewport.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Horizontal overflow/clipping is gone on 375px viewport - H1 'Unmistakably' now wraps/breaks across lines and stays inside viewport with no horizontal scrollbar, and no other overflow is visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3493,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:28:39.392Z"
+}

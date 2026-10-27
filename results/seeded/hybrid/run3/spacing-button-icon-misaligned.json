@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:28:26.113Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "btn uses align-items:flex-start so the 12px icon sticks to the top padding instead of centering with the text, visible in CTA and Unavailable buttons.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "CTA icon is vertically centered with text: button top 12h35, icon y24 (12px padding + 11.5px centering offset) center 30, text y20h19 center 29.5 delta 0.5px vs flex-start would top-align both at same y. Same 12px top offset on Unavailable button (368-356=12) shows center alignment. Viewport 1200 docScrollWidth 1200 no overflow, long title wraps to 56px height, no other breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:48.423Z"
+}

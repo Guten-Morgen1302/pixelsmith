@@ -1,0 +1,29 @@
+[1] hybrid r1 overflow-table-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[2] hybrid r1 responsive-hero-heading: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.3493,"regression":true,"attempts":1,"fixed":false}
+[3] hybrid r1 overflow-toast-offscreen: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[4] hybrid r1 stacking-modal-behind-overlay: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[5] hybrid r1 spacing-button-icon-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[6] hybrid r1 spacing-nav-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[7] hybrid r1 contrast-error-text: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[8] hybrid r1 media-font-fallback: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[9] hybrid r1 state-tab-hover-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[10] hybrid r2 overflow-table-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[11] hybrid r2 overflow-toast-offscreen: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[12] hybrid r2 stacking-modal-behind-overlay: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[13] hybrid r2 responsive-hero-heading: not fixed {"oracle":false,"cheat":false,"regressionFrac":0.3703,"regression":true,"attempts":2,"fixed":false}
+[14] hybrid r2 spacing-nav-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[15] hybrid r2 spacing-button-icon-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":2,"fixed":true}
+[16] hybrid r2 contrast-error-text: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[17] hybrid r3 overflow-table-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[18] hybrid r2 state-tab-hover-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[19] hybrid r2 media-font-fallback: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[20] hybrid r3 overflow-toast-offscreen: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[21] hybrid r3 stacking-modal-behind-overlay: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[22] hybrid r3 responsive-hero-heading: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.3493,"regression":true,"attempts":1,"fixed":false}
+[23] hybrid r3 spacing-button-icon-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[24] hybrid r3 contrast-error-text: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[25] hybrid r3 spacing-nav-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[26] hybrid r3 state-tab-hover-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[27] hybrid r3 media-font-fallback: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":2,"fixed":true}
+
+hybrid: fixed 24/27

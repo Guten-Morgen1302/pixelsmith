@@ -1,0 +1,27 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T12:27:46.682Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Add system font fallback so text does not fall back to serif when Inter Display is unavailable, which is the font mismatch visible in the hero and probe lines.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Hero heading and probe lines both render as sans-serif (system fallback) with no serif fallback, and layout at 1200x800 shows no overflow, wrapping issues, or other breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:15.272Z"
+}

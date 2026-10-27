@@ -1,0 +1,27 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:28:08.920Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "white-space:nowrap forces table cells to never wrap causing horizontal overflow and broken responsive layout at 1200x800, remove to allow natural wrapping within table-wrap overflow.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 1200 == viewport 1200 so horizontal overflow gone; table-wrap 1152px contains table 1152px with cells wrapping (e.g. 124+325+250+342+111=1152) and ovf auto with no clipping, sticky header and other sections intact at 1200x800"
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.0522,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:28:33.141Z"
+}

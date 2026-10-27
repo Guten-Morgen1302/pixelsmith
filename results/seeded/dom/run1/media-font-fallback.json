@@ -1,0 +1,27 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:26:08.783Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Inter Display is not a system font with no fallback/stack, causing FOIT/layout shift and fallback serif metrics to differ from design (probe vs probe-ref width mismatch) at 1200x800.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "probe and probe-ref widths match (both 317px) indicating metric-matched font stack \"Inter Display\", system-ui... with no FOIT/overflow; viewport 1200x800 has docScrollWidth 1200, header/nav/grid/footer within viewport, no clipping introduced."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:33.657Z"
+}

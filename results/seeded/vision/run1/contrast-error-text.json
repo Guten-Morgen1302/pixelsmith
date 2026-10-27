@@ -1,0 +1,36 @@
+{
+ "bug": "contrast-error-text",
+ "cls": "contrast",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:26:04.734Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Error text #f0a0a0 on white has insufficient contrast and is invisible; use the defined error color variable for accessible contrast.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "No error text is visible in the 1200x800 viewport, so contrast fix for #f0a0a0 on white cannot be verified from screenshot alone; no other visual regressions are apparent."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Move badge inside card bounds so it is not clipped/overflows grid at 1200x800 while preserving content and accessibility.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 the 'New' badge is fully inside the first card's bounds/top-right corner with no clipping or overflow beyond card/grid, three-column grid remains intact with no horizontal scroll, and all content (titles, prices, nav, buttons) remains visible/accessible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.0015,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:02.030Z"
+}

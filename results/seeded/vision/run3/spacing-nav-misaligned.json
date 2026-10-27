@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-nav-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:28:39.401Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Nav used align-items:flex-start causing header logo/links/CTA to be top-aligned and vertically mis-aligned at 1200x800, fixing to center restores intended header alignment without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Header logo, nav links, and Get started CTA are vertically center-aligned at 1200x800 with no top-alignment offset, and page content remains fully visible with no clipping or layout breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:29:08.744Z"
+}

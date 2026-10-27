@@ -1,0 +1,27 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:26:18.791Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Inter Display is not guaranteed to load and has no generic fallback, causing serif fallback and layout shift seen in h1/probe; adding system fallback preserves intended sans metrics without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Fallback applied: probe and probe-ref identical width (317px) shows sans metrics preserved, no serif shift. At 1200x800 docScrollWidth=1200 matches viewport, no horizontal overflow; grid fits, long word wraps (h3 56px high, no overflow), badge/header/table within bounds."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:42.772Z"
+}

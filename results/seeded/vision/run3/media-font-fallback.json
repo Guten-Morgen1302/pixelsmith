@@ -1,0 +1,27 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:28:59.959Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Missing generic fallback after custom font causes fallback to serif and visible metrics mismatch (probe vs probe-ref) and the heading rendering glitch, adding system font stack restores intended sans fallback.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 the heading and body render in the system sans stack with no serif fallback, probe vs probe-ref metrics match (both 'The quick brown fox...' lines identical), no rendering glitch or overflow; three cards fit cleanly in viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:29:22.257Z"
+}

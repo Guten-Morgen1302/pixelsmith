@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T12:26:42.812Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Toast was positioned with right:-20px causing it to be clipped off the viewport on the right edge, visible in screenshot.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast box [1023,740,161x44] gives right edge 1184 < viewport width 1200 and bottom 784 < 800, fully inside viewport. docScrollWidth==1200 shows no horizontal overflow. Previously right:-20px would place right edge >1200 and clip; now with inset margin it is fully visible and no scroll/other clipping introduced."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:02.247Z"
+}

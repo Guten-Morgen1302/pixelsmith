@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:28:15.288Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Toast had right:-20px causing horizontal overflow and clipped content at viewport edge; corrected to visible inset position.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast 'Saved successfully' is fully visible inset at bottom-right with no clipping at viewport edge and no horizontal overflow; layout intact at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:28.136Z"
+}

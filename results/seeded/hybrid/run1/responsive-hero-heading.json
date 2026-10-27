@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-hero-heading",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:25:30.202Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "h1 64px word Unmistakably has no breaking, scrollWidth 412 > client 327 causing docScrollWidth 436 and horizontal overflow on 375 viewport; adding overflow-wrap contains it.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 equals viewport 375 so horizontal overflow gone; h1 now 327 wide fits within 375 with margins and wraps (384h), long title also wraps to 301x56 within card, table overflow correctly contained in scrollable wrapper (auto) not document, no other element exceeds viewport."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3493,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:25:52.616Z"
+}

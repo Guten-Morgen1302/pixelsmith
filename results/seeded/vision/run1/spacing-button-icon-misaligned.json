@@ -1,0 +1,32 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:25:50.820Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Button used align-items:flex-start so the 12px icon sat at the top edge instead of vertically centered with the text, visible on Get started and Unavailable buttons.",
+   "error": "edit target matched 2 times in styles.css"
+  },
+  {
+   "n": 2,
+   "why": "Button content was aligned to flex-start causing icons to be vertically misaligned with text.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Buttons icons vertically centered with text at 1200x800, no misalignment visible, 3-column layout intact and no regressions observed."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:31.898Z"
+}

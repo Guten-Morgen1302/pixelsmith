@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-error-text",
+ "cls": "contrast",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:25:59.632Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Error text #f0a0a0 on white has ~1.9:1 contrast and is unreadable, fix to use accessible error color.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Error color is now rgb(176,0,32) (~7.3:1 on white) passing WCAG AA, and no layout regression at 1200x800: docScrollWidth==viewport (1200), header/grid/table fit without clipping or horizontal overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:20.270Z"
+}

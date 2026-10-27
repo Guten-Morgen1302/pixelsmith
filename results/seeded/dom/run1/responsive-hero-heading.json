@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-hero-heading",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:25:30.325Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "h1 has 64px font with long word 'Unmistakably' and no wrapping, causing its scrollWidth 412px to overflow the 375px viewport (24+412=436 docScrollWidth) and create horizontal scroll; adding overflow-wrap allows it to wrap within container.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Original bug caused docScrollWidth 436 > viewport 375 due to h1 scrollWidth 412. Now docScrollWidth=375 matches viewport 375x700, h1 box width 327 fits container (24+327=351<375) with wrapped height 384, no horizontal scroll. No other element overflows viewport (max x+w=358 badge, table 658px overflow is contained in .table-wrap with ovf:auto scroll 658x123/client 327x123 - intentional isolated scroll, not document scroll)."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3493,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:25:49.082Z"
+}

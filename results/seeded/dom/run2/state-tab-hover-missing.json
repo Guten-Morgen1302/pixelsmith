@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-hover-missing",
+ "cls": "state",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T12:27:19.483Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Specs tab has no hover feedback because hover re-applies the default background, making the hover state invisible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Tab2 hover now shows distinct feedback - bg rgb(243,244,246) vs default rgb(255,255,255) on tab1/tab3 - and no regressions: viewport 1200x800 has no horizontal overflow (docScrollWidth=1200), header/nav layout intact, grid/cards, table-wrap, and form error display all normal."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:40.648Z"
+}

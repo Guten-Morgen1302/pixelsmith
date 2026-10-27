@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-table-mobile",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 2,
+ "started": "2026-10-27T12:26:20.305Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Pricing table min-width 658px overflowed viewport 375px causing docScrollWidth 682px page-wide horizontal scroll; containing overflow to wrapper fixes it.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 equals viewport 375 (was 682), page-wide horizontal scroll gone. Pricing table overflow correctly contained to #tablewrap (scrollWidth 658 > clientWidth 327 with ovf auto/auto) enabling local scroll instead of viewport overflow, no other elements exceed viewport width."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:34.493Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-hero-heading",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:28:15.372Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Hero h1 at 64px contains a long unbreakable word that overflows the 375px viewport (docScrollWidth 436) causing horizontal scroll; allowing wrapping fixes it without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 matches viewport 375 so horizontal overflow removed; h1 wraps to 327px width (height 384px) within hero; header and other containers remain 375px with no clipping/overflow hidden, no new overflow introduced"
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3493,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:28:35.678Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:27:34.765Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Toast had right:-20px causing 20px overflow/clipping off the viewport's right edge at 1200px width; setting right:16px keeps it fully visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast now fully visible within 1200px viewport (box 1023+161=1184, 16px right inset) with docScrollWidth=1200 matching viewport (no horizontal overflow/clipping). No other regressions: ?open=toast correctly shows only toast, other overlays hidden, no viewport overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:46.019Z"
+}

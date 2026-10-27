@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-table-mobile",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:27:58.771Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Wide pricing table with min-width:640px overflowed the 375px viewport causing document scrollWidth 682, so make wrapper scrollable instead of overflowing the page.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 equals viewport 375 (was 682) - #tablewrap 327px client with 658px scrollWidth and ovf auto/auto correctly contains 658px table without page overflow, no other overflow or clipping observed"
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:13.244Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-table-mobile",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T12:26:35.120Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Document scrollWidth 682 > viewport 375 caused by 658px pricing table overflowing its 327px wrapper; making .table-wrap scrollable contains it and removes horizontal overflow.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 matches viewport 375 (was 682) - 658px table now contained in 327px .table-wrap with ovf=auto (scroll 658x123, client 327x123); no document-level horizontal overflow or new clipping. Badge overflow is intentional absolute positioning inside visible card."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:56.404Z"
+}

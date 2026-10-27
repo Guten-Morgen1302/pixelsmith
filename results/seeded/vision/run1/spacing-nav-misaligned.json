@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-nav-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:25:51.820Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Header nav used align-items:flex-start causing vertical misalignment of logo, links and CTA button at desktop viewport; centering restores intended header alignment.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Header nav at 1200x800 shows Acme logo, nav links and Get started CTA vertically centered/aligned on common baseline, not top-aligned; 3-column product grid and other content show no regression or overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:21.273Z"
+}

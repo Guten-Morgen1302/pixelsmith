@@ -1,0 +1,36 @@
+{
+ "bug": "responsive-hero-heading",
+ "cls": "responsive",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T12:26:48.607Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "h1 first word \"Unmistakably\" is 412px at 64px, wider than 327px content box, causing docScrollWidth 436 overflow; adding overflow-wrap allows breaking to prevent horizontal scroll without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "docScrollWidth 375 fixes horizontal overflow but h1 visual bug remains: 'Unmistakably' is broken mid-word as 'Unmistaka'/'bly' and 'layouts' as 'layays' in screenshot/h1 327x384 box, indicating overflow-wrap:break-word/anywhere is breaking normal words instead of wrapping at spaces. Prevents scroll without hiding but creates illegible word splits."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Remove overflow-wrap:anywhere from hero h1 which incorrectly breaks normal words mid-word causing illegible wrapping; normal word wrapping at spaces fixes visual bug without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Visual mid-word break appears gone but page now has horizontal overflow: docScrollWidth=436 > viewport 375 and h1 #h1 scrollWidth 412 > clientWidth 327, so long word 'Unmistakably' overflows container instead of wrapping, indicating overflow-wrap handling is still broken/mis-fixed."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": false,
+  "cheat": false,
+  "regressionFrac": 0.3703,
+  "regression": true,
+  "attempts": 2,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:27:30.617Z"
+}

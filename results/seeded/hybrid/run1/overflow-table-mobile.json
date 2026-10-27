@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-table-mobile",
+ "cls": "overflow",
+ "config": "hybrid",
+ "run": 1,
+ "started": "2026-10-27T12:25:30.203Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Pricing table min-width 658px exceeds 375px viewport with visible overflow causing document scrollWidth 682px; making wrapper scrollable contains overflow without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 == viewport 375 (was 682) so horizontal overflow gone. Table 658px still rendered but contained in #tablewrap with ovf auto/auto scroll=658x123 client=327x123 - scrollable container prevents document overflow and no content clipped."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:25:51.343Z"
+}

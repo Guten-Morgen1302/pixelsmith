@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-table-mobile",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:25:30.330Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "table min-width:640px overflows 375px viewport (docScrollWidth 682, table-wrap client 327 vs scroll 658) causing horizontal scroll; adding overflow:auto contains scroll in wrapper.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 equals viewport 375 so no page horizontal scroll; table 658px overflow is correctly contained in #tablewrap (client 327 scroll 658 ovf auto/auto) as intended, no other clipping/overflow regressions visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:25:45.510Z"
+}

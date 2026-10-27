@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-modal-behind-overlay",
+ "cls": "stacking",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:28:28.149Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "overlay z-index 100 was above modal z-index 99 so modal appeared dimmed/behind overlay; swap to put modal on top",
+   "edits": 2,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal is now on top of dim overlay (white, fully opaque and interactive) with background correctly dimmed behind it; no other layout breakage visible at 1000x700 with ?open=modal."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:42.590Z"
+}

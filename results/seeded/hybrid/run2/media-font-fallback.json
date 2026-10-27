@@ -1,0 +1,27 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T12:27:50.621Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Missing fallback font stack causes serif fallback when Inter Display not loaded, visible as metrics and serif rendering mismatch between probe and probe-ref.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "probe and probe-ref now match metrics (both 317px wide) and both render with sans-serif system-ui fallback, no serif mismatch; no horizontal overflow (docScrollWidth 1200 == viewport 1200) and layout within viewport at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:16.936Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-modal-behind-overlay",
+ "cls": "stacking",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:28:16.965Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Modal z-index (99) was below overlay z-index (100) so modal appeared dimmed/behind overlay; raising it above overlay fixes stacking.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal z-index 101 is now above overlay z-index 100 (overlay 0,0 1000x700 fixed) so modal at 240,251 520x199 renders bright white on top of dim overlay, not behind it. No horizontal overflow (docScrollWidth 1000 == viewport 1000) and layout intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:31.798Z"
+}

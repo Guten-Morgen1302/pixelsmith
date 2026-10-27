@@ -1,0 +1,32 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:27:46.038Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": null,
+   "error": "Unexpected non-whitespace character after JSON at position 304 (line 1 column 305)"
+  },
+  {
+   "n": 2,
+   "why": "CTA/disabled button icon is top-aligned due to align-items:flex-start, causing visible vertical misalignment of the 12px icon vs text; centering fixes it without hiding content or removing accessibility styles.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "CTA icon vertical center 30px and disabled icon center 374px align with text centers (29.5px/ ~373.5px) within 0.5px, indicating align-items:center; no overflow (docScrollWidth 1200 == viewport), no clipped/hidden content, accessibility error still visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:20.200Z"
+}

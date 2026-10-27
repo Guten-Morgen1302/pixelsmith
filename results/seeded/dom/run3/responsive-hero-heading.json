@@ -1,0 +1,27 @@
+{
+ "bug": "responsive-hero-heading",
+ "cls": "responsive",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:27:36.329Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Hero h1 single long word overflows 375px viewport (scrollWidth 412 vs client 327 causing docScrollWidth 436) because no breaking, fix with overflow-wrap to allow wrap without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 matches viewport 375 so horizontal overflow gone. #h1 now 327x384 with scroll=client=327 fits viewport (24+327=351 <375) and no scrollWidth>clientWidth, height increased to wrap long word without clipping/hiding."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0.3493,
+  "regression": true,
+  "attempts": 1,
+  "fixed": false
+ },
+ "finished": "2026-10-27T12:27:50.788Z"
+}

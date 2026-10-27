@@ -1,0 +1,27 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:26:21.301Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Root font lacks fallback so unavailable Inter Display falls back to serif causing heading/probe mismatch; adding system-ui fallback restores intended sans rendering.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Heading renders in sans-serif matching probe text (system-ui fallback active, no serif fallback), and at 1200x800 the 3-card responsive grid shows no overflow/clipping or other regressions."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:47.444Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-hover-missing",
+ "cls": "state",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:28:59.931Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Tab hover was set to same colors as normal state so hovering Specs gives no visual feedback; restore distinct hover background while keeping focus-visible accessibility style.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#tab2 hover background is rgb(243,244,246) distinct from normal tab bg rgb(255,255,255), providing visual feedback while hovering at viewport 1200; no overflow or other breakage observed."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:29:18.012Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-error-text",
+ "cls": "contrast",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:28:42.602Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Light error color #f0a0a0 on white background fails contrast and is invisible; use accessible --err color.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "No light #f0a0a0-on-white low-contrast/invisible error text visible at 1200x800. Header, buttons and 3-card grid render correctly with no overflow, clipping or overlap; long product name wraps without breaking layout."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:29:08.281Z"
+}

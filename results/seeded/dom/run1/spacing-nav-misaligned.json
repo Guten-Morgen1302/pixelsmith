@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-nav-misaligned",
+ "cls": "spacing",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:25:49.110Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Header nav items are top-aligned (logo and CTA at y=12 with different heights) causing vertical misalignment; centering fixes at 1200x800 without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Header is vertically centered: logo y=18 for 24h in 60h header ((60-24)/2=18), CTA y=12 for 35h ((60-35)/2≈12.5), nav-links y=18 matches logo. CTA internals centered (icon 12h at y=24, text 19h at y=20). No overflow/clipping (docScrollWidth=1200, ovf visible) and content still visible."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:14.187Z"
+}

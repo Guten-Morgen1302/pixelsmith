@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:28:36.186Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Buttons used align-items:flex-start causing the icon and text to be top-aligned instead of vertically centered, visible on the header CTA and Unavailable button.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Header CTA 'Get started' and 'Unavailable' button icon+text appear vertically centered (not top-aligned) at 1200x800, and layout shows no regressions - 3-column cards, header nav, and controls intact without clipping/overflow."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:59.948Z"
+}

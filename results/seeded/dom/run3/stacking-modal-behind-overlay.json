@@ -1,0 +1,27 @@
+{
+ "bug": "stacking-modal-behind-overlay",
+ "cls": "stacking",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:27:40.659Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Overlay z-index 100 is above modal z-index 99 so modal appears behind overlay; raise modal above overlay.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal z-index 101 now exceeds overlay z-index 100 so modal stacks above overlay and is fully visible within 1000x700 viewport at [240,251,520x199] vs overlay [0,0,1000x700]; docScrollWidth 1000 matches viewport with no overflow or clipping regressions."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:48.882Z"
+}

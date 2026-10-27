@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-nav-misaligned",
+ "cls": "spacing",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:28:31.812Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "nav uses align-items:flex-start which top-aligns header items instead of vertically centering them in the sticky header",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Header nav is vertically centered: header 60px, logo/nav-links 24px at y=18 = (60-24)/2, CTA 35px at y=12 ≈ (60-35)/2, no top-alignment. No overflow (docScrollWidth=1200), no clipping."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:29:05.781Z"
+}

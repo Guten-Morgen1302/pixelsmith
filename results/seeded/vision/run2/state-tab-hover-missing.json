@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-hover-missing",
+ "cls": "state",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T12:28:07.634Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Tab hover color was identical to default (no feedback), so hovering Specs showed no state change; restore visible hover background without touching focus-visible accessibility styles.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "At 1200x800 hovering #tab2 Specs shows distinct grey hover background vs Overview/Reviews default white, so hover feedback restored; no focus-visible outline incorrectly applied on mouse hover."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:36.160Z"
+}

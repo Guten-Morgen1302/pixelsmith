@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-hover-missing",
+ "cls": "state",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T12:29:08.303Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Hover state was identical to default state making Specs tab hover invisible; restore distinct hover background.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Specs tab (#tab2) displays a distinct grey hover background separate from the white default state, restoring visible hover feedback with no other layout breakage at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:29:25.457Z"
+}

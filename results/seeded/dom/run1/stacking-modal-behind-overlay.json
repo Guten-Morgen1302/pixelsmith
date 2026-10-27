@@ -1,0 +1,32 @@
+{
+ "bug": "stacking-modal-behind-overlay",
+ "cls": "stacking",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:25:45.538Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Overlay z-index 100 was above modal z-index 99, hiding the modal behind the backdrop; swapping them puts modal on top.",
+   "error": "edit target matched 0 times in styles.css"
+  },
+  {
+   "n": 2,
+   "why": "overlay z-index 100 was covering modal z-index 99 making modal inaccessible; raising modal above overlay fixes stacking order.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Modal now above overlay (modal z=101 overlay z=100), both fully in viewport 1000x700 and centered (240,251,520x199). No horizontal overflow (docScrollWidth 1000 = viewport), no clipping: tables fit (table-wrap 952px in 952px client with ovf:auto), cards contain long title wrapping (56px=2 lines) without overflow, header sticky correctly under modal, and hidden interactive elements (tip, ddmenu, toast) correctly display:none at this viewport/query."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:25:59.616Z"
+}

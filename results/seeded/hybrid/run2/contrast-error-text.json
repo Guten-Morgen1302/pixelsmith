@@ -1,0 +1,27 @@
+{
+ "bug": "contrast-error-text",
+ "cls": "contrast",
+ "config": "hybrid",
+ "run": 2,
+ "started": "2026-10-27T12:27:30.661Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Error text #f0a0a0 on white has ~2.1:1 contrast and is unreadable; using var(--err) #b00020 restores accessible contrast.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Error text uses accessible #b00020 (rgb 176,0,32) not low-contrast #f0a0a0 and remains visible below form; viewport 1200x800 has no horizontal overflow (docScrollWidth 1200), 3-column grid intact, sticky header correct, no truncation/clipping beyond intended overflow:clip on images."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:58.759Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T12:27:20.303Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "align-items:flex-start top-aligns the .icon inside the flex button so the dot/icon is not vertically centered with the label, fix to center alignment",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Dots/icons in 'Get started' and 'Unavailable' buttons are vertically centered with labels (align-items:center) not top-aligned; no layout breakage at 1200x800 - 3-card grid, header and button row render correctly."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:46.667Z"
+}

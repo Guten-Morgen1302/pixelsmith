@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T12:25:30.065Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Toast was positioned with negative right offset causing horizontal overflow and clipping off viewport.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast 'Saved successfully' is fully visible in bottom-right corner within viewport at 1200x800 with no horizontal overflow or clipping; layout otherwise intact (header, hero, 3-card grid all render correctly)."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:25:49.632Z"
+}

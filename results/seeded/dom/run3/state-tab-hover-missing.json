@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-hover-missing",
+ "cls": "state",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:28:14.396Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Hover on #tab2 produced no visual change because hover reset to same bg/fg, violating hover feedback on the hovered Specs tab.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#tab2 (hovered Specs) now shows visual hover feedback - bg rgb(243,244,246) vs non-hovered tabs #tab1/#tab3 bg rgb(255,255,255) - distinct change while fg remains readable. No regressions: docScrollWidth 1200 = viewport 1200 (no overflow), no clipping/overlap, layout intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:28:38.201Z"
+}

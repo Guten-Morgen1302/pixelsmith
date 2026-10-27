@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:25:47.519Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "CTA/disabled button icon was top-aligned (flex-start) causing vertical misalignment with text; centering fixes the visual bug.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "CTA icon Y=24 (center 30) vs text center 29.5 (~aligned) and disabled icon Y=368 centered in 35px button (356+11.5=367.5≈368). Both icons vertically centered, not flex-start top-aligned, and viewport 1200x800 shows docScrollWidth=1200 with no overflow/clipping."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:08.734Z"
+}

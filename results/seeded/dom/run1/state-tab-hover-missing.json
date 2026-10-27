@@ -1,0 +1,27 @@
+{
+ "bug": "state-tab-hover-missing",
+ "cls": "state",
+ "config": "dom",
+ "run": 1,
+ "started": "2026-10-27T12:26:14.238Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "hover rule was set to the same colors as the idle state so hovering #tab2 produced no visual feedback",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "#tab2 hover feedback works: bg rgb(238,238,238) differs from idle tabs (#tab1/#tab3 rgb(255,255,255)) while mouse is hovering. No layout breakage: docScrollWidth 1200 matches viewport 1200 (no horizontal overflow), header/grid/table-wrap all within viewport, cards and nav correctly positioned, hidden elements remain display:none."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:26:36.576Z"
+}

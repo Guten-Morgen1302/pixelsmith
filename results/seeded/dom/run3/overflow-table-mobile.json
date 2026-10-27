@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-table-mobile",
+ "cls": "overflow",
+ "config": "dom",
+ "run": 3,
+ "started": "2026-10-27T12:27:21.094Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Pricing table min-width 640px overflows 375px viewport causing docScrollWidth 682px; making wrapper scrollable contains overflow without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "docScrollWidth 375 equals viewport 375 so 640px table overflow gone; #tablewrap is scrollable (ovf auto/auto scrollWidth 658 > clientWidth 327) containing 658px table without clipping content or expanding document; no other element exceeds viewport (all boxes x+w <=375)."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:27:36.301Z"
+}

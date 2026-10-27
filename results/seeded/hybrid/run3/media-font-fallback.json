@@ -1,0 +1,36 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "hybrid",
+ "run": 3,
+ "started": "2026-10-27T12:28:48.434Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Missing generic fallback after Inter Display causes fallback to serif and font-metric mismatch (visible as overlapping/serif H1 and probe width mismatch); adding system-ui fallback restores intended sans rendering without hiding content.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Probe widths now match (317px/317px) and font stack shows system-ui fallback, so serif fallback is gone, but H1 at 1200px still renders with glyph overlap/garbled tracking visible in screenshot and h1 box is 96px tall (wrapped/overlapped) instead of single line – visual bug not gone. docScrollWidth=1200 shows no horizontal overflow, so layout not broken, but primary overlap remains."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Restore normal tracking/kerning for Inter Display fallback to fix glyph overlap on h1 without affecting layout.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "h1 renders without glyph overlap at 1200x800 and probe width 317 matches probe-ref 317 indicating normal tracking restored; docScrollWidth=1200 equals viewport with no horizontal overflow or layout shift visible in snapshot/screenshot."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T12:29:30.769Z"
+}
