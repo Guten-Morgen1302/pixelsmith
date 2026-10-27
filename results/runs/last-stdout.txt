@@ -1,0 +1,13 @@
+{
+ "bug": "daisyui-4724",
+ "graded": {
+  "pass": true,
+  "cheat": false,
+  "attempts": 2
+ },
+ "candidates": [
+  "breadcrumbs.css"
+ ],
+ "finalDiff": "diff --git a/packages/daisyui/src/components/breadcrumbs.css b/packages/daisyui/src/components/breadcrumbs.css\nindex 8768ee4..ea76553 100644\n--- a/packages/daisyui/src/components/breadcrumbs.css\n+++ b/packages/daisyui/src/components/breadcrumbs.css\n@@ -1,6 +1,6 @@\n .breadcrumbs {\n   @layer daisyui.l1.l2.l3 {\n-    @apply max-w-full overflow-x-auto py-2;\n+    @apply max-w-full overflow-x-auto px-1 py-2;\n \n     > menu,\n     > ul,\n"
+}
+EXIT 0

@@ -14,3 +14,11 @@ Environment: Google Chrome via Playwright (channel chrome), Windows, bun 1.4, no
 Build shim: older daisyUI commits call `fs.rmdir(p,{recursive:true})`, removed in Node 24 / Bun 1.4. `bench/tools/build-daisy.sh` swaps it for `fs.rm(...)` in `removeFiles.js` only; CSS sources are untouched.
 
 Lesson: many real visual fixes are browser-, viewport- or markup-specific. Expect roughly 1 in 4 attempts to reproduce with a simple oracle; plan the real-bug count from that, not from the candidate list, and be honest about it in the README.
+
+## First end-to-end agent run (2026-10-27)
+Config: dom+vision, Muse Spark Open (Baseten, reasoning_effort=low). Bug: daisyui-4724. n=1, not a measurement.
+- Attempt 1: model's edit did not apply (find text matched 0 times). Recorded as a failed attempt.
+- Attempt 2: added `px-1` to `.breadcrumbs`. Oracle: PASS (0 px clipped, no anti-cheat flags). Self-verify (vision): fixed.
+- Upstream fix used `-ms-1` on the container plus `ps-1` on the list; the agent's patch fixes the clipping but shifts the crumbs 4 px right. Counts as "different but passing", not an exact match.
+- The oracle is never shown to the model; self-verification is a separate vision call.
+- Tokens: 6 calls, ~12.6k completion (12.2k reasoning), ~4.4k prompt. See results/cost.jsonl.

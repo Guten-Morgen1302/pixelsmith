@@ -1,0 +1,42 @@
+{
+ "bug": "daisyui-4724",
+ "config": "dom+vision",
+ "started": "2026-10-27T12:06:56.956Z",
+ "attempts": [
+  {
+   "n": 1,
+   "reply": "{\"edits\":[{\"file\":\"packages\\\\daisyui\\\\src\\\\components\\\\breadcrumbs.css\",\"find\":\"  @layer daisyui.l1.l2.l3 {\\n    @apply max-w-full overflow-x-auto py-2;\",\"replace\":\"  @layer daisyui.l1.l2.l3 {\\n    @apply max-w-full overflow-x-auto py-2;\\n    overflow-clip-margin: 8px;\"}],\"why\":\"overflow-x-auto clips the focus-visible outline on first item; overflow-clip-margin expands clip border so outline-offset is visible without removing scroll.\"}",
+   "error": "edit target matched 0 times in packages\\daisyui\\src\\components\\breadcrumbs.css"
+  },
+  {
+   "n": 2,
+   "reply": "{\"edits\":[{\"file\":\"packages\\\\daisyui\\\\src\\\\components\\\\breadcrumbs.css\",\"find\":\"    @apply max-w-full overflow-x-auto py-2;\",\"replace\":\"    @apply max-w-full overflow-x-auto px-1 py-2;\"}],\"why\":\"Add horizontal padding to breadcrumbs container so focus outline with offset is not clipped by overflow-x-auto edge on first item.\"}",
+   "diff": "diff --git a/packages/daisyui/src/components/breadcrumbs.css b/packages/daisyui/src/components/breadcrumbs.css\nindex 8768ee4..ea76553 100644\n--- a/packages/daisyui/src/components/breadcrumbs.css\n+++ b/packages/daisyui/src/components/breadcrumbs.css\n@@ -1,6 +1,6 @@\n .breadcrumbs {\n   @layer daisyui.l1.l2.l3 {\n-    @apply max-w-full overflow-x-auto py-2;\n+    @apply max-w-full overflow-x-auto px-1 py-2;\n \n     > menu,\n     > ul,\n",
+   "oracle": {
+    "focused": true,
+    "outlineStyle": "solid",
+    "ow": 2,
+    "oo": 2,
+    "overflowX": "auto",
+    "allCrumbsVisible": true,
+    "clippedLeft": 0,
+    "cheat": false,
+    "pass": true
+   },
+   "selfVerify": {
+    "fixed": true,
+    "reason": "The keyboard-focus outline around the 'Home' breadcrumb link is now fully rendered on all four sides with no truncation along the top and left edges, and the breadcrumb container shows no other visual regression."
+   }
+  }
+ ],
+ "detect": "The black keyboard-focus outline around the \"Home\" link is clipped/truncated along its top and left edges. It is located on the first item of the breadcrumb navigation in the narrow `breadcrumbs` container at the top-left of the page.",
+ "candidates": [
+  "breadcrumbs.css"
+ ],
+ "graded": {
+  "pass": true,
+  "cheat": false,
+  "attempts": 2
+ },
+ "finished": "2026-10-27T12:07:44.810Z"
+}
