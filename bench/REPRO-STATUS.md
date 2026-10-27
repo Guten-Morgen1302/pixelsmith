@@ -22,3 +22,8 @@ Config: dom+vision, Muse Spark Open (Baseten, reasoning_effort=low). Bug: daisyu
 - Upstream fix used `-ms-1` on the container plus `ps-1` on the list; the agent's patch fixes the clipping but shifts the crumbs 4 px right. Counts as "different but passing", not an exact match.
 - The oracle is never shown to the model; self-verification is a separate vision call.
 - Tokens: 6 calls, ~12.6k completion (12.2k reasoning), ~4.4k prompt. See results/cost.jsonl.
+
+## Seeded suite (2026-10-27)
+28 seeded bugs on a clean demo app (`bench/seeded/app`), 7 classes (overflow 6, responsive 4, stacking 4, spacing 4, contrast 4, media 3, state 3).
+Validity rule: oracle FAILS on the mutated app and PASSES on the clean app, in Chrome via Playwright. `node bench/seeded/validate.mjs` -> valid 28/28.
+First pass had 3 invalid bugs (card-title: grid min-content hid the overflow; badge-clipped and badge-contrast oracles mis-calibrated); fixed in the clean app / oracles before freezing. The seeded bugs are authored by us, so they are NOT evidence of real-world fix rate; the real-bug subset (bench/bugs) is reported separately.

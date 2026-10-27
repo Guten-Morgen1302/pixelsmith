@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme Shop</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="header" id="header"><nav class="nav">
+  <span class="logo" id="logo">Acme</span>
+  <ul class="nav-links"><li><a href="#pricing">Pricing</a></li><li><a href="#">Docs</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Support</a></li></ul>
+  <button class="btn menu-toggle" id="menu" aria-label="Menu"><span class="icon"></span></button>
+  <button class="btn cta" id="cta"><span class="icon" id="cta-icon"></span><span id="cta-text">Get started</span></button>
+</nav></header>
+<main>
+<section class="hero"><h1 id="h1">Unmistakably responsive layouts</h1><p id="lede">Ship interfaces that hold together on every screen size.</p>
+  <span id="probe">The quick brown fox jumps over the lazy dog</span><br><span id="probe-ref" style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif">The quick brown fox jumps over the lazy dog</span></section>
+<section class="controls">
+  <div class="tabs" role="tablist"><button class="tab" id="tab1">Overview</button><button class="tab" id="tab2">Specs</button><button class="tab" id="tab3">Reviews</button></div>
+  <div class="tip-wrap" id="tipwrap"><button class="btn" id="tipbtn">Hover me</button><span class="tip" id="tip">Helpful tooltip text</span></div>
+  <div class="dropdown" id="dd"><button class="btn" id="ddbtn">Filters</button><ul class="dropdown-menu" id="ddmenu"><li><a href="#" id="dditem">Newest first</a></li><li><a href="#">Price: low to high</a></li><li><a href="#">Top rated</a></li></ul></div>
+  <button class="btn" id="dis" disabled><span class="icon"></span>Unavailable</button>
+</section>
+<section class="grid" id="grid">
+  <article class="card"><span class="badge" id="badge">New</span><img alt="" src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27 viewBox=%270 0 400 300%27 preserveAspectRatio=%27none%27%3E%3Crect width=%27400%27 height=%27300%27 fill=%27%23a5b4fc%27/%3E%3Ccircle cx=%27200%27 cy=%27150%27 r=%27100%27 fill=%27%236366f1%27/%3E%3C/svg%3E"><h3>Alpine backpack</h3><p>$89</p></article>
+  <article class="card"><img alt="" src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27 viewBox=%270 0 400 300%27 preserveAspectRatio=%27none%27%3E%3Crect width=%27400%27 height=%27300%27 fill=%27%23fbcfe8%27/%3E%3Ccircle cx=%27200%27 cy=%27150%27 r=%27100%27 fill=%27%23ec4899%27/%3E%3C/svg%3E"><h3 id="longtitle">Supercalifragilisticexpialidociousweatherproofjacket</h3><p>$129</p></article>
+  <article class="card"><img alt="" src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27 viewBox=%270 0 400 300%27 preserveAspectRatio=%27none%27%3E%3Crect width=%27400%27 height=%27300%27 fill=%27%23bbf7d0%27/%3E%3Ccircle cx=%27200%27 cy=%27150%27 r=%27100%27 fill=%27%2322c55e%27/%3E%3C/svg%3E"><h3>Trail shoes</h3><p>$99</p></article>
+  <article class="card"><img alt="" src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27 viewBox=%270 0 400 300%27 preserveAspectRatio=%27none%27%3E%3Crect width=%27400%27 height=%27300%27 fill=%27%23fde68a%27/%3E%3Ccircle cx=%27200%27 cy=%27150%27 r=%27100%27 fill=%27%23f59e0b%27/%3E%3C/svg%3E"><h3>Rain cover</h3><p>$24</p></article>
+  <article class="card"><img alt="" src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27 viewBox=%270 0 400 300%27 preserveAspectRatio=%27none%27%3E%3Crect width=%27400%27 height=%27300%27 fill=%27%23bae6fd%27/%3E%3Ccircle cx=%27200%27 cy=%27150%27 r=%27100%27 fill=%27%230ea5e9%27/%3E%3C/svg%3E"><h3>Water bottle</h3><p>$18</p></article>
+  <article class="card"><img alt="" src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27300%27 viewBox=%270 0 400 300%27 preserveAspectRatio=%27none%27%3E%3Crect width=%27400%27 height=%27300%27 fill=%27%23e9d5ff%27/%3E%3Ccircle cx=%27200%27 cy=%27150%27 r=%27100%27 fill=%27%23a855f7%27/%3E%3C/svg%3E"><h3>Head lamp</h3><p>$35</p></article>
+</section>
+<section class="pricing"><h2 id="pricing">Pricing</h2>
+  <div class="table-wrap" id="tablewrap"><table><thead><tr><th>Plan</th><th>Seats</th><th>Storage</th><th>Support</th><th>Price</th></tr></thead>
+  <tbody><tr><td>Starter</td><td>1 to 3 seats included</td><td>10 GB of storage</td><td>Community forum</td><td>$0</td></tr><tr><td>Team</td><td>Up to 25 seats included</td><td>1 TB of storage</td><td>Email, next business day</td><td>$49</td></tr></tbody></table></div></section>
+<section class="signup"><form id="form" novalidate>
+  <div class="field" id="f-name"><label for="name">Full name</label><input id="name" value="Ada Lovelace"></div>
+  <div class="field invalid" id="f-email"><label for="email">Email</label><input id="email" value="ada@"><span class="error" id="err">Enter a valid email address.</span></div>
+  <button class="btn" type="button" id="submit">Create account</button></form></section>
+</main>
+<footer class="footer" id="footer"><div>Product<br>Features<br>Pricing</div><div>Company<br>About<br>Jobs</div><div>Legal<br>Terms<br>Privacy</div></footer>
+<div class="toast" id="toast">Saved successfully</div>
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="modal" role="dialog"><h2>Confirm order</h2><p>Your card will be charged $89.</p><button class="btn" id="mclose">Close</button></div>
+<script>
+const q=new URLSearchParams(location.search);
+if(q.get('theme'))document.documentElement.dataset.theme=q.get('theme');
+const o=q.get('open');
+if(o==='modal')document.body.classList.add('show-modal');
+if(o==='dropdown')document.getElementById('dd').classList.add('open');
+if(o==='tip')document.getElementById('tipwrap').classList.add('open');
+if(o==='toast')document.getElementById('toast').classList.add('show');
+</script>
+</body></html>
