@@ -1,0 +1,33 @@
+{
+ "bug": "pico-528",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T17:30:10.478Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Changing the modal content selector from descendant `article` to direct child `> article` prevents nested cards inside the modal from receiving modal sizing, margin, and overflow styles.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Outer modal retains correct sizing and layout, while the nested card now renders as a normal inset card with its own padding and shadow inside the modal body, without modal sizing, margin, or overflow applied; no other breakage visible."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run3\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "The modal's article styles are applied to descendant articles instead of only the direct dialog child, so the nested card incorrectly receives modal sizing, margin, and overflow styling."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:30:47.490Z"
+}

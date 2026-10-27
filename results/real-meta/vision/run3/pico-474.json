@@ -1,0 +1,43 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T17:28:56.359Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Spinner pseudo-element is 1em but its background image was fixed at 1rem, so it did not scale with the element's font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner still renders as a tiny dot beside both the blue 'Loading' button and the 'Loading text' at large font-size, not scaled to ~1em of the text height."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run3\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "The ::before box already scales to 1em, but the SVG icon has no reliable intrinsic size so '1em auto' renders it as a tiny dot; 'contain' scales the icon to fill the 1em box at any font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner still renders as a tiny dot beside both the blue 'Loading' button and 'Loading text', far smaller than 1em relative to the large text."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run3\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss",
+   "scss/_settings.scss"
+  ],
+  "suspected": "The aria-busy loading spinner is sized with a fixed dimension instead of scaling with the element's font-size, so at 40px it renders as a tiny dot beside the text."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0001,
+  "attempts": 2,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T17:29:39.275Z"
+}

@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T17:30:50.781Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scoping all dropdown summary selectors to the direct child summary prevents them from leaking to summaries of accordions nested inside the dropdown menu.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested 'Solid (accordion)' summary is plain inside the white dropdown menu with a right-pointing accordion chevron, not a separate boxed border/background with down chevron, while the main 'Select a phase of matter' dropdown retains its correct boxed trigger styling."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run3\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "The nested accordion summary inside the dropdown menu is incorrectly styled as a dropdown trigger button (boxed border/background/chevron) because the dropdown summary selector leaks to descendant summaries."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:31:23.797Z"
+}

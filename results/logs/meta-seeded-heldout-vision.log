@@ -1,0 +1,29 @@
+[1] vision r1 responsive-hero-heading: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.1832,"regression":true,"attempts":1,"fixed":false}
+[2] vision r1 overflow-toast-offscreen: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[3] vision r1 overflow-table-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[4] vision r1 stacking-modal-behind-overlay: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[5] vision r1 spacing-button-icon-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[6] vision r1 spacing-nav-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[7] vision r1 state-tab-hover-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[8] vision r2 overflow-table-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[9] vision r2 overflow-toast-offscreen: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[10] vision r1 media-font-fallback: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":2,"fixed":true}
+[11] vision r2 responsive-hero-heading: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.1832,"regression":true,"attempts":1,"fixed":false}
+[12] vision r2 stacking-modal-behind-overlay: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[13] vision r2 spacing-button-icon-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[14] vision r2 spacing-nav-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[15] vision r1 contrast-error-text: FIXED {"oracle":true,"cheat":false,"regressionFrac":0.0015,"regression":false,"attempts":2,"fixed":true}
+[16] vision r2 contrast-error-text: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.388,"regression":true,"attempts":2,"fixed":false}
+[17] vision r2 state-tab-hover-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[18] vision r3 overflow-table-mobile: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[19] vision r3 overflow-toast-offscreen: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[20] vision r2 media-font-fallback: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":2,"fixed":true}
+[21] vision r3 responsive-hero-heading: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.1349,"regression":true,"attempts":1,"fixed":false}
+[22] vision r3 spacing-button-icon-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[23] vision r3 stacking-modal-behind-overlay: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[24] vision r3 spacing-nav-misaligned: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[25] vision r3 state-tab-hover-missing: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":1,"fixed":true}
+[26] vision r3 contrast-error-text: not fixed {"oracle":true,"cheat":false,"regressionFrac":0.4245,"regression":true,"attempts":2,"fixed":false}
+[27] vision r3 media-font-fallback: FIXED {"oracle":true,"cheat":false,"regressionFrac":0,"regression":false,"attempts":2,"fixed":true}
+
+vision: fixed 22/27

@@ -1,0 +1,33 @@
+{
+ "bug": "pico-528",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T17:27:47.041Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Modal sizing/margin styles were applied to all descendant articles, making nested cards width:100% plus dialog margins overflow the outer card; scoping to the direct child fixes it.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested inner card is now inset with symmetric margins inside the outer modal card, no longer stretching full-width or clipping/overflowing its right edge; outer modal, header and text render normally."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run2\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "The modal styles target descendant articles instead of only the direct dialog child, so the nested inner card stretches full-width and overflows/clips against the outer card's right edge."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:28:18.447Z"
+}

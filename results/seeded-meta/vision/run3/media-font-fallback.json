@@ -1,0 +1,36 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T17:26:39.759Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The root font stack names only the unavailable Inter Display font with no fallback, so text falls back to the browser serif instead of the intended sans-serif.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Body/paragraph text (e.g. under the headline and the 'quick brown fox' lines, prices) still renders in the browser serif/Times style rather than the intended sans-serif, so the missing-fallback bug persists despite headings/buttons appearing sans."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Setting the sans-serif stack directly on body makes paragraph/body text inherit the intended fallback instead of the browser serif default.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Paragraph/body text ('The quick brown fox...' lines) still renders in the browser serif default, not the intended sans-serif stack, despite the body edit; layout otherwise appears intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:27:35.660Z"
+}

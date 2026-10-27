@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:23:10.575Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The button icons were top-aligned instead of vertically centered with the button text.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Button icons in the 'Get started' and 'Unavailable' buttons are now vertically centered with their text, and the overall layout, navigation, and cards remain intact with no visible regressions."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:23:26.774Z"
+}

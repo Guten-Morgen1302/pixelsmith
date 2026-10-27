@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T17:26:06.197Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The toast is positioned with right:-20px, pushing it off the right edge of the viewport so its text is clipped; setting right:16px keeps it fully visible.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast at bottom-right is now fully visible with 'Saved successfully' unclipped and inset from the viewport edge; header, heading, and product cards remain intact with no other breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:26:18.779Z"
+}

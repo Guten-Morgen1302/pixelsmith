@@ -1,0 +1,32 @@
+{
+ "bug": "pico-585",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:24:13.370Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Using nth-child's 'of' selector filters counting to non-hidden rows so striping alternates by visible row order only.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Visible rows alternate shaded/white (Apples shaded, Pears white, Plums shaded, Figs white) with no consecutive duplicates despite the hidden row, and the table layout/header otherwise appears intact."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run1\\pico-585\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/content/_table.scss"
+  ],
+  "suspected": "The striped table styles rows by :nth-child parity, which counts the hidden display:none row and causes consecutive visible rows to have the same striping."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:24:43.055Z"
+}

@@ -1,0 +1,36 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T17:25:19.544Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The root font stack names only the unavailable 'Inter Display' with no fallback, so the browser falls back to its default serif instead of the intended sans-serif system font.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Body copy including 'Ship interfaces...' and the 'quick brown fox' lines still renders in the browser's default serif, not the intended sans-serif system font, while headings and buttons remain sans-serif, showing the root font-stack fallback is still missing."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Setting the sans-serif system font stack directly on body ensures body copy inherits system-ui instead of the browser default serif, matching headings, buttons, and the reference text.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Body copy still renders in serif while headings, buttons and the reference fox line are sans-serif; the two identical fox sentences do not match, so the font bug persists despite otherwise intact layout."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:26:20.673Z"
+}

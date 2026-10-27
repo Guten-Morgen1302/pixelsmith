@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-table-mobile",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:22:54.416Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The 640px-min-width pricing table overflows the 375px viewport because its wrapper lacks horizontal scrolling, causing page-wide horizontal overflow.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "No page-wide horizontal overflow at 375px; header, text, tabs, buttons and card all fit within the viewport with intact layout, and the wide table no longer widens the page."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:23:13.967Z"
+}

@@ -35,10 +35,29 @@ sam = json.load(open('results/sam/spike1-preregistered-thr0.5.json', encoding='u
 sam2 = json.load(open('results/sam/spike2-exploratory.json', encoding='utf8'))
 cost = [json.loads(l) for l in open('results/cost.jsonl') if l.strip()]
 bugs_seeded = len(sp)
-out = {'seeded': seeded, 'real': real, 'selfcheck': sc,
+
+def wilson_row(k, n):
+    lo, hi = wilson(k, n); return {'k': k, 'n': n, 'pct': pct(k / n), 'lo': pct(lo), 'hi': pct(hi)}
+meta = {}
+k = n = o = 0; gaming = None
+for f in glob.glob('results/seeded-meta/vision/run*/*.json'):
+    r = json.load(open(f, encoding='utf8')); g = r.get('grade', {})
+    if sp.get(r['bug']) != 'heldout': continue
+    n += 1; k += bool(g.get('fixed')); o += bool(g.get('oracle'))
+    if r['bug'] == 'contrast-error-text' and g.get('regression') and (gaming is None or g['regressionFrac'] > gaming['frac']):
+        gaming = {'frac': g['regressionFrac'], 'run': f.replace(chr(92), '/').split('/')[-2], 'why': (r['attempts'][-1].get('why') or '')[:230]}
+meta['seeded'] = wilson_row(k, n); meta['seeded']['oracle'] = o
+k = n = 0
+for f in glob.glob('results/real-meta/vision/run*/*.json'):
+    r = json.load(open(f, encoding='utf8')); n += 1; k += bool(r.get('grade', {}).get('fixed'))
+meta['real'] = wilson_row(k, n)
+meta['gaming'] = gaming
+meta['calls'] = sum(1 for c in cost if c.get('provider') == 'meta')
+meta['model'] = 'muse-wonder-1.0'
+out = {'meta': meta, 'seeded': seeded, 'real': real, 'selfcheck': sc,
        'adversarial': {'tests': adv['tests'], 'holes': len(adv['holes'])},
        'sam': {'hits': sam['summary']['hits'], 'n': sam['summary']['n'], 'pct': pct(sam['summary']['hit_rate']), 'noBox': sum(1 for r in sam['rows'] if r['n_pred'] == 0), 'best': sam2['exploratory_post_hoc']['summary']['0.1']['hits']},
-       'calls': len(cost), 'completionTokens': sum(c['completion_tokens'] for c in cost), 'seededBugs': bugs_seeded, 'realBugs': len(glob.glob('bench/bugs/*/meta.json'))}
+       'calls': len(cost), 'basetenCalls': sum(1 for c in cost if c.get('provider') != 'meta'), 'completionTokens': sum(c['completion_tokens'] for c in cost), 'seededBugs': bugs_seeded, 'realBugs': len(glob.glob('bench/bugs/*/meta.json'))}
 os.makedirs('video/src', exist_ok=True)
 json.dump(out, open('video/src/stats.json', 'w'), indent=1)
 print(json.dumps(out, indent=1))

@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:22:54.429Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The toast is positioned with a negative right offset, pushing it partially off the right edge of the viewport and clipping its text.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast at bottom-right is fully inside the viewport with 'Saved successfully' text unclipped, and the rest of the layout appears intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:23:10.546Z"
+}

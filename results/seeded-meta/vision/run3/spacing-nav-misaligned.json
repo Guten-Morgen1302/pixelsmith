@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-nav-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T17:26:29.359Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The header navigation uses flex-start, so the logo and links sit at the top of the taller CTA button instead of being vertically centered with it.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Header logo and nav links are vertically centered with the taller Get started button, and the rest of the page layout shows no breakage at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:26:57.806Z"
+}

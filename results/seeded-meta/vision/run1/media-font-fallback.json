@@ -1,0 +1,36 @@
+{
+ "bug": "media-font-fallback",
+ "cls": "media",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:23:26.793Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The root font stack names only the unavailable 'Inter Display' with no fallback, so the browser falls back to its default serif instead of a sans-serif system font.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Body copy under the heading, the fox lines, and prices still render in the default serif font, while headings/nav use sans-serif, showing the root font stack still lacks a sans-serif fallback."
+   }
+  },
+  {
+   "n": 2,
+   "why": "Setting the sans-serif stack directly on body ensures all body copy inherits it instead of falling back to the default serif via the unavailable Inter Display on :root.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Body copy now renders in sans-serif instead of serif fallback, and the 1200x800 layout, header, buttons, and cards remain intact with no overflow or other regressions."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 2,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:24:28.170Z"
+}

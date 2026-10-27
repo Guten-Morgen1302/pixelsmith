@@ -21,7 +21,8 @@ const splits = JSON.parse(fs.readFileSync('bench/seeded/splits.json', 'utf8'));
 const chosen = bugs.filter((b) => (ONLY ? ONLY.split(',').includes(b.id) : SPLIT === 'all' || splits[b.id] === SPLIT));
 
 const browser = await chromium.launch({ channel: 'chrome' });
-const outDir = (run) => path.join('results/seeded', config, 'run' + run);
+const NS = process.env.RESULTS_NS || '';   // e.g. '-meta' keeps Meta-API runs in results/seeded-meta, separate from the Baseten runs
+const outDir = (run) => path.join('results/seeded' + NS, config, 'run' + run);
 
 async function snapshotDom(page) {
   return page.evaluate(() => {
@@ -56,7 +57,7 @@ async function maskFor(page, bug) {
 }
 
 async function runBug(bug, run) {
-  const work = path.join('bench/_work/seeded-agent', config, 'run' + run, bug.id);
+  const work = path.join('bench/_work/seeded-agent' + NS, config, 'run' + run, bug.id);
   await copyApp(APP, work); await applyMutation(work, bug.mutate);
   const rec = { bug: bug.id, cls: bug.cls, config, run, started: new Date().toISOString(), attempts: [] };
   const tag = (s) => `${config}/r${run}/${bug.id}/${s}`;

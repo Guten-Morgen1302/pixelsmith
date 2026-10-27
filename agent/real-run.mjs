@@ -18,6 +18,7 @@ const START = +opt('start', 1), RUNS = +opt('runs', 1), ONLY = opt('only', ''), 
 const ALL = ['pico-474', 'pico-585', 'pico-528', 'pico-615'];
 const ids = ONLY ? ONLY.split(',') : ALL;
 
+const NS = process.env.RESULTS_NS || '';   // e.g. '-meta' keeps Meta-API runs in results/real-meta
 const sh = (cmd, cwd) => execSync(cmd, { cwd, stdio: 'pipe', encoding: 'utf8', maxBuffer: 1 << 26 });
 const extractJson = (t) => JSON.parse((t.match(/```(?:json)?\s*([\s\S]*?)```/)?.[1] ?? t.match(/\{[\s\S]*\}/)[0]).trim());
 const wordsSubset = (a, b) => { const B = new Set(b.toLowerCase().match(/[\p{L}\p{N}$]+/gu) || []); return (a.toLowerCase().match(/[\p{L}\p{N}$]+/gu) || []).every((w) => B.has(w)); };
@@ -60,9 +61,9 @@ function diffFrac(a, b) { const A = PNG.sync.read(a), B = PNG.sync.read(b); if (
 async function runBug(id, run) {
   const bugDir = `bench/bugs/${id}`; const meta = JSON.parse(fs.readFileSync(path.join(bugDir, 'meta.json'), 'utf8'));
   const { check } = await import(pathToFileURL(path.resolve(bugDir, 'check.mjs')).href);
-  const work = path.resolve('bench/_work/real', config, 'run' + run, id); fs.rmSync(work, { recursive: true, force: true }); fs.mkdirSync(work, { recursive: true });
+  const work = path.resolve('bench/_work/real' + NS, config, 'run' + run, id); fs.rmSync(work, { recursive: true, force: true }); fs.mkdirSync(work, { recursive: true });
   // source at the buggy commit: copy only scss/
-  const SRC = `bench/_work/pico-src-${config}`;   // one checkout per config: configs run in parallel
+  const SRC = `bench/_work/pico-src${NS}-${config}`;   // one checkout per config: configs run in parallel
   if (!fs.existsSync(path.join(SRC, '.git'))) { fs.mkdirSync(SRC, { recursive: true }); sh('git init -q', SRC); sh('git remote add origin https://github.com/picocss/pico.git', SRC); }
   sh(`git fetch -q --depth 1 origin ${meta.base_sha}`, SRC); sh('git checkout -q -f FETCH_HEAD', SRC);
   fs.cpSync(path.join(SRC, 'scss'), path.join(work, 'scss'), { recursive: true });
@@ -107,7 +108,7 @@ async function runBug(id, run) {
   rec.grade = { oracle: !!o.pass, contentKept: wordsSubset(buggyText, finalText), pixelsDifferFromUpstreamFix: vsUpstream, attempts: rec.attempts.length, edited: !!last };
   rec.grade.fixed = rec.grade.oracle && rec.grade.contentKept && rec.grade.edited;
   rec.finished = new Date().toISOString();
-  const out = `results/real/${config}/run${run}`; fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(`${out}/${id}.json`, JSON.stringify(rec, null, 1));
+  const out = `results/real${NS}/${config}/run${run}`; fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(`${out}/${id}.json`, JSON.stringify(rec, null, 1));
   return rec;
 }
 

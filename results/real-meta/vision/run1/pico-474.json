@@ -1,0 +1,42 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:23:03.594Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The ::before box is 1em but the spinner background was fixed at 1rem, so it did not scale with the element's font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner before 'Loading'/'Loading text' still appears as a tiny ~6px dot, not a 1em (~40px) scaled spinner, so em-relative sizing is not taking effect."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run1\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "The SVG spinner's auto background height does not scale to the 1em pseudo-element box, so explicitly inheriting the element font-size and sizing the background to fill the 1em box makes it scale with font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner still renders as a tiny dot only a few pixels wide beside the large ~40px Loading text in both the button and plain text, not scaling to 1em/font-size; layout otherwise appears normal."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run1\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss",
+   "scss/content/_button.scss"
+  ],
+  "suspected": "The aria-busy loading spinner is rendered at a fixed small size instead of scaling with the element's 40px font-size (em-relative sizing)."
+ },
+ "grade": {
+  "oracle": false,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0004,
+  "attempts": 2,
+  "edited": true,
+  "fixed": false
+ },
+ "finished": "2026-10-27T17:24:09.038Z"
+}

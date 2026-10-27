@@ -1,0 +1,33 @@
+{
+ "bug": "pico-528",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:24:46.997Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scoping modal content styles to the direct-child article prevents nested cards inside the modal from receiving modal window dimensions and overflow styling.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested card renders as a normal inset card with shadow inside the modal body, not as a modal window, and the outer modal header/body layout remains intact."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run1\\pico-528\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_modal.scss",
+   "scss/components/_card.scss"
+  ],
+  "suspected": "The modal styles target any descendant article in the dialog instead of only the direct child, so the nested card is incorrectly styled as a modal window."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:25:09.835Z"
+}

@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T17:24:34.455Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The button's flex-start alignment places its circular icon at the top of the button instead of vertically centered with the label text.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "The blue Get started button's white circular icon is now vertically centered with its label text, and the header, headline, tabs, buttons, and product cards remain intact with no regressions at 1200x800."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:24:50.329Z"
+}

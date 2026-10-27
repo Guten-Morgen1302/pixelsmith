@@ -1,0 +1,27 @@
+{
+ "bug": "overflow-toast-offscreen",
+ "cls": "overflow",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T17:24:07.180Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The fixed toast is offset -20px to the right, pushing it partially off-screen and clipping its text.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Toast 'Saved successfully' at bottom-right is fully on-screen with unclipped text and adequate margin, and the rest of the 1200x800 layout appears intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:24:21.324Z"
+}

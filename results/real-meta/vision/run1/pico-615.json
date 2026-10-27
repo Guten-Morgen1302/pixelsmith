@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:25:13.696Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Scoping all dropdown summary selectors to direct children prevents nested accordion summaries inside the dropdown menu from inheriting the dropdown button styling.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Nested 'Solid (accordion)' summary inside the open dropdown shows no dropdown box/border/background, only plain text with its own right chevron, while the top dropdown retains its bordered button and down chevron."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run1\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "The dropdown's summary styling uses a descendant selector, so the nested accordion's summary inside the dropdown menu incorrectly inherits the dropdown button box/border/chevron styling."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:25:42.866Z"
+}

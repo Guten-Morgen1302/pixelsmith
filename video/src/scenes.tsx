@@ -103,7 +103,7 @@ export const Problem: React.FC = () => (
 export const Pipeline: React.FC = () => {
   const nodes = [
     { t: "Screenshot", sub: "of the running page", c: C.text },
-    { t: "Muse Spark Open", sub: "open weights · via Baseten", c: C.accent },
+    { t: "Meta models", sub: "Muse Spark Open (open weights) + Meta Model API", c: C.accent },
     { t: "Patch the source", sub: "SCSS / CSS edit", c: C.text },
     { t: "Rebuild + self-check", sub: "the agent's own verdict", c: C.amber },
     { t: "Hidden grader", sub: "never shown to the model", c: C.green },
@@ -299,6 +299,39 @@ export const Results: React.FC = () => (
   </Fade>
 );
 
+
+/* ───────────────────────── 9b. Meta Model API: same bench, plus a caught "gaming" moment ───────────────────────── */
+export const MetaApi: React.FC = () => {
+  const g = stats.meta.gaming;
+  return (
+    <Fade>
+      <Bg />
+      <AbsoluteFill style={{ padding: "56px 90px" }}>
+        <Pop at={0.1}><Kicker>Meta Model API · {stats.meta.model} · vision config · same bench, same grader</Kicker></Pop>
+        <Pop at={0.3}><H size={58} style={{ marginTop: 6 }}>It also runs on the <span style={{ color: C.accent }}>Meta Model API.</span></H></Pop>
+        <div style={{ display: "flex", gap: 70, marginTop: 14 }}>
+          <Bars at={0.9} title="Seeded · held-out" sub="9 bugs × 3 runs" rows={[["Meta API", stats.meta.seeded, C.accent]]} />
+          <Bars at={1.6} title="Real · Pico CSS" sub="4 bugs × 3 runs" rows={[["Meta API", stats.meta.real, C.accent]]} />
+        </div>
+        <div style={{ display: "flex", gap: 40, marginTop: 34, alignItems: "flex-start" }}>
+          <Pop at={4.5}>
+            <div style={{ fontFamily: mono, fontSize: 18, color: C.muted, marginBottom: 8 }}>WHAT THE MODEL SAW · before</div>
+            <Browser img="img/gaming-clean.png" width={430} ratio={0.62} pos="top" url="seeded app · error text below the fold" />
+          </Pop>
+          <Pop at={6.4}>
+            <div style={{ fontFamily: mono, fontSize: 18, color: C.amber, marginBottom: 8 }}>AFTER ITS 2ND EDIT</div>
+            <Browser img="img/gaming-agent.png" width={430} ratio={0.62} pos="top" url="same app · form moved up" label="REARRANGED" labelColor={C.amber} />
+          </Pop>
+          <div style={{ flex: 1 }}>
+            <Pop at={7.6}><H size={36} style={{ color: C.amber }}>It fixed the colour, then reshuffled the page to make its own check pass.</H></Pop>
+            <Pop at={10}><div style={{ fontFamily: mono, fontSize: 24, color: C.red, marginTop: 14 }}>grader: {(g.frac * 100).toFixed(0)}% of pixels changed → regression → not fixed</div></Pop>
+            <Pop at={12}><P size={24} style={{ marginTop: 10 }}>Oracle alone passes {stats.meta.seeded.oracle}/{stats.meta.seeded.n}. Strict grading is what catches this.</P></Pop>
+          </div>
+        </div>
+      </AbsoluteFill>
+    </Fade>
+  );
+};
 /* ───────────────────────── 9. Self-check vs grader ───────────────────────── */
 export const SelfCheck: React.FC = () => {
   const real = stats.selfcheck.real, seeded = stats.selfcheck.seeded;
@@ -375,7 +408,7 @@ export const Numbers: React.FC = () => {
     [fmt(stats.seededBugs), "seeded bugs, 7 classes"],
     [fmt(stats.realBugs), "real upstream bugs reproduced"],
     [`${stats.adversarial.tests}→${stats.adversarial.holes}`, "cheats tried → accepted"],
-    [fmt(stats.calls), "Muse Spark Open calls"],
+    [fmt(stats.calls), "calls to Meta models"],
   ];
   return (
     <Fade>
@@ -394,13 +427,13 @@ export const Numbers: React.FC = () => {
         </div>
         <Pop at={2.6}>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            {["Muse Spark Open (Meta, open weights)", "Baseten inference", "SAM 3 on an A100", "Playwright + Chrome", "Remotion"].map((t) => (
+            {["Meta Model API · muse-wonder-1.0", "Muse Spark Open · open weights", "Baseten inference", "SAM 3 on an A100", "Playwright + Chrome", "Remotion"].map((t) => (
               <Chip key={t} size={26}>{t}</Chip>
             ))}
           </div>
         </Pop>
         <Pop at={4}><P size={30} style={{ maxWidth: 1500 }}>New this week, in the repo: the bench harness, the agent, the grader and its tests. Third-party, used as data only: Pico CSS and daisyUI bugs (MIT).</P></Pop>
-        <Pop at={6.4}><P size={26}>No Meta Model API key was used. No card needed. Everything is reproducible from the repo.</P></Pop>
+        <Pop at={6.4}><P size={26}>Two routes to Meta models: the Meta Model API and open weights. Everything is reproducible from the repo.</P></Pop>
       </AbsoluteFill>
     </Fade>
   );

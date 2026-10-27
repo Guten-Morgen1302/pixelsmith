@@ -79,6 +79,12 @@ const man = JSON.parse(fs.readFileSync('param/sam_spike/data/manifest.json', 'ut
 const pick = (id) => { const r = sam.find((x) => x.id === id), m = man.find((x) => x.id === id); fs.copyFileSync(`param/sam_spike/data/${id}.png`, `${IMG}/sam-${id}.png`); return { id, phrase: r.phrase, w: m.width, h: m.height, gt: m.gt_boxes, pred: r.pred_boxes, scores: r.scores, iou: r.best_iou, hit: r.hit }; };
 fs.writeFileSync('video/src/sam.json', JSON.stringify({ hit: pick('spacing-button-icon-misaligned'), miss: pick('overflow-modal-mobile'), miss2: pick('stacking-dropdown-behind') }, null, 1));
 
+// ---- 5. Meta Model API run: the agent rearranged the page to satisfy its own check (what the model saw, before/after) --------
+const gb = bugs.find((b) => b.id === 'contrast-error-text');
+for (const [dir, file] of [['bench/seeded/app', 'gaming-clean'], ['bench/_work/seeded-agent-meta/vision/run3/contrast-error-text', 'gaming-agent']]) {
+  const gp = await loadPage(browser, dir, gb); await gp.screenshot({ path: `${IMG}/${file}.png` }); await gp.close();
+}
+
 await browser.close();
 console.log('assets ok'); console.log(JSON.stringify(cheatInfo));
 console.log('diff:\n' + diffLines.join('\n'));

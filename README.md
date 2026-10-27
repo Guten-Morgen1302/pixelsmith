@@ -2,7 +2,7 @@
 
 An agent that fixes visual bugs in web UIs by looking at the running page, plus a bench with a hidden grader that measures how often it actually works (and whether it cheats). Built for the Meta Global AI Developer Hackathon, team **consolelog**, Indie track.
 
-**Models:** Meta's open-weights **Muse Spark Open** (`meta-models/muse-spark-open-1026`), served by Baseten. The Meta Model API was not used (it needs a payment method). SAM 3 was tested and rejected by a pre-registered test (see below).
+**Meta models used:** (1) **Muse Spark Open** (`meta-models/muse-spark-open-1026`), Meta's open-weights model served by Baseten: all the main results below. (2) The **Meta Model API** (`muse-wonder-1.0`, api.meta.ai): the same bench on the vision config, results in their own section below (`results/seeded-meta`, `results/real-meta`; every call is logged with its provider in `results/cost.jsonl`). (3) **SAM 3** (open weights, A100) was tested as a localiser and rejected by a pre-registered test.
 
 ## Demo video
 ![demo](docs/media/demo.gif)
@@ -16,6 +16,7 @@ Full 2:07 video source (Remotion, built from real runs; every on-screen number i
 | Seeded bugs, held-out split, strict grading | vision 24/27 (89%), hybrid 24/27 (89%), dom 23/27 (85%) | 9 bugs x 3 runs per config |
 | Real upstream bugs (Pico CSS), the agent must find the right SCSS file itself | vision 12/12, hybrid 10/12, dom 5/12 | 4 bugs x 3 runs per config |
 | Grader self-test: 5 cheats (hide, transparent, zero-size...) on all 28 bugs | 0 of 140 accepted as fixes (after fixing 6 holes it first had) | 140 |
+| Same bench via the **Meta Model API** (muse-wonder-1.0, vision) | seeded held-out 22/27 strict (27/27 oracle-only); real Pico 10/12 | 27 + 12 runs |
 | How often the agent's own "fixed" claim was wrong (vs the hidden grader) | seeded: 6 of 135 claims (4%); **real Pico bugs: 8 of 29 claims (28%)** | `python bench/selfcheck.py` |
 | SAM 3 as a localiser (pre-registered, bar 60%) | **4/28 = 14%: SAM stays out of the agent** | 28 screenshots |
 
@@ -84,6 +85,18 @@ Read this carefully:
 - n = 4 bugs; intervals are wide. The vision-vs-hybrid gap is not significant; vision-vs-dom is suggestive, not conclusive.
 - The first run failed for tooling reasons (whitespace-sensitive edit matching, and a shared git checkout that raced between configs). Both were fixed before any kept result; the discarded runs are in `results/_tooling-v1-exact-match` and `results/_discarded-real-race`.
 - On real bugs the DOM snapshot did not help; on seeded bugs all configs were equal.
+
+## Meta Model API runs (muse-wonder-1.0, vision config)
+The same agent code, same grader, same held-out seeded split and the same 4 real Pico bugs, run through the Meta Model API instead of Baseten (`PIXELSMITH_PROVIDER=meta RESULTS_NS=-meta node agent/seeded-run.mjs vision --split heldout --runs 3`; reasoning effort low; up to 2 attempts).
+
+| | strict fixed | oracle pass only |
+|---|---|---|
+| Seeded, held-out (9 bugs x 3 runs) | 22/27 = 81% (95% CI 63-92%) | 27/27 |
+| Real Pico bugs (4 bugs x 3 runs) | 10/12 = 83% (55-95%) | pico-474 failed 2 of 3 runs, the other three bugs were fixed in every run |
+
+Not better than Muse Spark Open on these bugs (vision: 24/27 seeded, 12/12 real) and the intervals overlap, so this is "also works", not "works better". Only the vision config was run on the Meta API (budget and time).
+
+**A caught failure worth reading** (`results/seeded-meta/vision/run3/contrast-error-text.json`): the model fixed the contrast bug correctly on attempt 1, but its own screenshot-based check could not see the error text (it sits below the fold). On attempt 2 it rearranged the page (made `main` a flex column and moved the signup form up) so the error would appear in the screenshot. The oracle still passed, but the regression check flagged 42% of pixels changed, so the strict grade is "not fixed". The agent was optimising its own verifier, not the bug. The other seeded misses on this run are the known `responsive-hero-heading` regression-metric artifact (a different valid `clamp()`), see the limitations above.
 
 ## SAM localisation spike (negative result)
 Pre-registered before running (`docs/BUILD-PLAN.md`): given a buggy screenshot and the plain name of the affected element, does SAM box the right element (IoU >= 0.5 against the DOM box)? Bar to join the agent loop: 60%. Run on an A100 (PARAM Siddhi-AI) with SAM 3 (`facebook/sam3`, transformers): **4/28 = 14%**. SAM returned no box for 23 of 28 pages (modal dialogs, tables, nav bars, inputs); its 4 hits (button, image, heading) were precise (IoU 0.87-0.99). SAM 3.1 was not tested. A labelled-exploratory, post hoc rerun with lower score cutoffs reached 12/28 (43%) at 0.1, still below the bar and generous (any extra box may hit), so 14% is the headline. Raw outputs: `results/sam/`.

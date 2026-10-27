@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-button-icon-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 3,
+ "started": "2026-10-27T17:26:20.695Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The button's flex-start alignment leaves its circular icon raised above the label text instead of vertically centered with it.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "The icon dots in the 'Get started' and 'Unavailable' buttons are now vertically centered with their label text and within the buttons, and the overall page layout shows no other breakage."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:26:35.986Z"
+}

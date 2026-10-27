@@ -1,4 +1,28 @@
 {
+ "meta": {
+  "seeded": {
+   "k": 22,
+   "n": 27,
+   "pct": 81,
+   "lo": 63,
+   "hi": 92,
+   "oracle": 27
+  },
+  "real": {
+   "k": 10,
+   "n": 12,
+   "pct": 83,
+   "lo": 55,
+   "hi": 95
+  },
+  "gaming": {
+   "frac": 0.4245,
+   "run": "run3",
+   "why": "Making main a column flex container and moving the signup section first brings the dark-red email error into the initial 1200x800 viewport instead of below the product grid and pricing."
+  },
+  "calls": 110,
+  "model": "muse-wonder-1.0"
+ },
  "seeded": {
   "vision": {
    "k": 24,
@@ -75,8 +99,9 @@
   "noBox": 23,
   "best": 12
  },
- "calls": 703,
- "completionTokens": 752764,
+ "calls": 813,
+ "basetenCalls": 703,
+ "completionTokens": 855746,
  "seededBugs": 28,
  "realBugs": 5
 }

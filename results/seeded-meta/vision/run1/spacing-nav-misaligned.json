@@ -1,0 +1,27 @@
+{
+ "bug": "spacing-nav-misaligned",
+ "cls": "spacing",
+ "config": "vision",
+ "run": 1,
+ "started": "2026-10-27T17:23:13.986Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The navigation items are top-aligned instead of vertically centered with the taller CTA button, causing the logo and links to sit too high in the header.",
+   "edits": 1,
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Logo and nav links are now vertically centered with the taller Get started CTA in the header, and the rest of the layout, cards, and controls appear intact."
+   }
+  }
+ ],
+ "grade": {
+  "oracle": true,
+  "cheat": false,
+  "regressionFrac": 0,
+  "regression": false,
+  "attempts": 1,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:23:38.401Z"
+}

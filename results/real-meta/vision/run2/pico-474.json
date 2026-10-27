@@ -1,0 +1,41 @@
+{
+ "bug": "pico-474",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T17:25:46.621Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "The 1em-sized ::before spinner's background was fixed at 1rem instead of scaling with the element's font-size, so changing background-size to 1em makes the loading ring fill its box at any font size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner still renders as a tiny dot before 'Loading' and 'Loading text' instead of a 1em (~40px) spinning ring scaling with font size"
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run2\\pico-474\\attempt1.css"
+  },
+  {
+   "n": 2,
+   "why": "The auto background height lets the SVG spinner collapse to its tiny intrinsic rendering instead of filling the 1em by 1em ::before box, so explicitly sizing both dimensions makes it scale with font-size.",
+   "selfVerify": {
+    "fixed": false,
+    "reason": "Spinner still renders as a tiny dot before both the blue 'Loading' button and the 'Loading text' line, not as a 1em spinning ring scaling with the 40px font size."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run2\\pico-474\\attempt2.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_loading.scss"
+  ],
+  "suspected": "The aria-busy loading spinner (::before) is rendered as a tiny dot instead of a 1em spinning ring that scales with the 40px font size."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0.0002,
+  "attempts": 2,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:27:08.676Z"
+}

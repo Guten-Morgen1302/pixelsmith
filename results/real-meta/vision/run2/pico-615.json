@@ -1,0 +1,33 @@
+{
+ "bug": "pico-615",
+ "config": "vision",
+ "run": 2,
+ "started": "2026-10-27T17:28:22.902Z",
+ "attempts": [
+  {
+   "n": 1,
+   "why": "Dropdown summary selectors used descendant combinators, so nested accordion summaries inherited the bordered dropdown-button styling; restricting them to the direct child summary fixes the leakage while preserving the outer dropdown button.",
+   "selfVerify": {
+    "fixed": true,
+    "reason": "Outer dropdown summary retains bordered button styling, while nested 'Solid (accordion)' summary inside the menu is plain with only a chevron and no inherited bordered dropdown-button styling."
+   },
+   "css": "C:\\Hackathons\\meta-ai-developer-hackathon\\pixelsmith\\bench\\_work\\real-meta\\vision\\run2\\pico-615\\attempt1.css"
+  }
+ ],
+ "pick": {
+  "files": [
+   "scss/components/_dropdown.scss",
+   "scss/components/_accordion.scss"
+  ],
+  "suspected": "The dropdown's summary button styling applies to descendant summaries instead of only its direct child, so the nested accordion summary inside the dropdown menu is incorrectly rendered as a bordered dropdown button."
+ },
+ "grade": {
+  "oracle": true,
+  "contentKept": true,
+  "pixelsDifferFromUpstreamFix": 0,
+  "attempts": 1,
+  "edited": true,
+  "fixed": true
+ },
+ "finished": "2026-10-27T17:28:53.164Z"
+}
