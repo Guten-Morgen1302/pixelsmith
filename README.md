@@ -1,6 +1,6 @@
 <div align="center">
 
-# Pixelsmith-Bench
+# Pixelsmith-Bench (Meta Global AI Hackathon 2026)
 
 ### Every coding agent says "fixed." We measured how often that was true.
 
